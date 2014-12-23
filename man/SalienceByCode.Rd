@@ -60,7 +60,7 @@ Alastair Jamieson-Lane
 test<- data(FruitList)
 test<- CalculateSalience(test)
 SalienceByCode(test,dealWithDoubles="MAX")
-
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }

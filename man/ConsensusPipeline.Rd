@@ -24,10 +24,10 @@ This method takes a set of survey results, along with a number representing the 
 }
 \value{
 This function returns a list with four components.
-\item{Answers} {a list of the functions estimated answers for each question.}
-\item{Competance}  {The estimated competance for each individual (the probability that they would KNOW the answer to some future question).} 
-\item{TestScore} {The supposed test score of each inidividual, assuming the answer key determined by the method}
-\item{Probs} {the probability that each answer is correct for a given question ASSUMING that the method has correctly determined each individuals competence. 
+\item{Answers}{a list of the functions estimated answers for each question.}
+\item{Competance}{The estimated competance for each individual (the probability that they would KNOW the answer to some future question).} 
+\item{TestScore}{The supposed test score of each inidividual, assuming the answer key determined by the method}
+\item{Probs}{the probability that each answer is correct for a given question ASSUMING that the method has correctly determined each individuals competence. 
 Given how Competence is calculated, (from the model) it may be reckless to take this "probability" too seriously.}
 }
 \references{
