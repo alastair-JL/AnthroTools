@@ -1,3 +1,12 @@
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param love Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#' cat_function()
+#' 
 CalculateSalience <-
 function(mydata, Order="Order",Subj="Subj",Norm=FALSE,Salience="Salience"){
   ##This is a script which, given a dataset containing a list of subjects,

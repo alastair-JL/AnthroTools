@@ -1,3 +1,12 @@
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param love Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#' cat_function() 
+
 ComreySolve <-
 function(M, precision=0.005){
   A1<- apply(M, 2, max)

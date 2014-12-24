@@ -1,3 +1,12 @@
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param love Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#' cat_function()
+#' 
 ConsensusPipeline <-
 function(SurveyResults,numQ){
   M<-MakeDiscountedAgreementMatrix(SurveyResults,numQ)  
