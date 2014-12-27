@@ -1,12 +1,23 @@
-#' A Cat Function
+#' ComreySolve
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' Given a square matrix, such that the matrix is the outer product of a single vector with itself (Except for the diagonal, which is ignored), determine the vector that was originally used.
+#' ComreySolve also has a helper function called ComreyIterate. There isn't really any reason why you would use Comrey iterate by itself.
+#' @usage ComreySolve(M, precision = 0.005)
+#' @aliases ComreySolve ComreyIterate
+#' @param M A square matrix.
+#' @param precision The level of error at which the process will stop iterating and return an answer. Error is measured as "change in output vector between two iteration steps."
+#' @keywords Consensus
 #' @export
+#' @return A single vector of numbers representing the vector that was originally used to create M.
+#' @references The Minimum Residual method of Factor Analysis.
+#' Comrey, A.L.
+#' Pychological reports, (1962) 11:15-18
+#' @author Alastair Jamieson-Lane
+#' @note NOTE TO SELF: I really need to go back and re-read Comrey's paper to make sure I have done this right!
 #' @examples
-#' cat_function() 
-
+#' x<- 1:5
+#' mat<- x \%*\% t(x)
+#' y<- ComreySolve(mat)
 ComreySolve <-
 function(M, precision=0.005){
   A1<- apply(M, 2, max)

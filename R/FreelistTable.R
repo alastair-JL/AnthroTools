@@ -1,11 +1,22 @@
-#' A Cat Function
+#' FreelistTable
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' Given a Freelist data frame (with columns for subject number, order of responses and response code), produce a table comparing each subjects responses to each code. This table can be a simple "presence/absence" table for determining if a subject mentioned a particular code, or something more complex.
+#' 
+#' @usage FreelistTable(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", tableType = "DEFAULT")
+#' @param mydata This is your freelist data, stored as a data frame. 
+#' @param CODE The name of the column in which your "CODE" (eg, the subjects' individual responses) is stored.
+#' @param Salience The name of the column in which each responses Salience is stored. If you wish to ask questions of salience, it is important you calculate salience before using this function. (using \code{\link{CalculateSalience}}).
+#' @param Subj The name of the column where your subjects names/subject numbers are stored.
+#' @param tableType What type of data do you want in this table. Currently there are four types: "PRSENCE", "SUM_SALIENCE","MAX_SALIANCE" and "FREQUENCY". An entry in the presence/absence table will be one if the specified subject mentioned the specified code. It will be zero otherwise. If you specify Frequency, then you will get a count of how often each code was mentioned by each person. If you use "SUM_SALIENCE" then you will get the total salience each person has associated with each code. If you use "MAX_SALIANCE" then you will get the maximum salience, I.E. the salience of the code the first time it was mentioned.
+#' @keywords Freelist
+#' @return The value returned is a data frame, where each row represents a subject, and each column represents one of your freelist Codes. Depending on "tabeType" the entries of the dataframe will either represent a frequency/ absence of salience table.
+#' @author Alastair Jamieson-Lane.
+#' @note Ben, what other types of tables could be useful here? 
 #' @export
 #' @examples
-#' cat_function()
+#' fakeData<- GenerateFakeFreelistData() 
+#' table<- FreelistTable(fakeData, tableType="PRESENCE")
+#' View(table)
 #' 
 FreelistTable <-
 function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", tableType="DEFAULT"){      

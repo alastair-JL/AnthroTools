@@ -1,11 +1,23 @@
-#' A Cat Function
+#' FreelistTable.*
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' This is a collection of helper functions for the function "FreelistTable", that determine the relationship between a particular subject, and a particular code. For example, FreelistTable.freq counts how often an individual has responded with the specified Code. They are not intended for individual use.
+#' @aliases FreelistTable.freq FreelistTable.MaxSal FreelistTable.Present FreelistTable.SumSal
+#' @keywords Freelist
+#' @usage FreelistTable.freq(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", subjNum, CODEnum)
+#' @param mydata Your data, as a data frame, with rows for each response gathered. For each response, you are expected to have the CODE, salience and Subj.
+#' @param CODE The Column of "mydata" that the CODE of the response can be found in.
+#' @param Salience The column of "mydata" that the calculated Salience is to be found in. Note that this will have been determined earlier using "CalculateSalience"
+#' @param Subj The column of "mydata" in which the subject number can be found.
+#' @param subjNum The subject number of interest.
+#' @param CODEnum The code you desire information about.
+#' @return A number, representing either: The presence/absence of the given code in the individuals responses (if "presence" was used). The total number of times the code was given in response (for "freq") The total Salience of a given code (summed over all responses with that code) The Maximum Salience (effectively the Salience levels when the Code was first used.)
 #' @export
+#' @author Alastair Jamiesone-Lane
+#' @note If you are using these functions directly yourself, something has probably gone wrong.
 #' @examples
-#' cat_function()
+#' test<- data(FruitList) 
+#' FreelistTable.freq(test,subjNum=7,CODEnum="apple") 
+
 
 FreelistTable.freq <-
 function(mydata,CODE="CODE",Salience="Salience", Subj="Subj",subjNum,CODEnum){

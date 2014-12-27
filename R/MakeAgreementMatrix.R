@@ -1,11 +1,16 @@
-#' A Cat Function
+#' MakeAgreementMatrix
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' Given a bunch of answers to a survey, this function makes a matrix representing what fraction of the time each person agreed with each other person.
+#' @param SurveyResults A matrix containing the answers to a bunch of survey questions. Each row represents a particular individual, each column represents a particular question.
+#' @keywords Consensus
 #' @export
+#' @return A matrix M, where each entry represents the percentage of the time that individual i agreed with individual j.
+#' @note This is probably already implemented elsewhere in R, and may be identical to a correlation matrix or something. I feel slightly silly putting it here to be honest. Oh well.
+#' @author Alastair Jamieson-Lane
 #' @examples
-#' cat_function()
+#' FakeData<- GenerateConsensusData(8,8,4)
+#' Survey <- FakeData$Survey
+#' Ma <- MakeAgreementMatrix(Survey)    
 #' 
 MakeAgreementMatrix <-
 function(SurveyResults){

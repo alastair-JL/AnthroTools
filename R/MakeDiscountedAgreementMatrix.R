@@ -1,12 +1,19 @@
-#' A Cat Function
+#' MakeDiscountedAgreementMatrix
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' Given a bunch of answers to a survey, this function makes a matrix representing what fraction of the time each person agreed with each other person, and then discounts this value, based on how often you would expect this to happen by chance. 
+#' 
+#' @usage MakeDiscountedAgreementMatrix(SurveyResults, numAns)
+#' 
+#' @param SurveyResults A matrix containing the answers to a bunch of survey questions. Each row represents a particular individual, each column represents a particular question.
+#' @param numAns This is a number, and represents the total number of answers avaliable for each question. Currently it is assumed that all questions have the same number of answers. If I get enough requests, I'll look into the programming and mathematics required to vectorise this so that different questions can have different numbers of answers.
+#' @keywords Consensus
+#' @return A matrix, where each entry represents the probability that two individuals will both know the answer to some randomly selected question.
+#' @author Alastair Jamieson-Lane
 #' @export
 #' @examples
-#' cat_function()
-#' 
+#' FakeData<- GenerateConsensusData(8,8,4)
+#' Survey <- FakeData$Survey
+#' M <- MakeDiscountedAgreementMatrix(Survey, 4)
 MakeDiscountedAgreementMatrix <-
 function(SurveyResults,numAns){
   ReturnVal= matrix(0, nrow(SurveyResults),nrow(SurveyResults))
