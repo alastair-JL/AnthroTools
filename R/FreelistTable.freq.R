@@ -1,9 +1,9 @@
-#' FreelistTable.*
+#' FreeListTable.*
 #'
-#' This is a collection of helper functions for the function "FreelistTable", that determine the relationship between a particular subject, and a particular code. For example, FreelistTable.freq counts how often an individual has responded with the specified Code. They are not intended for individual use.
-#' @aliases FreelistTable.freq FreelistTable.MaxSal FreelistTable.Present FreelistTable.SumSal
-#' @keywords Freelist
-#' @usage FreelistTable.freq(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", subjNum, CODEnum)
+#' This is a collection of helper functions for the function "FreeListTable", that determine the relationship between a particular subject, and a particular code. For example, FreeListTable.freq counts how often an individual has responded with the specified Code. They are not intended for individual use.
+#' @aliases FreeListTable.freq FreeListTable.MaxSal FreeListTable.Present FreeListTable.SumSal
+#' @keywords FreeList
+#' @usage FreeListTable.freq(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", subjNum, CODEnum)
 #' @param mydata Your data, as a data frame, with rows for each response gathered. For each response, you are expected to have the CODE, salience and Subj.
 #' @param CODE The Column of "mydata" that the CODE of the response can be found in.
 #' @param Salience The column of "mydata" that the calculated Salience is to be found in. Note that this will have been determined earlier using "CalculateSalience"
@@ -16,10 +16,10 @@
 #' @note If you are using these functions directly yourself, something has probably gone wrong.
 #' @examples
 #' test<- data(FruitList) 
-#' FreelistTable.freq(test,subjNum=7,CODEnum="apple") 
+#' FreeListTable.freq(test,subjNum=7,CODEnum="apple") 
 
 
-FreelistTable.freq <-
+FreeListTable.freq <-
 function(mydata,CODE="CODE",Salience="Salience", Subj="Subj",subjNum,CODEnum){
   if(any(mydata[,Subj]==subjNum & mydata[,CODE]==CODEnum) ){    
     ret<- nrow(mydata[which(mydata[,Subj]==subjNum & mydata[,CODE]==CODEnum),])

@@ -7,7 +7,7 @@
 CalculateSalience(mydata, Order = "Order", Subj = "Subj", Norm = FALSE, Salience = "Salience")
 }
 \arguments{
-\item{mydata}{The Freelist data. This should be a data frame, where each row contains a single response from a single respondent. For each such response, you need to know the subj number (or some form of unique identifier), the response (or "CODE" of the response **Explain more??**) and the the ranking/order of the response (What was this respondents the first response? The second? The Seventeenth?)}
+\item{mydata}{The free list data. This should be a data frame, where each row contains a single response from a single respondent. For each such response, you need to know the subj number (or some form of unique identifier), the response (or "CODE" of the response **Explain more??**) and the the ranking/order of the response (What was this respondents the first response? The second? The Seventeenth?)}
 
 \item{Order}{This is the name of the column which contains the "Order" information. For each subject responses should be ordered uniquely from 1 to N, where N is the number of responses. There should be no gaps or double ups. Defaults to "Order"}
 
@@ -21,16 +21,16 @@ CalculateSalience(mydata, Order = "Order", Subj = "Subj", Norm = FALSE, Salience
 Returned will be a dataframe identical to your original data frame, but with an additional column containing the salience value of each response.
 }
 \description{
-Given a Freelist dataset with Codes, Ordering and subject numbers, determine the "Salience" of each response.
+Given a Free list dataset with Codes, Ordering and subject numbers, determine the "Salience" of each response.
 }
 \note{
 This function produces several warning messages, most minor and self explanatory. If your inputs for Norm, Subj or Order seem wrong, the function will stop, and request better inputs. The one warning of interest is "Subject X has bad order data and can not have salience calculated". This indicates that the order data on one of your subjects contains either a missing entry, or a double up, or perhaps a decimal. Whatever the cause, this data is considered bad, and no salience is calculated.
 }
 \examples{
-fakeData<- GenerateFakeFreelistData()
+fakeData<- GenerateFakeFreeListData()
 fakeSalData<- CalculateSalience(fakeData)
 fakeNormData<- CalculateSalience(fakeData,Salience="NormSalience",Norm=T)
 fakeBothData<- CalculateSalience(fakeSalData,Salience="NormSalience",Norm=T)
 }
-\keyword{Freelist}
+\keyword{FreeList}
 

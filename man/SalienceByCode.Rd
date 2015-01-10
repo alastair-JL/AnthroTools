@@ -7,7 +7,7 @@
 SalienceByCode(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", dealWithDoubles = "DEFAULT")
 }
 \arguments{
-\item{mydata}{A table containing a list of freelist responses. Each response gets one row, containing the subject number, CODE, and calculated Salience of their response.}
+\item{mydata}{A table containing a list of free list responses. Each response gets one row, containing the subject number, CODE, and calculated Salience of their response.}
 
 \item{CODE}{The name of the column containing the "CODE" of the response. NOTE TO SELF/BEN: I suspect I need an explaination of what "CODE" is somewhere. Or is it just assumed knowledge?}
 
@@ -24,8 +24,8 @@ Upon running this function, you will recieve a data frame, where each row is one
 Generate a table containing saliance details for each code, including mean Salience, and total salience over the entire survey set. This function should be preceeded by "Calculate Salience"
 }
 \examples{
-test<- data(FruitList)
-test<- CalculateSalience(test)
+data(FruitList)
+test<- CalculateSalience(FruitList)
 SalienceByCode(test,dealWithDoubles="MAX")
 }
 \author{
@@ -34,5 +34,5 @@ Alastair Jamieson Lane
 \references{
 NOTE TO BEN: would it be good to have a reference here to give a concrete example of what we are doing?
 }
-\keyword{Freelist}
+\keyword{FreeList}
 

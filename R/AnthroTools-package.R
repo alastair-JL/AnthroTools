@@ -1,4 +1,4 @@
-#' @name AnthroTools-package
+#' @name AnthroTools
 #' @title AnthroTools- some statistical tools for Dr Ben.
 #' @docType package
 #' @description

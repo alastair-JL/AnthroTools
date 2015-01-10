@@ -9,7 +9,7 @@
 data(FruitList)
 }
 \description{
-An example dataframe to illustrate what freelist data should look like.
+An example dataframe to illustrate what free list data should look like.
 }
 \author{
 Alastair Jamieson-Lane

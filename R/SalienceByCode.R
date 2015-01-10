@@ -4,19 +4,19 @@
 #' 
 #' @usage SalienceByCode(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", dealWithDoubles = "DEFAULT")
 #' 
-#' @param mydata A table containing a list of freelist responses. Each response gets one row, containing the subject number, CODE, and calculated Salience of their response.
+#' @param mydata A table containing a list of free list responses. Each response gets one row, containing the subject number, CODE, and calculated Salience of their response.
 #' @param CODE The name of the column containing the "CODE" of the response. NOTE TO SELF/BEN: I suspect I need an explaination of what "CODE" is somewhere. Or is it just assumed knowledge?
 #' @param Salience The name of the Column containing the "Salience" of a response.
 #' @param subj The name of the column containing the subject number. 
 #' @param dealWithDoubles How you would like the function to deal with cases where a single survey respondant gave the same answer multiple times. On the default setting, the function will assume that no such cases arise, and will throw an error if it encounters such a case. Aside from DEFAULT, you also have the options MAX, SUM and IGNORE. MAX indicates that for each code, you want the computer to pay note the first time a respondant lists a particular CODE, and ignore subsequent mentions. For SUM, you are asking the computer to determine each responants TOTAL salience with respect to a given code. IGNORE tells the computer not to think about it, and is merely a way of supressing errors. IGNORE is not recommended.
-#' @keywords Freelist
+#' @keywords FreeList
 #' @return Upon running this function, you will recieve a data frame, where each row is one of you possible response codes, and each column contains a different statistic about the code.MeanSalience is the average salience of a code, averaged over the number of responses that referenced that code. Sum Salience just gives the total amount of salience of a given code, and SmithS gives this sum, divide by the total number of respondents.
 #' @references NOTE TO BEN: would it be good to have a reference here to give a concrete example of what we are doing?
 #' @export
 #' @author Alastair Jamieson Lane
 #' @examples
-#' test<- data(FruitList)
-#' test<- CalculateSalience(test)
+#' data(FruitList)
+#' test<- CalculateSalience(FruitList)
 #' SalienceByCode(test,dealWithDoubles="MAX")
 #' 
 SalienceByCode <-
