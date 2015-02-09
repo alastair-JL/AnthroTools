@@ -16,7 +16,8 @@ Version: \tab 0.6\cr
 Date: \tab 2014-23-10\cr
 License: \tab GPL 2\cr
 }
-If you wish to do salience analysis, the most important function will be "CalculateSalience", probably followed by "SalienceByCode". If you want to do consensus analysis, might I recommend "ConsensusPipeline".
+If you wish to do salience analysis, the most important function will be
+ \code{\link{CalculateSalience}}, probably followed by "SalienceByCode". If you want to do consensus analysis, might I recommend "ConsensusPipeline".
 }
 \examples{
 test<- data(FruitList)
