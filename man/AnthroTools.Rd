@@ -16,8 +16,6 @@ Version: \tab 0.6\cr
 Date: \tab 2014-23-10\cr
 License: \tab GPL 2\cr
 }
-If you wish to do salience analysis, the most important function will be
- \code{\link{CalculateSalience}}, probably followed by "SalienceByCode". If you want to do consensus analysis, might I recommend "ConsensusPipeline".
 }
 \examples{
 test<- data(FruitList)
@@ -37,6 +35,9 @@ Alastair Jamiesone Lane. <aja107@math.ubc.ca>
 Culture as consensus: a Theory of Culture and Informant Accuracy
 A. Kimball Romney, Susan C. Weller, William H. Batchelder.
 American Anthropologist, New Series, Volume 88, No 2 (Jun 1986) pp 313-338
+}
+\seealso{
+If you wish to do salience analysis, the most important function will be \code{\link{CalculateSalience}}, probably followed by \code{\link{SalienceByCode}}. If you want to do consensus analysis, might I recommend "ConsensusPipeline".
 }
 \keyword{package}
 

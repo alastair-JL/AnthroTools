@@ -1,6 +1,6 @@
 #' FreeListTable.*
 #'
-#' This is a collection of helper functions for the function "FreeListTable", that determine the relationship between a particular subject, and a particular code. For example, FreeListTable.freq counts how often an individual has responded with the specified Code. They are not intended for individual use.
+#' This is a collection of helper functions for the function \code{\link{FreeListTable}}, that determine the relationship between a particular subject, and a particular code. For example, FreeListTable.freq counts how often an individual has responded with the specified Code. They are not intended for individual use.
 #' @aliases FreeListTable.freq FreeListTable.MaxSal FreeListTable.Present FreeListTable.SumSal
 #' @keywords FreeList
 #' @usage FreeListTable.freq(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", subjNum, CODEnum)

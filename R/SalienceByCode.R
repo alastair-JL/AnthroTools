@@ -1,6 +1,6 @@
 #' SalienceByCode
 #'
-#' Generate a table containing saliance details for each code, including mean Salience, and total salience over the entire survey set. This function should be preceeded by "Calculate Salience"
+#' Generate a table containing saliance details for each code, including mean Salience, and total salience over the entire survey set. This function should be preceeded by \code{\link{Calculate Salience}}
 #' 
 #' @usage SalienceByCode(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", dealWithDoubles = "DEFAULT")
 #' 
