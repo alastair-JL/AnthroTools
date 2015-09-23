@@ -7,9 +7,9 @@
 MakeDiscountedAgreementMatrix(SurveyResults, numAns)
 }
 \arguments{
-\item{SurveyResults}{A matrix containing the answers to a bunch of survey questions. Each row represents a particular individual, each column represents a particular question.}
+\item{SurveyResults}{A matrix containing the answers to a bunch of survey questions. Each row represents a particular individual and each column represents a particular question.}
 
-\item{numAns}{This is a number, and represents the total number of answers avaliable for each question. Currently it is assumed that all questions have the same number of answers. If I get enough requests, I'll look into the programming and mathematics required to vectorise this so that different questions can have different numbers of answers.}
+\item{numAns}{This is a number, and represents the total number of answers available for each question. Currently it is assumed that all questions have the same number of answers. If I get enough requests, I'll look into the programming and mathematics required to vectorise this so that different questions can have different numbers of answers.}
 }
 \value{
 A matrix, where each entry represents the probability that two individuals will both know the answer to some randomly selected question.
@@ -23,7 +23,9 @@ Survey <- FakeData$Survey
 M <- MakeDiscountedAgreementMatrix(Survey, 4)
 }
 \author{
-Alastair Jamieson-Lane
+Alastair Jamieson Lane. <aja107@math.ubc.ca>
+
+Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>#'
 }
 \keyword{Consensus}
 

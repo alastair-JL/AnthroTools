@@ -1,18 +1,19 @@
 #' BayesConsensus
 #'
-#' Given a list of each persons answer, an estimate of each persons competance, and knowledge of the number of answers avaliable (which... is somewhat inferable, but oh well) determine the probability that any given answer is correct for a particular question.
+#' Given a list of each person's answer, an estimate of each person's competence, and knowledge of the number of answers available (which... is somewhat inferable, but oh well) determine the probability that any given answer is correct for a particular question.
 #' @usage BayesConsensus(AnswersGiven, Competancy, numAnswers, Prior = -1)
 #' @param AnswersGiven A data frame with rows representing individuals, and columns representing questions. Individual cells represent an individuals answer to a particular question.
 #' @param Competancy A list containing numbers between zero and 1 representing the probability that a given individuals KNOWS the answer to a question in advance.
-#' @param numAnswers The total number of answers avaliable in each question. It is presently assumed that all questions have the same number of answers (I will investigate changing this later)
+#' @param numAnswers The total number of answers available in each question. It is presently assumed that all questions have the same number of answers (I will investigate changing this later)
 #' @param Prior Do you have a prior distribution of probabilities over you answers? For example, in advance do you believe "A" is twice as likely as "B"? If so, please enter this as a matrix now. If not, the computer will assume a uniform distribution.
 #' @keywords Consensus
-#' @return A matrix, where columns represent questions, and rows represent possible answers. Each entry represents the probability that a particular answer is "correct" for a particular question, within the cultural consensus framework.
-#' @references For details on how this fits into consensus modelling, see appendix A of: 
-#' Culture as consensus: a Theory of Culture and Informant Accuracy
-#' A. Kimball Romney, Susan C. Weller, William H. Batchelder.
-#' American Anthropologist, New Series, Volume 88, No 2 (Jun 1986) pp 313-338
-#' @author Alastair Jamieson-Lane
+#' @return A matrix, where columns represent questions and rows represent possible answers. Each entry represents the probability that a particular answer is "correct" for a particular question, within the cultural consensus framework.
+#' @references 
+#' Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280 
+#' @references 
+#' Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
+#' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
 #' @export
 #' @examples
 #' FakeData<- GenerateConsensusData(8,8,4)

@@ -1,6 +1,6 @@
 #' ComreySolve
 #'
-#' Given a square matrix, such that the matrix is the outer product of a single vector with itself (Except for the diagonal, which is ignored), determine the vector that was originally used.
+#' Given a square matrix, such that the matrix is the outer product of a single vector with itself (except for the diagonal, which is ignored), determine the vector that was originally used.
 #' ComreySolve also has a helper function called ComreyIterate. There isn't really any reason why you would use Comrey iterate by itself.
 #' @usage ComreySolve(M, precision = 0.005)
 #' @aliases ComreySolve ComreyIterate
@@ -11,8 +11,9 @@
 #' @return A single vector of numbers representing the vector that was originally used to create M.
 #' @references The Minimum Residual method of Factor Analysis.
 #' Comrey, A.L.
-#' Pychological reports, (1962) 11:15-18
-#' @author Alastair Jamieson-Lane
+#' Psychological Reports, (1962) 11:15-18
+#' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
 #' @note NOTE TO SELF: I really need to go back and re-read Comrey's paper to make sure I have done this right!
 #' @examples
 #' x<- 1:5

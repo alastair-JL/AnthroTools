@@ -7,7 +7,7 @@
 MakeAgreementMatrix(SurveyResults)
 }
 \arguments{
-\item{SurveyResults}{A matrix containing the answers to a bunch of survey questions. Each row represents a particular individual, each column represents a particular question.}
+\item{SurveyResults}{A matrix containing the answers to a bunch of survey questions. Each row represents a particular individual and each column represents a particular question.}
 }
 \value{
 A matrix M, where each entry represents the percentage of the time that individual i agreed with individual j.
@@ -24,7 +24,9 @@ Survey <- FakeData$Survey
 Ma <- MakeAgreementMatrix(Survey)
 }
 \author{
-Alastair Jamieson-Lane
+Alastair Jamieson Lane. <aja107@math.ubc.ca>
+
+Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
 }
-\keyword{Consensus}
+\keyword{CIB}
 

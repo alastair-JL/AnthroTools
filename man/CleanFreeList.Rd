@@ -7,7 +7,7 @@
 CleanData<-CleanFreeList(mydata, Order="Order",Subj="Subj",CODE="CODE",ejectBadSubj=T,deleteDoubleCode=T,ConsolidateOrder=T,RemoveMissingData=T)
 }
 \arguments{
-\item{mydata}{The Freelist data. This should be a data frame, where each row contains a single response from a single respondent. For each such response, you need to know the subj number (or some form of unique identifier), the response (or "CODE" of the response **Explain more??**) and the the ranking/order of the response (What was this respondents the first response? The second? The Seventeenth?)}
+\item{mydata}{The free-list data. This should be a data frame, where each row contains a single response from a single respondent. For each such response, you need to know the subject number (or some form of unique identifier), the response (or "CODE" of the response and the ranking/order of the response (What was this respondents the first response? The second? The Seventeenth?). The "CODE" of the response is the target variable. We use "code" here as some free-list data gets coded into another coding scheme.}
 
 \item{Order}{This is the name of the column which contains the "Order" information. For each subject responses should be ordered uniquely from 1 to N, where N is the number of responses. There should be no gaps or double ups. Defaults to "Order"}
 

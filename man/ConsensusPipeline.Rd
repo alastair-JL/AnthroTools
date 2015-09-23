@@ -7,26 +7,26 @@
 ConsensusPipeline(SurveyResults, numQ)
 }
 \arguments{
-\item{SurveyResults}{These are your survey results, written as a data frame. Rows are expected to represent participants, columns to represent individual questions. Each cell contains a particular individuals answer to a particular question- currently coded as a number (it is assumed things are somewhat multichoice).}
+\item{SurveyResults}{These are your survey results, written as a data frame. Rows are expected to represent participants, columns to represent individual questions. Each cell contains a particular individuals answer to a particular question- currently coded as a number (it is assumed questions are multiple choice).}
 
-\item{numQ}{Currently this is a single number representing the number of possible answers to each question (hence for a true/false question, 2, for a multi choice, four perhaps).}
+\item{numQ}{Currently this is a single number representing the number of possible answers to each question (hence for a true/false question, enter "2", for a multiple-choice, "4" perhaps, depending on the number of options).}
 }
 \value{
 This function returns a list with four components.
-\item{Answers}{a list of the functions estimated answers for each question.}
-\item{Competance}{The estimated competance for each individual (the probability that they would KNOW the answer to some future question).}
-\item{TestScore}{The supposed test score of each inidividual, assuming the answer key determined by the method}
-\item{Probs}{the probability that each answer is correct for a given question ASSUMING that the method has correctly determined each individuals competence.
+\item{Answers}{A list of the functions estimated answers for each question.}
+\item{Competence}{The estimated competence for each individual (the probability that they would KNOW the answer to some future question).}
+\item{TestScore}{The supposed test score of each individual, assuming the answer key determined by the method}
+\item{Probs}{The probability that each answer is correct for a given question ASSUMING that the method has correctly determined each individuals competence.
           Given how Competence is calculated, (from the model) it may be reckless to take this "probability" too seriously.}
 }
 \description{
-The main function to use when trying to do consensus analysis on a selection of survey data. This function pretty much streamlines all the consensus analysis functions currently contained in the package into one function.
+This is the main function to use when trying to do consensus analysis on a selection of survey data. This function pretty much streamlines all the consensus analysis functions currently contained in the package into one function.
 }
 \details{
-This method takes a set of survey results, along with a number representing the number of possible answers to each questions. It calculates the correlation between different peoples answers, corrects for random chance, estimate each individuals expertise and then determines the most likely answer for each question
+This method takes a set of survey results, along with a number representing the number of possible answers to each question. It calculates the correlation between different people's answers, corrects for random chance, estimates each individual's expertise, and then determines the most likely answer for each question.
 }
 \note{
-This function (and library) could probably use some additional features. If there are particular feature's you would like to see added, please email me, and I will see about adding.
+This function (and library) could probably use some additional features. If there are particular features you would like to see added, please email Jamieson-Lane, and he will see about adding them.
 }
 \examples{
 FakeData<- GenerateConsensusData(8,8,4)
@@ -36,12 +36,14 @@ View(ConsensusResult$Answers)
 View(FakeData$Answers)
 }
 \author{
-Alastair Jamieson-Lane
+Alastair Jamieson Lane. <aja107@math.ubc.ca>
+
+Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
 }
 \references{
-Culture as consensus: a Theory of Culture and Informant Accuracy
-A. Kimball Romney, Susan C. Weller, William H. Batchelder.
-American Anthropologist, New Series, Volume 88, No 2 (Jun 1986) pp 313-338
+Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280
+
+Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
 }
 \keyword{Consensus}
 

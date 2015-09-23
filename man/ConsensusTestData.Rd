@@ -4,14 +4,16 @@
 \name{ConsensusTestData}
 \alias{ConsensusTestData}
 \title{ConsensusTestData}
-\format{a \code{matrix}.}
+\format{A \code{matrix}.}
 \usage{
 data(ConsensusTestData)
 }
 \description{
-An example matrix of survey results should look when using ConsensusPipeline.
+An example matrix of survey results should look when using \code{\link{ConsensusPipeline}}.
 }
 \author{
-Alastair Jamieson-Lane
+Alastair Jamieson Lane. <aja107@math.ubc.ca>
+
+Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
 }
 

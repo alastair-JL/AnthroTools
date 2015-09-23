@@ -1,19 +1,20 @@
 #' SalienceByCode
 #'
-#' Generate a table containing saliance details for each code, including mean Salience, and total salience over the entire survey set. This function should be preceeded by \code{\link{Calculate Salience}}
+#' Generate a table containing salience details for each code, including mean Salience, and total salience over the entire survey set. This function should be preceded by  \code{\link{Calculate Salience}}.
 #' 
 #' @usage SalienceByCode(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", dealWithDoubles = "DEFAULT")
 #' 
-#' @param mydata A table containing a list of free list responses. Each response gets one row, containing the subject number, CODE, and calculated Salience of their response.
+#' @param mydata A table containing a list of free-list responses. Each response gets one row, containing the subject number, CODE, and calculated Salience of their response.
 #' @param CODE The name of the column containing the "CODE" of the response. NOTE TO SELF/BEN: I suspect I need an explaination of what "CODE" is somewhere. Or is it just assumed knowledge?
 #' @param Salience The name of the Column containing the "Salience" of a response.
 #' @param subj The name of the column containing the subject number. 
-#' @param dealWithDoubles How you would like the function to deal with cases where a single survey respondant gave the same answer multiple times. On the default setting, the function will assume that no such cases arise, and will throw an error if it encounters such a case. Aside from DEFAULT, you also have the options MAX, SUM and IGNORE. MAX indicates that for each code, you want the computer to pay note the first time a respondant lists a particular CODE, and ignore subsequent mentions. For SUM, you are asking the computer to determine each responants TOTAL salience with respect to a given code. IGNORE tells the computer not to think about it, and is merely a way of supressing errors. IGNORE is not recommended.
+#' @param dealWithDoubles How you would like the function to deal with cases where a single survey respondent gave the same answer multiple times. On the default setting, the function will assume that no such cases arise, and will throw an error if it encounters such a case. Aside from DEFAULT, you also have the options MAX, MEAN, SUM and IGNORE. MAX indicates that for each code, you want the computer to pay note the first time a respondent lists a particular CODE, and ignore subsequent mentions. For SUM, you are asking the computer to determine each respondents TOTAL salience with respect to a given code. IGNORE tells the computer not to think about it, and is merely a way of supressing errors. IGNORE is not recommended.
 #' @keywords FreeList
-#' @return Upon running this function, you will recieve a data frame, where each row is one of you possible response codes, and each column contains a different statistic about the code.MeanSalience is the average salience of a code, averaged over the number of responses that referenced that code. Sum Salience just gives the total amount of salience of a given code, and SmithS gives this sum, divide by the total number of respondents.
-#' @references NOTE TO BEN: would it be good to have a reference here to give a concrete example of what we are doing?
+#' @return Upon running this function, you will receive a data frame, where each row is one of you possible response codes, and each column contains a different statistic about the code. MeanSalience is the average salience of a code, averaged over the number of responses that referenced that code. Sum Salience just gives the total amount of salience of a given code, and SmithS gives this sum, divided by the total number of respondents.
+#' @references Quinlan, M. (2005). Considerations for collecting freelists in the field: Examples from ethobotany. Field Methods, 17(3), 219-234. http://doi.org/10.1177/1525822X05277460 
 #' @export
-#' @author Alastair Jamieson Lane
+#' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
 #' @examples
 #' data(FruitList)
 #' test<- CalculateSalience(FruitList)
@@ -50,11 +51,13 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
       stop('Some subjects have multiple entries with same code. Set "dealWithDoubles" to "SUM", "MAX" or "IGNORE" to deal with this.')      
     }
     
-      if(dealWithDoubles=="MAX" || dealWithDoubles=="SUM" ){
+      if(dealWithDoubles=="MAX" || dealWithDoubles=="SUM"||dealWithDoubles=="MEAN" ){
         if(dealWithDoubles=="MAX"){
           doThing<-max
-        }else{
+        }else if(dealWithDoubles=="SUM"){
           doThing<-sum
+        }else{
+          doThing<-mean          
         }        
         for( jjj in unique(mydata[,Subj])){    
           witch<-which(mydata[,CODE]==iii & mydata[,Subj]==jjj ) #           
@@ -63,7 +66,7 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
             mydata[witch[-1],Salience]<-NA
             if(!is.na(mydata[witch[1],Salience])){
               if(mydata[witch[1],Salience]> 1.0000001){
-                warning('Use of "SUM" has resulted in subjects wih salience greater than one. Consider using normalised Salience.')
+                warning('Use of "SUM" has resulted in subjects wih salience greater than one. Consider returning to "Calculate Salience" and using normalised Salience instead.')
               }
             }
           }

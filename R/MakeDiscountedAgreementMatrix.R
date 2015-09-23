@@ -4,12 +4,12 @@
 #' 
 #' @usage MakeDiscountedAgreementMatrix(SurveyResults, numAns)
 #' 
-#' @param SurveyResults A matrix containing the answers to a bunch of survey questions. Each row represents a particular individual, each column represents a particular question.
-#' @param numAns This is a number, and represents the total number of answers avaliable for each question. Currently it is assumed that all questions have the same number of answers. If I get enough requests, I'll look into the programming and mathematics required to vectorise this so that different questions can have different numbers of answers.
+#' @param SurveyResults A matrix containing the answers to a bunch of survey questions. Each row represents a particular individual and each column represents a particular question.
+#' @param numAns This is a number, and represents the total number of answers available for each question. Currently it is assumed that all questions have the same number of answers. If I get enough requests, I'll look into the programming and mathematics required to vectorise this so that different questions can have different numbers of answers.
 #' @keywords Consensus
 #' @return A matrix, where each entry represents the probability that two individuals will both know the answer to some randomly selected question.
-#' @author Alastair Jamieson-Lane
-#' @export
+#' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>#' @export
 #' @examples
 #' FakeData<- GenerateConsensusData(8,8,4)
 #' Survey <- FakeData$Survey

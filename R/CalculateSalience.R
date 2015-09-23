@@ -1,15 +1,18 @@
 #' CalculateSalience
 #'
-#' Given a Free list dataset with Codes, Ordering and subject numbers, determine the "Salience" of each response. 
-#' @usage CalculateSalience(mydata, Order = "Order", Subj = "Subj", Norm = FALSE, Salience = "Salience")
-#' @param mydata The free list data. This should be a data frame, where each row contains a single response from a single respondent. For each such response, you need to know the subj number (or some form of unique identifier), the response (or "CODE" of the response **Explain more??**) and the the ranking/order of the response (What was this respondents the first response? The second? The Seventeenth?) 
-#' @param Order This is the name of the column which contains the "Order" information. For each subject responses should be ordered uniquely from 1 to N, where N is the number of responses. There should be no gaps or double ups. Defaults to "Order"
-#' @param Subj This is the name of the column containing your subject names/numbers. Each subject should have a unique identifier in this column (Is this confusing, given that each subject may take several rows?). Defaults to "Subj".
-#' @param Norm How are you going to normalise salience? If set to false, then the Salience scores will be calculated in such a way that each response gets a score \eqn{ (N+1-k)/(N)}- thus the top score will have salience one. If Norm is true then the above calculation will be done, and then all scores will be normalised such that each respondants total salience is one (Thus preventing respondents with unusually long answer lists from dominating the analysis). This operation will keep the relative size of salience scores the same within each subject.
+#' Given a Free list dataset with Codes, Ordering and subject numbers, determine the "salience" of each response by item and/or by category. 
+#' @usage CalculateSalience(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Norm=FALSE,Salience="Salience")
+#' @param mydata The free-list data. This should be a data frame, where each row contains a single response from a single respondent. For each such response, you need to know the subject number (or some form of unique identifier), the response (or "CODE" of the response) and the ranking/order of the response (What was this respondents the first response? The second? The Seventeenth?). The "CODE" of the response is the target variable. We use "code" here as some free-list data gets coded into another coding scheme.
+#' @param Order This is the name of the column which contains the "Order" information. For each subject responses should be ordered uniquely from 1 to N, where N is the number of responses. There should be no gaps or double-ups. Defaults to "Order"
+#' @param Subj This is the name of the column containing your subject names/numbers. Each subject should have a unique identifier in this column. Since each participant is likely to list multiple items, subject numbers will repeat. Defaults to "Subj". Subject numbers need to be unique within each grouping, but may be repeated if you have data from multiple groupings (multiple test sites for example).
+#' @param CODE What column is your CODE stored in. <NA> values in this column will be excluded from the analysis.
+#' @param GROUPING Do your subjects come from multiple test sites or subject groups? If so, you may wish to specify the column that specifies this - especially important if subject identification number is only unique within each group. Defaults to <NA>.
+#' @param Norm How are you going to normalise salience? If set to false, then the Salience scores will be calculated in such a way that each response gets a score?(N+1-k)/(N). Thus, the top score will have salience one of 1.00. If Norm is true then the above calculation will be done, and then all scores will be normalised such that each respondent's total salience is 1.00 (Thus preventing respondents with unusually long answer lists from dominating the analysis). This operation will keep the relative size of salience scores the same within each subject.
 #' @param Salience This is the name of the column that you wish to have the salience scores stored in. Using the default setting is strongly recommended as it will make other functions in this package easier to use.
 #' @return Returned will be a dataframe identical to your original data frame, but with an additional column containing the salience value of each response.
 #' @keywords FreeList
-#' @note This function produces several warning messages, most minor and self explanatory. If your inputs for Norm, Subj or Order seem wrong, the function will stop, and request better inputs. The one warning of interest is "Subject X has bad order data and can not have salience calculated". This indicates that the order data on one of your subjects contains either a missing entry, or a double up, or perhaps a decimal. Whatever the cause, this data is considered bad, and no salience is calculated.
+#' @note This function produces several warning messages, most minor and self-explanatory. If your inputs for Norm, Subj or Order seem wrong, the function will stop, and request better inputs. The one warning of interest is "Subject X has bad order data and cannot have salience calculated". This indicates that the order data on one of your subjects contains either a missing entry, or a double up, or perhaps a decimal. Whatever the cause, this data is considered bad, and no salience is calculated. The 
+
 #' @export
 #' @examples
 #' fakeData<- GenerateFakeFreeListData()
@@ -18,7 +21,7 @@
 #' fakeBothData<- CalculateSalience(fakeSalData,Salience="NormSalience",Norm=T)
 #' 
 CalculateSalience <-
-function(mydata, Order="Order",Subj="Subj",Norm=FALSE,Salience="Salience"){
+function(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Norm=FALSE,Salience="Salience"){
   ##This is a script which, given a dataset containing a list of subjects,
   ##and an ordering of responses will compute the "salience" of each response.
   ##Salience is effectively "What fraction of the way up the list are we?" 
@@ -27,9 +30,16 @@ function(mydata, Order="Order",Subj="Subj",Norm=FALSE,Salience="Salience"){
  ##  If the "Normalise" value is true, saliences will be normalised such that each individual has
   ## a total salience of 1. Otherwise, the set will be normalised so they have a maximum salience of 1.
   
+  
+  if(!(class(mydata)=="data.frame" )){    
+    stop('"mydata" is not a data frame. That will make things not work.')
+  }
+  
   mydata[,Salience]<- 0
 
   badSubjects=list()
+  
+  
   
   if(!(Order %in% colnames(mydata))){    
      stop('Specified "Order" column not valid.')
@@ -39,25 +49,63 @@ function(mydata, Order="Order",Subj="Subj",Norm=FALSE,Salience="Salience"){
     stop('Specified "Subj" column not valid.')
   }
   
+  
+  if(!(CODE %in% colnames(mydata))){    
+    stop('Specified "CODE" column not valid.')
+  }
+  
   if(!(Norm %in% list(T,F))){    
     stop('Specified "Norm" not a logical.')
   }
   
   
-  for( iii in unique(mydata[,Subj])){    
-    ## for now I will assume that data is good and clean (no missing elements) and ordered. 
-    ## Will probably want to come back and deal with borked cases as needed later. 
-    OrderList<-mydata[which(mydata[,Subj]==iii), Order]
-    if(!all(sort(OrderList)==seq(length(OrderList))) ){
-      warning(paste('Subject',iii,'has bad order data and can not have salience calculated') )       
-      mydata[which(mydata[,Subj]==iii), Salience]<-NA
-    }else{        
-      mydata[which(mydata[,Subj]==iii), Salience]<- (max(mydata[which(mydata[,Subj]==iii), Order]) - mydata[which(mydata[,Subj]==iii), Order]+1)/max(mydata[which(mydata[,Subj]==iii), Order])        
-      if(Norm){
-        mydata[which(mydata[,Subj]==iii), Salience]<-mydata[which(mydata[,Subj]==iii), Salience]/sum(mydata[which(mydata[,Subj]==iii), Salience])
-      }
-    }
+  if(!(GROUPING %in% colnames(mydata)) && !is.na(GROUPING)){    
+    warning("Grouping column not found. Continuing without grouping.")
+    GROUPING=NA
   }
+  
+  if (is.na(GROUPING)){
+    for( iii in unique(mydata[,Subj])){    
+      ## for now I will assume that data is good and clean (no missing elements) and ordered. 
+      ## Will probably want to come back and deal with borked cases as needed later. 
+      OrderList<-mydata[which(mydata[,Subj]==iii), Order]
+      if(!all(sort(OrderList)==seq(length(OrderList))) ){
+        warning(paste('Subject',iii,'has bad order data and can not have salience calculated') )       
+        mydata[which(mydata[,Subj]==iii), Salience]<-NA
+      }else if( length(which( (mydata[,Subj]==iii) & !is.na(mydata[,CODE])))==0 ){
+               warning(paste('Subject',iii,'did not list anything. They will get no salience scores.') )       
+               mydata[which(mydata[,Subj]==iii), Salience]<-NA             
+      }else{        
+        mydata[which( (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Salience]<- (max(mydata[which( (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Order]) - mydata[which( (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Order]+1)/max(mydata[which( (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Order])        
+        if(Norm){
+          mydata[which( (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Salience]<-mydata[which( (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Salience]/sum(mydata[which( (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Salience])
+        }
+      }
+    }##End for loop
     
+    ##End "No grouping" version.
+  }else{ 
+  
+  for(ggg in unique(mydata[,GROUPING] ) ){  
+    for( iii in unique(mydata[which(mydata[,GROUPING]==ggg),Subj])){    
+      ## for now I will assume that data is good and clean (no missing elements) and ordered. 
+      ## Will probably want to come back and deal with borked cases as needed later. 
+      OrderList<-mydata[which(mydata[,GROUPING]==ggg & mydata[,Subj]==iii), Order]
+      if(!all(sort(OrderList)==seq(length(OrderList))) ){
+        warning(paste('Subject',iii,'has bad order data and can not have salience calculated. Perhaps "CleanFreeList" can help you.') )       
+        mydata[which(mydata[,GROUPING]==ggg & mydata[,Subj]==iii), Salience]<-NA
+      }else if( length(which(mydata[,GROUPING]==ggg & (mydata[,Subj]==iii) & !is.na(mydata[,CODE])))==0 ){
+        warning(paste('Subject',iii,'did not list anything. They will get no salience scores.') )       
+        mydata[which(mydata[,GROUPING]==ggg & mydata[,Subj]==iii), Salience]<-NA             
+      }else{        
+        mydata[which(mydata[,GROUPING]==ggg & mydata[,Subj]==iii & !is.na(mydata[,CODE])), Salience]<- (max(mydata[which(mydata[,GROUPING]==ggg &  (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Order]) - mydata[which(mydata[,GROUPING]==ggg &  (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Order]+1)/max(mydata[which(mydata[,GROUPING]==ggg &  (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Order])        
+        if(Norm){
+          mydata[which(mydata[,GROUPING]==ggg &  (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Salience]<-mydata[which(mydata[,GROUPING]==ggg &  (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Salience]/sum(mydata[which(mydata[,GROUPING]==ggg &  (mydata[,Subj]==iii) & !is.na(mydata[,CODE])), Salience])
+        }
+      }
+    }##End subj for loop
+  }##End GROUP for loop.
+    
+  }  
   return(mydata)
 }

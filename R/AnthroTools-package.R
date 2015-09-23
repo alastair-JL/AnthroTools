@@ -1,8 +1,8 @@
 #' @name AnthroTools
-#' @title AnthroTools- some statistical tools for Dr Ben.
+#' @title AnthroTools
 #' @docType package
 #' @description
-#' A couple statistacal tools for Dr Ben, and anyone else who wants to use them. In particular, some tools for Salience analysis, and some functions for Consensus analysis. Still in early development.
+#' A couple statistical tools for cultural and cognitive anthropological research. In particular, some tools for Salience Analysis, and some functions for Consensus Analysis.
 #' 
 #' @details
 #' \tabular{ll}{
@@ -12,11 +12,12 @@
 #' Date: \tab 2014-23-10\cr
 #' License: \tab GPL 2\cr
 #' }
-#' @note If you wish to do salience analysis, the most important function will be \code{\link{CalculateSalience}}, probably followed by \code{\link{SalienceByCode}}. If you want to do consensus analysis, might I recommend \code{\link{ConsensusPipeline}}.
+#' @note If you wish to do salience analysis, the most important function will be \code{\link{CalculateSalience}}, probably followed by \code{\link{SalienceByCode}}. If you want to do consensus analysis, we recommend \code{\link{ConsensusPipeline}}. For examples of the data structures the functions would like as input please looke at \code{\link{FruitList}} and \code{\link{ConsensusTestData}}.
 #' 
 #' @keywords package
 #' @examples
-#' test<- data(FruitList)
+#' data(FruitList)
+#' test<- FruitList
 #' test<- CalculateSalience(test)
 #' SalienceByCode(test,dealWithDoubles="MAX")
 #' 
@@ -26,9 +27,14 @@
 #' View(ConsensusResult$Answers)
 #' View(FakeData$Answers)
 #' @references 
-#' Culture as consensus: a Theory of Culture and Informant Accuracy
-#' A. Kimball Romney, Susan C. Weller, William H. Batchelder.
-#' American Anthropologist, New Series, Volume 88, No 2 (Jun 1986) pp 313-338
+#' Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280 
+#' @references 
+#' Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
+#' @references 
+#' Smith, J. J., & Borgatti, S. P. (1997). Salience Counts-And So Does Accuracy: Correcting and Updating a Measure for Free-List-Item Salience. Journal of Linguistic Anthropology, 7(2), 208-209. http://doi.org/10.1525/jlin.1997.7.2.208
+#' @references 
+#' Smith, J. J., Furbee, L., Maynard, K., Quick, S., & Ross, L. (1995). Salience Counts: A Domain Analysis of English Color Terms. Journal of Linguistic Anthropology, 5(2), 203-216. http://doi.org/10.1525/jlin.1995.5.2.203.
 #' 
-#' @author Alastair Jamiesone Lane. <aja107@@math.ubc.ca>
+#' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
 NULL

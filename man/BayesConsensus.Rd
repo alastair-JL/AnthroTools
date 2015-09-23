@@ -11,15 +11,15 @@ BayesConsensus(AnswersGiven, Competancy, numAnswers, Prior = -1)
 
 \item{Competancy}{A list containing numbers between zero and 1 representing the probability that a given individuals KNOWS the answer to a question in advance.}
 
-\item{numAnswers}{The total number of answers avaliable in each question. It is presently assumed that all questions have the same number of answers (I will investigate changing this later)}
+\item{numAnswers}{The total number of answers available in each question. It is presently assumed that all questions have the same number of answers (I will investigate changing this later)}
 
 \item{Prior}{Do you have a prior distribution of probabilities over you answers? For example, in advance do you believe "A" is twice as likely as "B"? If so, please enter this as a matrix now. If not, the computer will assume a uniform distribution.}
 }
 \value{
-A matrix, where columns represent questions, and rows represent possible answers. Each entry represents the probability that a particular answer is "correct" for a particular question, within the cultural consensus framework.
+A matrix, where columns represent questions and rows represent possible answers. Each entry represents the probability that a particular answer is "correct" for a particular question, within the cultural consensus framework.
 }
 \description{
-Given a list of each persons answer, an estimate of each persons competance, and knowledge of the number of answers avaliable (which... is somewhat inferable, but oh well) determine the probability that any given answer is correct for a particular question.
+Given a list of each person's answer, an estimate of each person's competence, and knowledge of the number of answers available (which... is somewhat inferable, but oh well) determine the probability that any given answer is correct for a particular question.
 }
 \examples{
 FakeData<- GenerateConsensusData(8,8,4)
@@ -29,13 +29,14 @@ Competance <- ComreySolve(M)
 Probs <- BayesConsensus(Survey, Competance, 4)
 }
 \author{
-Alastair Jamieson-Lane
+Alastair Jamieson Lane. <aja107@math.ubc.ca>
+
+Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
 }
 \references{
-For details on how this fits into consensus modelling, see appendix A of:
-Culture as consensus: a Theory of Culture and Informant Accuracy
-A. Kimball Romney, Susan C. Weller, William H. Batchelder.
-American Anthropologist, New Series, Volume 88, No 2 (Jun 1986) pp 313-338
+Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280
+
+Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
 }
 \keyword{Consensus}
 

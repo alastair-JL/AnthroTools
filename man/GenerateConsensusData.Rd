@@ -15,18 +15,17 @@ GenerateConsensusData(numPeople, numQuestions, numAns)
 }
 \value{
 This function will return a list containing three items.
-\item{Survey}{This is a matrix, containing each survey reciepiants answers to every quetion. This set of survey results gives good input for Consensus pipeline [MAKE LINK?].}
+\item{Survey}{This is a matrix, containing each survey recipients answers to every quetion. This set of survey results gives good input for \code{\link{ConsensusPipeline}}.}
 \item{Answers}{This gives a single row data frame containing the "Correct" answers to each survey question.}
-\item{Competance}{This gives a list of the alledged skill level of each survey participant in your simulated survey. Please not that for small numbers of questions, you can expect a significant difference between this "true" competance measure and an individuals number of correct answers.}
+\item{Competence}{This gives a list of the alleged skill level of each survey participant in your simulated survey. Please not that for small numbers of questions, you can expect a significant difference between this "true" competence measure and an individuals number of correct answers.}
 }
 \description{
-This function simulates a simple survey, and is useful for testing the "bayesian consensus" part of the AnthroTools package. It returns three objects- the most important being a hypothetical survey.
+This function simulates a simple survey, and is useful for testing the "Bayesian consensus" part of the AnthroTools package. It returns three objects- the most important being a hypothetical survey.
 }
 \details{
-The survey assumes that each question has N possible answers and one correct answer. Each Surveyee has a well defined competance (picked at random) which does not vary from question to question. Competance determines the probability that they KNOW the answer.
-Each question will also have a randomly assigned "correct" answer.
-For each question, if the survey recipient know the the correct answer (with probability equal to their competance) they will pick that answer. Otherwise they will pick at random.
-This procedure is done for every "survey recipient" and every question, until a full batch of survey data is produced.
+The survey assumes that each question has N possible answers
+and one correct answer. Each survey has a well-defined competence (picked
+at random) which does not vary from question to question. Competence determines the probability that they KNOW the answer. Each question will also have a randomly assigned "correct" answer. For each question, if the survey recipient knows the correct answer (with probability equal to their competence) they will pick that answer. Otherwise they will pick at random. This procedure is done for every "survey recipient" and every question, until a full batch of survey data is produced.
 
 The purpose of this function is to allow false data to be easily created such that a given set of real data can be compared statistically to what would be expected assuming all the assumptions of the model (see paper in references) are true.
 }
@@ -36,12 +35,14 @@ FakeSurvey<-FakeData$Survey
 Results<- ConsensusPipeline(FakeSurvey,3)
 }
 \author{
-Alastair Jamieson-Lane
+Alastair Jamieson Lane. <aja107@math.ubc.ca>
+
+Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
 }
 \references{
-Culture as Consensus: A theory of Culture and Informant Accuracy
-A.Kimball Romnet, Susan C. Weller, William H. Batchelder
-American Anthropologist, New Series, Vol 88, N0. 2 (Jun 1986) pp.313-338
+Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280
+
+Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
 }
 \keyword{Consensus}
 
