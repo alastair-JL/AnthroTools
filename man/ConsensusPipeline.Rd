@@ -32,8 +32,8 @@ This function (and library) could probably use some additional features. If ther
 FakeData<- GenerateConsensusData(8,8,4)
 Survey <- FakeData$Survey
 ConsensusResult <- ConsensusPipeline(Survey,4)
-View(ConsensusResult$Answers)
-View(FakeData$Answers)
+ConsensusResult$Answers
+FakeData$Answers
 }
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>

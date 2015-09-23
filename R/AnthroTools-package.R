@@ -12,7 +12,7 @@
 #' Date: \tab 2014-23-10\cr
 #' License: \tab GPL 2\cr
 #' }
-#' @note If you wish to do salience analysis, the most important function will be \code{\link{CalculateSalience}}, probably followed by \code{\link{SalienceByCode}}. If you want to do consensus analysis, we recommend \code{\link{ConsensusPipeline}}. For examples of the data structures the functions would like as input please looke at \code{\link{FruitList}} and \code{\link{ConsensusTestData}}.
+#' @note If you wish to do salience analysis, the most important function will be \code{\link{CalculateSalience}}, probably followed by \code{\link{SalienceByCode}}. If you want to do consensus analysis, we recommend \code{\link{ConsensusPipeline}}. For examples of the data structures the functions would like as input please looke at \code{\link{FruitList}} and \code{\link{ConsensusTestData}}. \code{\link{FreelistTable}} is also a useful function.
 #' 
 #' @keywords package
 #' @examples

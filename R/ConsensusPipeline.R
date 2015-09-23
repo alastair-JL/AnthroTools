@@ -18,8 +18,8 @@
 #' FakeData<- GenerateConsensusData(8,8,4)
 #' Survey <- FakeData$Survey
 #' ConsensusResult <- ConsensusPipeline(Survey,4)
-#' View(ConsensusResult$Answers)
-#' View(FakeData$Answers)
+#' ConsensusResult$Answers
+#' FakeData$Answers
 #' 
 #' @references 
 #' Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280 

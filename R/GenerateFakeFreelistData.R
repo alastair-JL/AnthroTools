@@ -23,7 +23,7 @@
 
 GenerateFakeFreeListData <-
 function(){
-  listOfThings<- c("apple","banana", "apple","orange","peach","lemon","apple","plum","strawberry","bannana","orange","pear")
+  listOfThings<- c("apple","banana", "apple","orange","peach","lemon","apple","plum","strawberry","pear")
   is=NULL
   js=NULL
   cs=NULL

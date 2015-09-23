@@ -18,7 +18,7 @@ License: \tab GPL 2\cr
 }
 }
 \note{
-If you wish to do salience analysis, the most important function will be \code{\link{CalculateSalience}}, probably followed by \code{\link{SalienceByCode}}. If you want to do consensus analysis, we recommend \code{\link{ConsensusPipeline}}. For examples of the data structures the functions would like as input please looke at \code{\link{FruitList}} and \code{\link{ConsensusTestData}}.
+If you wish to do salience analysis, the most important function will be \code{\link{CalculateSalience}}, probably followed by \code{\link{SalienceByCode}}. If you want to do consensus analysis, we recommend \code{\link{ConsensusPipeline}}. For examples of the data structures the functions would like as input please looke at \code{\link{FruitList}} and \code{\link{ConsensusTestData}}. \code{\link{FreelistTable}} is also a useful function.
 }
 \examples{
 data(FruitList)
