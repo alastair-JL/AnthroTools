@@ -9,10 +9,9 @@
 #' @param Subj The name of the column where your subjects names/subject numbers are stored.
 #' @param tableType What type of data do you want in this table? Currently there are four types: "PRESENCE", "SUM_SALIENCE","MAX_SALIENCE" and "FREQUENCY". Using "PRESENCE" an entry will be one if the specified subject mentioned the specified code. It will be zero otherwise. If you specify Frequency, then you will get a count of how often each code was mentioned by each person. If you use "SUM_SALIENCE" then you will get the total salience each person has associated with each code. If you use "MAX_SALIENCE" then you will get the maximum salience, I.E. the salience of the code the first time it was mentioned.
 #' @keywords FreeList
-#' @return The value returned is a data frame, where each row represents a subject, and each column represents one of your free-list Codes. Depending on "tabeType" the entries of the dataframe will either represent different things.
+#' @return The value returned is a data frame, where each row represents a subject, and each column represents one of your free-list Codes. Depending on "tableType" the entries of the dataframe will either represent different things.
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
 #' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
-#' @note Ben, what other types of tables could be useful here? 
 #' @export
 #' @examples
 #' fakeData<- GenerateFakeFreeListData() 
@@ -29,9 +28,19 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", tableType="DEFAULT
          },
          "MAX_SALIENCE"={
            doThing<-FreeListTable.MaxSal
+           if(!(Salience %in% colnames(mydata)))
+           {
+             warning("Given Salience column not found. Salience Calculated using function defaults")
+             mydata<-CalculateSalience(mydata,Salience=Salience,Subj=Subj, CODE=CODE)
+           }
          },
          "SUM_SALIENCE"={
            doThing<-FreeListTable.SumSal
+           if(!(Salience %in% colnames(mydata)))
+           {
+             warning("Given Salience column not found. Salience Calculated using function defaults")
+             mydata<-CalculateSalience(mydata,Salience=Salience,Subj=Subj, CODE=CODE)
+           }
          },         
          "FREQUENCY"={
            doThing<-FreeListTable.freq

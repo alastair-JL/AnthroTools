@@ -38,7 +38,7 @@ function(M, precision=0.005){
   FinalError<-FinalError * (matrix(1,nrow(M),ncol(M))- diag(1,ncol(M)) )
   FinalError<- abs(FinalError)
   if(mean(FinalError) >0.1){
-   warning(paste('Unclear if M matrix is truly outer product of a vector with itself. Mean error',mean(FinalError)) )     
+   warning(paste('Unclear if M matrix is truly outer product of a vector with itself. Mean error',mean(FinalError), ". If you are using this function for Consensus Analysis, then this may indicate that one of the mathematical assumptions of Consensus analysis is violated (for example, you potentially have two or more seperate domains of knowledge being tested).") )     
    ##NOTE to self. Note really sure how useful this error message is.
   }    
   
