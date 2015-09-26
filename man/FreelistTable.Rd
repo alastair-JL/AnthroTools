@@ -15,7 +15,7 @@ FreeListTable(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", table
 
 \item{Subj}{The name of the column where your subjects names/subject numbers are stored.}
 
-\item{tableType}{What type of data do you want in this table? Currently there are four types: "PRESENCE", "SUM_SALIENCE","MAX_SALIENCE" and "FREQUENCY". Using "PRESENCE" an entry will be one if the specified subject mentioned the specified code. It will be zero otherwise. If you specify Frequency, then you will get a count of how often each code was mentioned by each person. If you use "SUM_SALIENCE" then you will get the total salience each person has associated with each code. If you use "MAX_SALIENCE" then you will get the maximum salience, I.E. the salience of the code the first time it was mentioned.}
+\item{tableType}{Currently there are four types of tables: “PRESENCE”, “SUM_SALIENCE”,”MAX_SALIENCE” and “FREQUENCY”. “PRESENCE” will give a "1" if a participant mentioned the specified code, or “0” otherwise. If you specify “FREQUENCY”, then you will get a count of how often each code was mentioned by each person. If you use “SUM_SALIENCE” then you will get the total salience each person has associated with each code. If you use “MAX_SALIENCE” then you will get the maximum salience, i.e., the salience of the code the first time it was mentioned.}
 }
 \value{
 The value returned is a data frame, where each row represents a subject, and each column represents one of your free-list Codes. Depending on "tableType" the entries of the dataframe will either represent different things.

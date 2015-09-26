@@ -7,7 +7,7 @@
 #' @param numQ Currently this is a single number representing the number of possible answers to each question (hence for a true/false question, enter "2", for a multiple-choice, "4" perhaps, depending on the number of options).
 #' @return 
 #' This function returns a list with four components.
-#' \item{Answers}{A list of the functions estimated answers for each question.}
+#' \item{Answers}{A list of the function's estimated answers for each question.}
 #' \item{Competence}{The estimated competence for each individual (the probability that they would KNOW the answer to some future question).} 
 #' \item{TestScore}{The supposed test score of each individual, assuming the answer key determined by the method}
 #' \item{Probs}{The probability that each answer is correct for a given question ASSUMING that the method has correctly determined each individuals competence. 

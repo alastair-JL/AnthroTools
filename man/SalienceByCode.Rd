@@ -13,7 +13,7 @@ SalienceByCode(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", deal
 
 \item{Salience}{The name of the Column containing the "Salience" of a response.}
 
-\item{dealWithDoubles}{How you would like the function to deal with cases where a single survey respondent gave the same answer multiple times. On the default setting, the function will assume that no such cases arise, and will throw an error if it encounters such a case. Aside from DEFAULT, you also have the options MAX, MEAN, SUM and IGNORE. MAX indicates that for each code, you want the computer to pay note the first time a respondent lists a particular CODE, and ignore subsequent mentions. For SUM, you are asking the computer to determine each respondents TOTAL salience with respect to a given code. IGNORE tells the computer not to think about it, and is merely a way of suppressing errors. IGNORE is not recommended.}
+\item{dealWithDoubles}{How you would like the function to deal with cases where a single survey respondent gave the same answer multiple times. On the default setting, the function will assume that no such cases arise, and will throw an error if it encounters such a case. Aside from DEFAULT, you also have the options MAX, SUM and IGNORE. MAX indicates that for each code, you want the computer to note the first time a respondent lists a particular CODE, and ignore subsequent mentions. For SUM, you are asking the computer to determine each respondent's TOTAL salience with respect to a given code. IGNORE tells the computer not to think about it, and is merely a way of suppressing errors. IGNORE is not recommended.}
 
 \item{subj}{The name of the column containing the subject number.}
 }
