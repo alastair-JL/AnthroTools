@@ -35,6 +35,13 @@ fakeData<- GenerateFakeFreeListData()
 fakeSalData<- CalculateSalience(fakeData)
 fakeNormData<- CalculateSalience(fakeData,Salience="NormSalience",Norm=T)
 fakeBothData<- CalculateSalience(fakeSalData,Salience="NormSalience",Norm=T)
+
+fakeData1<- GenerateFakeFreeListData()
+fakeData1[,"Group"]="Mainland"
+fakeData2<- GenerateFakeFreeListData()
+fakeData2[,"Group"]="Island"
+fakeDataCombo=rbind(fakeData1,fakeData2)
+CalculateSalience(fakeDataCombo,GROUPING="Group")
 }
 \keyword{FreeList}
 

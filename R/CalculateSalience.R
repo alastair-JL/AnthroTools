@@ -20,6 +20,13 @@
 #' fakeNormData<- CalculateSalience(fakeData,Salience="NormSalience",Norm=T)
 #' fakeBothData<- CalculateSalience(fakeSalData,Salience="NormSalience",Norm=T)
 #' 
+#' fakeData1<- GenerateFakeFreeListData()
+#' fakeData1[,"Group"]="Mainland"
+#' fakeData2<- GenerateFakeFreeListData()
+#' fakeData2[,"Group"]="Island"
+#' fakeDataCombo=rbind(fakeData1,fakeData2)
+#' CalculateSalience(fakeDataCombo,GROUPING="Group")
+#' 
 CalculateSalience <-
 function(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Norm=FALSE,Salience="Salience"){
   ##This is a script which, given a dataset containing a list of subjects,
