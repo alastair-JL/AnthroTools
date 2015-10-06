@@ -16,6 +16,8 @@ FreeListTable(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", table
 \item{Subj}{The name of the column where your subjects names/subject numbers are stored.}
 
 \item{tableType}{Currently there are four types of tables: “PRESENCE”, “SUM_SALIENCE”,”MAX_SALIENCE” and “FREQUENCY”. “PRESENCE” will give a "1" if a participant mentioned the specified code, or “0” otherwise. If you specify “FREQUENCY”, then you will get a count of how often each code was mentioned by each person. If you use “SUM_SALIENCE” then you will get the total salience each person has associated with each code. If you use “MAX_SALIENCE” then you will get the maximum salience, i.e., the salience of the code the first time it was mentioned.}
+
+\item{GROUPING}{The name of the column where your subjects group names are sorted. Helps distinguish between individuals from different groups with the same ID number.}
 }
 \value{
 The value returned is a data frame, where each row represents a subject, and each column represents one of your free-list Codes. Depending on "tableType" the entries of the dataframe will either represent different things.
@@ -28,6 +30,11 @@ fakeData<- GenerateFakeFreeListData()
 table<- FreeListTable(fakeData, tableType="PRESENCE")
 View(table)
 colSums(table) ##This will give summarised results.
+data(WorldList)
+FreeListTable(WorldList, tableType="FREQUENCY")
+FreeListTable(WorldList, tableType="FREQUENCY",GROUPING="GROUPING")
+WorldList<-CalculateSalience(WorldList,GROUPING="GROUPING")
+FreeListTable(WorldList, tableType="SUM_SALIENCE",GROUPING="GROUPING")
 }
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>
