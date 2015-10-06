@@ -9,7 +9,7 @@
 data(FruitList)
 }
 \description{
-An example dataframe to illustrate what free-list data should look like.
+An example dataframe to illustrate what free-list data should look like. If you want something with grouping use \code{\link{WorldList}}.
 }
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>

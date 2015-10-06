@@ -27,6 +27,10 @@ Generate a table containing salience details for each code, including mean Salie
 data(FruitList)
 test<- CalculateSalience(FruitList)
 SalienceByCode(test,dealWithDoubles="MAX")
+
+data(WorldList)
+test<- CalculateSalience(WorldList,GROUPING="GROUPING")
+SalienceByCode(test,dealWithDoubles="MAX",GROUPING="GROUPING")
 }
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>

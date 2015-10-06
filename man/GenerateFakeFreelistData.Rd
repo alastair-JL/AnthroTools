@@ -23,6 +23,13 @@ Doing this would require some amount of research, and thus I would only really w
 \examples{
 fakeData<-GenerateFakeFreeListData()
 View(fakeData)
+mainlandData<-GenerateFakeFreeListData()
+mainlandData$GROUPING="MAINLAND"
+islandData<-GenerateFakeFreeListData()
+islandData$GROUPING="ISLAND"
+moonData<-GenerateFakeFreeListData()
+moonData$GROUPING="MOON"
+fullData<-rbind(mainlandData,islandData,moonData) ##This method gives data with distinct groupings.
 }
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>

@@ -15,6 +15,14 @@
 #' @examples
 #' fakeData<-GenerateFakeFreeListData()
 #' View(fakeData)
+#' mainlandData<-GenerateFakeFreeListData()
+#' mainlandData$GROUPING="MAINLAND"
+#' islandData<-GenerateFakeFreeListData()
+#' islandData$GROUPING="ISLAND"
+#' moonData<-GenerateFakeFreeListData()
+#' moonData$GROUPING="MOON"
+#' fullData<-rbind(mainlandData,islandData,moonData) ##This method gives data with distinct groupings.
+#' 
 #' @note
 #' Depending on what is needed oruseful, we may implement a version of this function that can take some sort of statistical input (average length of peoples lists or such) and creates fake data with a particular shape. 
 #' This might be most easily implemented by having it use an existing data set and then mashing it up in some way so as to create a fake data set- allowing the user to compare their data to the usual in some way.
@@ -39,3 +47,11 @@ function(){
   
   return(myData)  
 }
+
+mainlandData<-GenerateFakeFreeListData()
+mainlandData$GROUPING="MAINLAND"
+islandData<-GenerateFakeFreeListData()
+islandData$GROUPING="ISLAND"
+moonData<-GenerateFakeFreeListData()
+moonData$GROUPING="MOON"
+worldData<-rbind(mainlandData,islandData,moonData)

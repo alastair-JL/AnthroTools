@@ -20,9 +20,14 @@
 #' test<- CalculateSalience(FruitList)
 #' SalienceByCode(test,dealWithDoubles="MAX")
 #' 
+#' data(WorldList)
+#' test<- CalculateSalience(WorldList,GROUPING="GROUPING")
+#' SalienceByCode(test,dealWithDoubles="MAX",GROUPING="GROUPING")
+#' 
+#' 
 SalienceByCode <-
-function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="DEFAULT"){
-    
+function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="DEFAULT",GROUPING=NA){  
+  
   if(!(CODE %in% colnames(mydata))){    
     stop('Specified "CODE" column not valid.')
   }
@@ -31,6 +36,13 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
     stop('Specified "Salience" column not valid.')
   }
   
+  if(!is.na(GROUPING)) {
+    if(!(GROUPING %in% colnames(mydata))){    
+      stop('Specified "GROUPING" column not valid.')
+    }
+    mydata$CODE<-paste(mydata$GROUPING,mydata$CODE)      
+  } 
+    
   if(any(is.na(mydata[, Salience] ) )){
     warning("Some of the Salience data's are missing. Consider cleaning your data before trusting these results.")    
   }              
