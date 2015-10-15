@@ -4,12 +4,14 @@
 \alias{ConsensusPipeline}
 \title{ConsensusPipeline}
 \usage{
-ConsensusPipeline(SurveyResults, numQ)
+ConsensusPipeline(SurveyResults, numQ, safetyOverride = FALSE)
 }
 \arguments{
 \item{SurveyResults}{These are your survey results, written as a data frame. Rows are expected to represent participants, columns to represent individual questions. Each cell contains a particular individuals answer to a particular question- currently coded as a number (it is assumed questions are multiple choice).}
 
 \item{numQ}{Currently this is a single number representing the number of possible answers to each question (hence for a true/false question, enter "2", for a multiple-choice, "4" perhaps, depending on the number of options).}
+
+\item{safetyOverride}{This function has a variety of checks that will outright prevent it being applied to inapproriate data. Setting the safetyOveride to true will allow the function to run to completion, even when important assumptions are violated. WARNING: It is probably unwise to mess with this parameter.}
 }
 \value{
 This function returns a list with four components.
@@ -29,7 +31,7 @@ This method takes a set of survey results, along with a number representing the 
 This function (and library) could probably use some additional features. If there are particular features you would like to see added, please email Jamieson-Lane, and he will see about adding them.
 }
 \examples{
-FakeData<- GenerateConsensusData(8,8,4)
+FakeData<- GenerateConsensusData(16,16,4)
 Survey <- FakeData$Survey
 ConsensusResult <- ConsensusPipeline(Survey,4)
 ConsensusResult$Answers

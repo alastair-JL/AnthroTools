@@ -16,6 +16,7 @@
 #' @section Freelist Analysis:
 #' Freelist analysis allows you to collect answers to such questions as "What fruit can you think of?", and analyse what ansers are most salient (come to mind first). 
 #' If you wish to do salience analysis, the most important function will be \code{\link{CalculateSalience}}, probably followed by \code{\link{SalienceByCode}}. For examples of the data structures the functions would like as input please look at \code{\link{FruitList}}, or generate fake data of your own using \code{\link{GenerateFakeFreeListData}}. \code{\link{FreeListTable}} is also a useful function.
+#' If your data was previously prepared for Anthropac, then \code{\link{LoadFromAnthropac}} provides compatibility.
 #' 
 #' @section Consensus Analysis:
 #' Consensus analysis lets you collect a group's answers to multi choice questions (all related to a single topic). By first estimating the competence of each person, the method will than allow you to calculate the ``consensus response''.

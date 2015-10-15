@@ -34,13 +34,25 @@ function(M, precision=0.005){
     error<- max(abs(A5-A4))    
   }
   
-  FinalError<- M- A5 %*% t(A5)
-  FinalError<-FinalError * (matrix(1,nrow(M),ncol(M))- diag(1,ncol(M)) )
-  FinalError<- abs(FinalError)
-  if(mean(FinalError) >0.1){
-   warning(paste('Unclear if M matrix is truly outer product of a vector with itself. Mean error',mean(FinalError), ". If you are using this function for Consensus Analysis, then this may indicate that one of the mathematical assumptions of Consensus analysis is violated (for example, you potentially have two or more seperate domains of knowledge being tested).") )     
-   ##NOTE to self. Note really sure how useful this error message is.
-  }    
+  N= M- A5 %*% t(A5)
+  B1<- apply(N, 2, max)
+  error<-2
+  timeOut<-300
+  while (timeOut>0 && error>precision){
+    B2<- ComreyIterate(N,B1,MinZero=FALSE)
+    B3<- ComreyIterate(N,B2,MinZero=FALSE)
+    B4<- (B2+B3)/2
+    B5<-ComreyIterate(N,B4,MinZero=FALSE)
+    B1<-(B4+B5)/2
+    timeOut<-timeOut-1
+    error<- max(abs(B5-B4))    
+  }
   
-  return(A5)
+    
+  ReturnThing<-list()
+  ReturnThing$main<-A5
+  ReturnThing$ratio<-sum(A5*A5)/sum(B5*B5)
+  ReturnThing$second<-B5
+  
+  return(ReturnThing)
 }

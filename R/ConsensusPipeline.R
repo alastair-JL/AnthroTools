@@ -5,6 +5,7 @@
 #' This method takes a set of survey results, along with a number representing the number of possible answers to each question. It calculates the correlation between different people's answers, corrects for random chance, estimates each individual's expertise, and then determines the most likely answer for each question.
 #' @param SurveyResults These are your survey results, written as a data frame. Rows are expected to represent participants, columns to represent individual questions. Each cell contains a particular individuals answer to a particular question- currently coded as a number (it is assumed questions are multiple choice).
 #' @param numQ Currently this is a single number representing the number of possible answers to each question (hence for a true/false question, enter "2", for a multiple-choice, "4" perhaps, depending on the number of options).
+#' @param safetyOverride This function has a variety of checks that will outright prevent it being applied to inapproriate data. Setting the safetyOveride to true will allow the function to run to completion, even when important assumptions are violated. WARNING: It is probably unwise to mess with this parameter.
 #' @return 
 #' This function returns a list with four components.
 #' \item{Answers}{A list of the function's estimated answers for each question.}
@@ -15,7 +16,7 @@
 #' @keywords Consensus
 #' @export
 #' @examples
-#' FakeData<- GenerateConsensusData(8,8,4)
+#' FakeData<- GenerateConsensusData(16,16,4)
 #' Survey <- FakeData$Survey
 #' ConsensusResult <- ConsensusPipeline(Survey,4)
 #' ConsensusResult$Answers
@@ -31,9 +32,24 @@
 #' @note This function (and library) could probably use some additional features. If there are particular features you would like to see added, please email Jamieson-Lane, and he will see about adding them.
 #' 
 ConsensusPipeline <-
-function(SurveyResults,numQ){
+function(SurveyResults,numQ,safetyOverride=FALSE){
   M<-MakeDiscountedAgreementMatrix(SurveyResults,numQ)  
-  Competence<-ComreySolve(M)
+  ComResult<-ComreySolve(M)
+  Competence<-ComResult$main
+  
+  if(ComResult$ratio<3 &&ComResult$ratio>0){
+    if(safetyOverride){
+    warning(paste("Ratio of major eigenvectors is only ", ComResult$ratio , ". The assumptions of consensus analysis are questionable, given this result. Results currently output are liable to be wrong in a variety of ways."  ))
+    }else{
+      stop(paste("Ratio of major eigenvectors is only ", ComResult$ratio , "The assumptions of consensus analysis are questionable, given this result. Function halted"  ))      
+    }
+  }
+  if(ComResult$ratio<5 &&ComResult$ratio>0){
+      warning(paste("Ratio of major eigenvectors is only ", ComResult$ratio , "This is possible evidence that one of the assumptions of consensus analysis MAY have been violated. Proceed carefully."  ))   
+  }else if(ComResult$ratio<7 &&ComResult$ratio>0){
+    warning(paste("Ratio of major eigenvectors is ", ComResult$ratio , "This is weak evidence that one of the assumptions of consensus analysis could possibly have been violated, but probably everything if fine."  ))   
+  }
+  
   Probs<- BayesConsensus(SurveyResults,Competence,numQ)
   AnsKey<-  apply(Probs,2,which.max)  
   names(Competence)<-rownames(SurveyResults)
