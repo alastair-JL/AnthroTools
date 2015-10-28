@@ -10,7 +10,7 @@ LoadFromAnthropac(filename)
 \item{filename}{This is the name of the file containing your anthropac data.}
 }
 \value{
-A three column table containing the same data, stored in a format compatible with theAnthroTools package.
+A three column table containing the same data, stored in a format compatible with the AnthroTools package.
 }
 \description{
 Given the file name of a file prepared in the anthropac format, load it in into a AnthroTools style table.
