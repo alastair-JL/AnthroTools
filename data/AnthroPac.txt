@@ -1,0 +1,28 @@
+# Subj1
+Apple
+Orange
+Pear
+
+# Subj2
+Orange
+Orange
+Apple
+Carrot
+
+# Subj3
+Apple
+
+# Subj4
+Orange
+Pear
+Carrot
+Lemon
+
+# Subj5
+Lime
+Orange
+Lemon
+Apple
+Pear
+Orange
+Carrot
