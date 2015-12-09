@@ -28,6 +28,8 @@ This is the main function to use when trying to do consensus analysis on a selec
 This method takes a set of survey results, along with a number representing the number of possible answers to each question. It calculates the correlation between different people's answers, corrects for random chance, estimates each individual's expertise, and then determines the most likely answer for each question.
 }
 \note{
+If you wish to stress test this function, use \code{\link{ConsensusStressTest}}. For a discussion of the limitations of the methods, and potential pitfalls of the programme, examine \code{\link{ConsensusCaveats}}.
+
 This function (and library) could probably use some additional features. If there are particular features you would like to see added, please email Jamieson-Lane, and he will see about adding them.
 }
 \examples{

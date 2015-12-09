@@ -13,6 +13,7 @@
 #' \item{TestScore}{The supposed test score of each individual, assuming the answer key determined by the method}
 #' \item{Probs}{The probability that each answer is correct for a given question ASSUMING that the method has correctly determined each individuals competence. 
 #'           Given how Competence is calculated, (from the model) it may be reckless to take this "probability" too seriously.}
+#' @note If you wish to stress test this function, use \code{\link{ConsensusStressTest}}. For a discussion of the limitations of the methods, and potential pitfalls of the programme, examine \code{\link{ConsensusCaveats}}.
 #' @keywords Consensus
 #' @export
 #' @examples
@@ -36,6 +37,44 @@ function(SurveyResults,numQ,safetyOverride=FALSE){
   M<-MakeDiscountedAgreementMatrix(SurveyResults,numQ)  
   ComResult<-ComreySolve(M)
   Competence<-ComResult$main
+  
+  
+  if(all(Competence==-2) ){
+    if(safetyOverride){
+      warning(paste("Comrey Solver failed to find ANY valid Competence vector. We don't know why, but this is probably very bad. You should almost certainly ignore all results now given. Please turn the Safety override back off. Using uniform competance as default, you monster."  ))
+      Competence=rep(0.5,nrow(SurveyResults))
+    }else{
+      stop(paste("Comrey Solver failed to find ANY valid competence vector. We don't know why. Function Aborting."  ))      
+    }
+  }
+  
+  
+  
+  if(min(Competence)< -0.05 ){
+    if(safetyOverride){
+      warning(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance. Be very careful."  ))
+    }else{
+      stop(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance. Function halted"  ))      
+    }
+  }
+  
+  if(min(Competence)< -0.05 ){
+    if(safetyOverride){
+      warning(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance. Be very careful."  ))
+    }else{
+      stop(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance. Function halted"  ))      
+    }
+  }
+  if(max(Competence)> 1 ){
+      warning(paste("Individual with competance ", max(Competence) , "Competence over 1 is mathematically impossible. Cutting off at 1."  ))    
+      Competence[Competence>1]=1
+  }
+  
+  
+  if(min(Competence)< -0.005 ){
+      warning(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance... rounding to zero. Be careful."  ))    
+  }
+  Competence[Competence<0]<-0  
   
   if(ComResult$ratio<3 &&ComResult$ratio>0){
     if(safetyOverride){

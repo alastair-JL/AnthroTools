@@ -29,7 +29,11 @@ function(AnswersGiven, Competancy, numAnswers, Prior=-1){
   if ( !all(abs(colSums(Prior) -1)<0.001) ){
     stop('Your Prior for every question must add to 1.')    
     }
-    
+  
+  if ( !all(Prior>=0) ){
+    stop('Your Prior Must assign non-negative probability to all possible outcomes (preferably positive).')    
+  }
+  
   if ( ncol(Prior)!=ncol(AnswersGiven) || nrow(Prior)!=numAnswers){
     stop('Your Prior matrix is wrong shape.')    
   }  
@@ -37,8 +41,8 @@ function(AnswersGiven, Competancy, numAnswers, Prior=-1){
   Probability<- matrix(0,numAnswers, ncol(AnswersGiven))
   colnames(Probability)<-colnames(AnswersGiven)
   rownames(Probability)<-c(1:numAnswers)
-  WrongVect<- (1-Competancy)/numAnswers
-  RightVect<- WrongVect+ Competancy
+  WrongVect<- (1-Competancy)*(numAnswers-1)/numAnswers
+  RightVect<- 1-WrongVect
   for (QQQ in 1:ncol(AnswersGiven)){
     for(aaa in 1:numAnswers){
       Probability[aaa,QQQ]<- prod(ifelse(AnswersGiven[,QQQ]==aaa,RightVect,WrongVect) )      

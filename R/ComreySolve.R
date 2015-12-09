@@ -25,13 +25,20 @@ function(M, precision=0.005){
   error<-2
   timeOut<-300
   while (timeOut>0 && error>precision){
-    A2<- ComreyIterate(M,A1)
-    A3<- ComreyIterate(M,A2)
+    A2<- ComreyIterate(M,A1,MinZero=FALSE)
+    A3<- ComreyIterate(M,A2,MinZero=FALSE)
     A4<- (A2+A3)/2
-    A5<-ComreyIterate(M,A4)
+    A5<-ComreyIterate(M,A4,MinZero=FALSE)
     A1<-(A4+A5)/2
     timeOut<-timeOut-1
-    error<- max(abs(A5-A4))    
+    error<- max(abs(A5-A4))        
+    if(error>10^8){
+      ReturnThing<-list()
+      ReturnThing$main<- -2
+      ReturnThing$ratio<- 0
+      ReturnThing$second<- -2      
+      return(ReturnThing) ##NOTE: this is purely an escape clause for non-convergent matrices. It is handled by the consensus pipeline.
+    }
   }
   
   N= M- A5 %*% t(A5)
@@ -45,7 +52,7 @@ function(M, precision=0.005){
     B5<-ComreyIterate(N,B4,MinZero=FALSE)
     B1<-(B4+B5)/2
     timeOut<-timeOut-1
-    error<- max(abs(B5-B4))    
+    error<- max(abs(B5-B4))      
   }
   
     
