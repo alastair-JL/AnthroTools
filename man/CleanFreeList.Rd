@@ -19,19 +19,20 @@ CleanData<-CleanFreeList(mydata, Order="Order",Subj="Subj",CODE="CODE",ejectBadS
 
 \item{deleteDoubleCode}{If someone says "Apple" twice, do you want to drop all but the first instance? defaults to true.}
 
-\item{ConsolidateOrder}{Do you want to "consolidate" order data. EG: 1 2 5 7-> 1 2 3 4. Useful if you intend to be removing some rows but... use with caution. NOTE: BEN, do I need to give more options here? Get function to only consolidate its own gaps perhaps?}
+\item{ConsolidateOrder}{Do you want to "consolidate" order data. EG: 1 2 5 7-> 1 2 3 4. Useful if you intend to be removing some rows.}
 
-\item{RemoveMissingData}{Not currently implemented. General idea was to just drop lines whenever you have things like blank CODE, or Order==NA. Or you could have it flag these as concerns and pass them back perhaps.}
+\item{RemoveMissingData}{Remove any row where Code is NA, or blank.}
 }
 \value{
-A new free list dataframe, without duplicates and such.
+A new free list dataframe, with all the requested error types removed. (NOTE, the effect that such removal will have on your statistics is unknown. We believe this method makes sensible modifications, but advise the use of caution.)
 }
 \description{
-Given a Free list dataset with Codes, Ordering and subject numbers, tidy it up, detect duplicates, and just generally make it nicer.
+Given a Free list dataset with Codes, Ordering and subject numbers, remove incorrectly entered subjects, detect duplicate codes, remove blank codes, and enforce sequential ranking.
 }
 \examples{
-fakeData<- GenerateFakeFreeListData()
-niceFakeData<- CalculateSalience(fakeData)
+data(UglyList)
+View(CleanFreeList(UglyList))
+View(CleanFreeList(UglyList),deleteDoubleCode=F)
 }
 \keyword{Freelist}
 

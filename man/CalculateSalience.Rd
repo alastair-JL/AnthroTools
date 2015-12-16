@@ -4,7 +4,7 @@
 \alias{CalculateSalience}
 \title{CalculateSalience}
 \usage{
-CalculateSalience(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Norm=FALSE,Salience="Salience")
+CalculateSalience(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Rescale=FALSE,Salience="Salience")
 }
 \arguments{
 \item{mydata}{The free-list data. This should be a data frame, where each row contains a single response from a single respondent. For each such response, you need to know the subject number (or some form of unique identifier), the response (or "CODE" of the response) and the ranking/order of the response (What was this respondents the first response? The second? The Seventeenth?). The "CODE" of the response is the target variable. We use "code" here as some free-list data gets coded into another coding scheme.}
@@ -17,7 +17,7 @@ CalculateSalience(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Norm
 
 \item{GROUPING}{Do your subjects come from multiple test sites or subject groups? If so, you may wish to specify the column that specifies this - especially important if subject identification number is only unique within each group. Defaults to <NA>.}
 
-\item{Norm}{How are you going to normalise salience? If set to false, then the Salience scores will be calculated in such a way that each response gets a score?(N+1-k)/(N). Thus, the top score will have salience one of 1.00. If Norm is true then the above calculation will be done, and then all scores will be normalised such that each respondent's total salience is 1.00 (Thus preventing respondents with unusually long answer lists from dominating the analysis). This operation will keep the relative size of salience scores the same within each subject.}
+\item{Rescale}{How are you going to scale salience? If set to false, then the Salience scores will be calculated in such a way that each response gets a score (N+1-k)/(N). Thus, the top score will have salience of 1.00. If Rescale is true then the above calculation will be done, and then all scores will be scaled such that each respondent's total salience is 1.00 (Thus preventing respondents with unusually long answer lists from dominating the analysis). This operation will keep the relative size of salience scores the same within each subject.}
 
 \item{Salience}{This is the name of the column that you wish to have the salience scores stored in. Using the default setting is strongly recommended as it will make other functions in this package easier to use.}
 }
@@ -28,13 +28,13 @@ Returned will be a dataframe identical to your original data frame, but with an 
 Given a Free list dataset with Codes, Ordering and subject numbers, determine the "salience" of each response by item and/or by category.
 }
 \note{
-This function produces several warning messages, most minor and self-explanatory. If your inputs for Norm, Subj or Order seem wrong, the function will stop, and request better inputs. The one warning of interest is "Subject X has bad order data and cannot have salience calculated". This indicates that the order data on one of your subjects contains either a missing entry, or a double up, or perhaps a decimal. Whatever the cause, this data is considered bad, and no salience is calculated. The
+This function produces several warning messages, most minor and self-explanatory. If your inputs for Rescale, Subj or Order seem wrong, the function will stop, and request better inputs. The one warning of interest is "Subject X has bad order data and cannot have salience calculated". This indicates that the order data on one of your subjects contains either a missing entry, or a double up, or perhaps a decimal. Whatever the cause, this data is considered bad, and no salience is calculated. The
 }
 \examples{
 fakeData<- GenerateFakeFreeListData()
 fakeSalData<- CalculateSalience(fakeData)
-fakeNormData<- CalculateSalience(fakeData,Salience="NormSalience",Norm=T)
-fakeBothData<- CalculateSalience(fakeSalData,Salience="NormSalience",Norm=T)
+fakeRescaleData<- CalculateSalience(fakeData,Salience="RescaleSalience",Rescale=T)
+fakeBothData<- CalculateSalience(fakeSalData,Salience="RescaleSalience",Rescale=T)
 
 fakeData1<- GenerateFakeFreeListData()
 fakeData1[,"Group"]="Mainland"
