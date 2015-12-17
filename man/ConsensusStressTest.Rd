@@ -4,7 +4,8 @@
 \alias{ConsensusStressTest}
 \title{ConsensusStressTest}
 \usage{
-ConsensusStressTest(numPeople, NumQuestions, numAns, Iterations)
+ConsensusStressTest(numPeople, NumQuestions, numAns, Iterations,
+  lockCompetance = NA)
 }
 \arguments{
 \item{numPeople}{How many "People" do you wish to simulate answering each survey?}
@@ -14,13 +15,19 @@ ConsensusStressTest(numPeople, NumQuestions, numAns, Iterations)
 \item{numAns}{How many possible answers are their to the questions on your virtual survey?}
 
 \item{Iterations}{How many surveys do you wish to simulate?}
+
+\item{lockCompetance}{Give a number between zero and one here to set all participants true competences to that value. Alternative give a vector here to set them equal to the vector.}
 }
 \value{
-This function vector with two values: the number of errors, and the expected number of errors.
+A list. First entry contains vector with two values: the number of errors, and the expected number of errors.
+Second entry contains a vector of the calculated mean competencies, and the third entry is a vector giving the variance in
+the competance for each iteration.
 }
 \description{
 A function for simulating a large number of surveys, running consensus analysis on each, and then comparing the
 true and calculated results to determine the algorithms error rate. Used to test \code{\link{ConsensusPipeline}}.
+ Also produces statistics on the mean and variance of the calculated variance scores, which can be used to determine how far
+  off you might expect your estimates to be, and whether or not any competence variance you have encountered is likely to be due to purely statistical fluctuations.
 }
 \note{
 This function (and library) could probably use some additional features. If there are particular features you would like to see added, please email Jamieson-Lane, and he will see about adding them.

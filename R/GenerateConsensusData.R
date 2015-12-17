@@ -29,10 +29,16 @@
 #' FakeSurvey<-FakeData$Survey
 #' Results<- ConsensusPipeline(FakeSurvey,3)
 GenerateConsensusData <-
-function(numPeople,numQuestions, numAns){
+function(numPeople,numQuestions, numAns,lockCompetance=NA){
   #This is a function that generates simulated results, given a particular number of people, questions and possible answers.
   #This is intended for use in testing consensus data functions.
-  PersonSkills <- runif(numPeople, 0,1)
+  if(is.na(lockCompetance)){
+    PersonSkills <- runif(numPeople, 0,1)
+  }else if(is.numeric(lockCompetance) && lockCompetance>=0 && lockCompetance<=1 ){
+    PersonSkills <- rep_len(lockCompetance, numPeople)
+  }else{    
+    stop("lockCompetance takes some non-valid value. Try giving a number in [0,1], or don't set it at all.")
+  }  
   SurveyData<- data.frame()
   CorrectAns<- rep(1,numPeople) %*% t(sample(1:numAns, numQuestions,replace=T))
   GuessAns<- replicate(numQuestions,sample(1:numAns,numPeople,replace=T))

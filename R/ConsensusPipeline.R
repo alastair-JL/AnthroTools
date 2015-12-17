@@ -49,32 +49,20 @@ function(SurveyResults,numQ,safetyOverride=FALSE){
   }
   
   
-  
-  if(min(Competence)< -0.05 ){
+  origCompetence<-Competence
+        
+  if( sum(Competence>=1)>1 && nrow(unique(SurveyResults[Competence>=1,]))>1){        
     if(safetyOverride){
-      warning(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance. Be very careful."  ))
+      warning(paste("Somehow we calculate multiple individuals with competence over 1... and they disagree. Reducing there competence to reasonable levels, but seriously, you shouldn't be using the safety override."  ))
+      Competence[Competence>=1]<- 0.9+0.1*(max(Competence[Competence<1]))        
     }else{
-      stop(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance. Function halted"  ))      
+      stop(paste("Somehow we calculate multiple individuals with competence over 1... and they disagree. Function Aborting."  ))      
     }
   }
   
-  if(min(Competence)< -0.05 ){
-    if(safetyOverride){
-      warning(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance. Be very careful."  ))
-    }else{
-      stop(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance. Function halted"  ))      
-    }
-  }
-  if(max(Competence)> 1 ){
-      warning(paste("Individual with competance ", max(Competence) , "Competence over 1 is mathematically impossible. Cutting off at 1."  ))    
-      Competence[Competence>1]=1
-  }
-  
-  
-  if(min(Competence)< -0.005 ){
-      warning(paste("Individual with competance ", min(Competence) , "The assumptions of consensus analysis assume positive competance... rounding to zero. Be careful."  ))    
-  }
+  Competence[Competence>1]<-1  
   Competence[Competence<0]<-0  
+  
   
   if(ComResult$ratio<3 &&ComResult$ratio>0){
     if(safetyOverride){
@@ -93,11 +81,22 @@ function(SurveyResults,numQ,safetyOverride=FALSE){
   AnsKey<-  apply(Probs,2,which.max)  
   names(Competence)<-rownames(SurveyResults)
   TestScore<- rowMeans(SurveyResults==rep(1,nrow(SurveyResults)) %*% t(AnsKey) )
+
+  reportback<- paste("We encounterd ", sum(origCompetence<0)," individuals with ``negative'' competance. 
+                     We found ", sum(origCompetence>1), " individuals with competance over one.
+                     The main eigenValue found was ", sum(ComResult$main*ComResult$main), ". The second was "
+                     , sum(ComResult$second*ComResult$second),", giving a ration of ",ComResult$ratio,".")
   
   ReturnThing<-list()
   ReturnThing$Answers<-AnsKey
   ReturnThing$Competence<-Competence
+  ReturnThing$origCompetence<-origCompetence
   ReturnThing$TestScore<-TestScore  
   ReturnThing$Probs<-Probs
+  ReturnThing$reportback<-reportback
   return(ReturnThing)
 }
+
+##NOTE: We should implent something akin to Daniel J. Hruschka1 and Jonathan N. Maupin test.
+#It seems like a good plan And is totally worth implementing. We should also probably cite them, in the paper, 
+#Or at the very least once we have implemented the function. ... Actually, I could probably just do it now.

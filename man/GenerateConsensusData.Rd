@@ -4,7 +4,7 @@
 \alias{GenerateConsensusData}
 \title{GenerateConsensusData}
 \usage{
-GenerateConsensusData(numPeople, numQuestions, numAns)
+GenerateConsensusData(numPeople, numQuestions, numAns, lockCompetance = NA)
 }
 \arguments{
 \item{numPeople}{The number of people being surveyed}

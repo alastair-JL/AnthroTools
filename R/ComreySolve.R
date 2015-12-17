@@ -45,6 +45,7 @@ function(M, precision=0.005){
   B1<- apply(N, 2, max)
   error<-2
   timeOut<-300
+  
   while (timeOut>0 && error>precision){
     B2<- ComreyIterate(N,B1,MinZero=FALSE)
     B3<- ComreyIterate(N,B2,MinZero=FALSE)
@@ -57,7 +58,7 @@ function(M, precision=0.005){
   
     
   ReturnThing<-list()
-  ReturnThing$main<-A5
+  ReturnThing$main<-A5  ##Okay this is what I THINK they mean by eigenvalue, but I'm not sure, will need to check back once have full info.
   ReturnThing$ratio<-sum(A5*A5)/sum(B5*B5)
   ReturnThing$second<-B5
   
