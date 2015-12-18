@@ -33,7 +33,17 @@ true and calculated results to determine the algorithms error rate. Used to test
 This function (and library) could probably use some additional features. If there are particular features you would like to see added, please email Jamieson-Lane, and he will see about adding them.
 }
 \examples{
-ConsensusStressTest(15,15,4,500)
+StressSummary<- ConsensusStressTest(15,15,4,5000,lockCompetance=0.6)
+##15 individuals, 15 questions, answers A,B,C,D, 500 surveys simulated, all individuals have competence 0.6.
+StressSummary[[1]] ##True and expected error rate.
+mean(StressSummary[[2]]) ##The mean of the mean of calculated competence (should be near 0.6).
+sum((StressSummary[[3]])>0.1)/length(StressSummary[[3]])
+ ## The proportion of simulations with Competence variance calculated above 0.1.
+ ## Note that the true value for this is 0, so all variance found is noise.
+quantile(StressSummary[[3]],0.95)
+ ##95\% of simulations detected variance below this value- even when tru variance is 0.
+ ##If your variance is below this level, there probably isn't much evidence for competence variability.
+quantile(StressSummary[[3]],c(0.5,0.95,0.99,0.999) )
 }
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>

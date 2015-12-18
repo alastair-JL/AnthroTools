@@ -84,8 +84,9 @@ function(SurveyResults,numQ,safetyOverride=FALSE){
 
   reportback<- paste("We encounterd ", sum(origCompetence<0)," individuals with ``negative'' competance. 
                      We found ", sum(origCompetence>1), " individuals with competance over one.
-                     The main eigenValue found was ", sum(ComResult$main*ComResult$main), ". The second was "
-                     , sum(ComResult$second*ComResult$second),", giving a ration of ",ComResult$ratio,".")
+                     The magnitude of the main factor was ", sqrt(sum(ComResult$main*ComResult$main)),
+                     ". The second factor's magnitude was " , sqrt(sum(ComResult$second*ComResult$second)),",
+                     giving a ratio of ",ComResult$ratio,".")
   
   ReturnThing<-list()
   ReturnThing$Answers<-AnsKey
