@@ -16,10 +16,10 @@ When using the \code{\link{ConsensusPipeline}}, there are a few warnings and cav
  It would also be nice to have some automated way for R to determine if the assumptions of the model have
  been violated (in particular, the "single subject of interest" assumption.) Here we aim to implement the "Usual" rule of thumb that if
  the ratio of the first and second factor when determining competance is over three, then all is well.
- We Emphisise here the use of ``factor'' rather than ``Eigenvalue''. While the factors found using Comrey itteration to find minimal residuals are
+ We emphisize here the use of ``factor'' rather than ``Eigenvalue''. While the factors found using Comrey itteration to find minimal residuals are
  like Eigenvalues in many ways, they are not in fact the same thing (see ``example(ConsensusCaveats)'').
  The use of the word Eigenvector and Eigenvalue in the literature appears to be widespread (dating back to Romney et al's original 1986 paper)
- But, given the use of the minimum residual method, it seems factor magnitudes are a more approrpiate measure
+ but (it is suspected), technically incorrect. Given the use of the minimum residual method, it seems factor magnitudes are a more approrpiate measure
  (And, potentially the measure most commonly used, even if a different word is used).
 
  If possible, more analytically justifiable methods will be developed to better detect

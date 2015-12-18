@@ -17,9 +17,11 @@ ConsensusPipeline(SurveyResults, numQ, safetyOverride = FALSE)
 This function returns a list with four components.
 \item{Answers}{A list of the function's estimated answers for each question.}
 \item{Competence}{The estimated competence for each individual (the probability that they would KNOW the answer to some future question).}
+\item{origCompetence}{The competence originally calculated (before the pipeline force it into the [0,1] range).}
 \item{TestScore}{The supposed test score of each individual, assuming the answer key determined by the method}
 \item{Probs}{The probability that each answer is correct for a given question ASSUMING that the method has correctly determined each individuals competence.
           Given how Competence is calculated, (from the model) it may be reckless to take this "probability" too seriously.}
+\item{reportback}{A string containing some report back information (number of negative competencies, ratio of factor magnitudes). For explaination of use of factor magnitudes rather than Eigenvalues, see \code{\link{ConsensusCaveats}}.}
 }
 \description{
 This is the main function to use when trying to do consensus analysis on a selection of survey data. This function pretty much streamlines all the consensus analysis functions currently contained in the package into one function.
@@ -28,7 +30,7 @@ This is the main function to use when trying to do consensus analysis on a selec
 This method takes a set of survey results, along with a number representing the number of possible answers to each question. It calculates the correlation between different people's answers, corrects for random chance, estimates each individual's expertise, and then determines the most likely answer for each question.
 }
 \note{
-If you wish to stress test this function, use \code{\link{ConsensusStressTest}}. For a discussion of the limitations of the methods, and potential pitfalls of the programme, examine \code{\link{ConsensusCaveats}}.
+If you wish to stress test this function or determine the expected variance using a large number of simulations, use \code{\link{ConsensusStressTest}}. For a discussion of the limitations of the methods, and potential pitfalls of the programme, examine \code{\link{ConsensusCaveats}}.
 
 This function (and library) could probably use some additional features. If there are particular features you would like to see added, please email Jamieson-Lane, and he will see about adding them.
 }
