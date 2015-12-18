@@ -74,28 +74,28 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Rescale=FALSE
     warning("Grouping column not found. Continuing without grouping.")
     GROUPING=NA
   }
-
-  if(Subj==GROUPING){    
-    stop("Your subject number and grouping column are the same column. This will inevitably lead to the madness place. Aborting programme in order to avoid summoning the ancient ones that never sleep.")
-  }
-
+  
+  
   if(Subj==CODE){    
     stop("Subj equals CODE. I'm not really sure how you expected this to work.")
   }
-
-  if(GROUPING==CODE){    
-    stop("GROUPING equals CODE. That does not seem like a good plan.")
-  }
-
+  
   if(ORDER==CODE){    
     stop("ORDER equals CODE. That seems a little bit silly to me.")
   }
 
-  if(ORDER==GROUPING){    
-    stop("ORDER and GROUPING are the same thing! While I commend your ingenuity, this is clearly not a good plan, and I refuse to take any part in it.")
-  }
-
   if (is.na(GROUPING)){
+    
+    if(Subj==GROUPING){    
+      stop("Your subject number and grouping column are the same column. This will inevitably lead to the madness place. Aborting programme in order to avoid summoning the ancient ones that never sleep.")
+    }
+    if(GROUPING==CODE){    
+      stop("GROUPING equals CODE. That does not seem like a good plan.")
+    }
+    if(ORDER==GROUPING){    
+      stop("ORDER and GROUPING are the same thing! While I commend your ingenuity, this is clearly not a good plan, and I refuse to take any part in it.")
+    }
+    
     for( iii in unique(mydata[,Subj])){    
       ## for now I will assume that data is good and clean (no missing elements) and ordered. 
       ## Will probably want to come back and deal with borked cases as needed later. 
