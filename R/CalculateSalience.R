@@ -11,7 +11,7 @@
 #' @param Salience This is the name of the column that you wish to have the salience scores stored in. Using the default setting is strongly recommended as it will make other functions in this package easier to use.
 #' @return Returned will be a dataframe identical to your original data frame, but with an additional column containing the salience value of each response.
 #' @keywords FreeList
-#' @note This function produces several warning messages, most minor and self-explanatory. If your inputs for Rescale, Subj or Order seem wrong, the function will stop, and request better inputs. The one warning of interest is "Subject X has bad order data and cannot have salience calculated". This indicates that the order data on one of your subjects contains either a missing entry, or a double up, or perhaps a decimal. Whatever the cause, this data is considered bad, and no salience is calculated. The 
+#' @note This function produces several warning messages, most minor and self-explanatory. If your inputs for Rescale, Subj or Order seem wrong, the function will stop, and request better inputs. The one warning of interest is "Subject X has bad order data and cannot have salience calculated". This indicates that the order data on one of your subjects contains either a missing entry, or a double up, or perhaps a decimal. Whatever the cause, this data is considered bad, and no salience is calculated. 
 
 #' @export
 #' @examples
@@ -80,8 +80,8 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Rescale=FALSE
     stop("Subj equals CODE. I'm not really sure how you expected this to work.")
   }
   
-  if(ORDER==CODE){    
-    stop("ORDER equals CODE. That seems a little bit silly to me.")
+  if(Order==CODE){    
+    stop("Order equals CODE. That seems a little bit silly to me.")
   }
 
   if (is.na(GROUPING)){
@@ -92,8 +92,8 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Rescale=FALSE
     if(GROUPING==CODE){    
       stop("GROUPING equals CODE. That does not seem like a good plan.")
     }
-    if(ORDER==GROUPING){    
-      stop("ORDER and GROUPING are the same thing! While I commend your ingenuity, this is clearly not a good plan, and I refuse to take any part in it.")
+    if(Order==GROUPING){    
+      stop("Order and GROUPING are the same thing! While I commend your ingenuity, this is clearly not a good plan, and I refuse to take any part in it.")
     }
     
     for( iii in unique(mydata[,Subj])){    

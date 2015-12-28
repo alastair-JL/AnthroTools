@@ -28,7 +28,7 @@ Returned will be a dataframe identical to your original data frame, but with an 
 Given a Free list dataset with Codes, Ordering and subject numbers, determine the "salience" of each response by item and/or by category.
 }
 \note{
-This function produces several warning messages, most minor and self-explanatory. If your inputs for Rescale, Subj or Order seem wrong, the function will stop, and request better inputs. The one warning of interest is "Subject X has bad order data and cannot have salience calculated". This indicates that the order data on one of your subjects contains either a missing entry, or a double up, or perhaps a decimal. Whatever the cause, this data is considered bad, and no salience is calculated. The
+This function produces several warning messages, most minor and self-explanatory. If your inputs for Rescale, Subj or Order seem wrong, the function will stop, and request better inputs. The one warning of interest is "Subject X has bad order data and cannot have salience calculated". This indicates that the order data on one of your subjects contains either a missing entry, or a double up, or perhaps a decimal. Whatever the cause, this data is considered bad, and no salience is calculated.
 }
 \examples{
 fakeData<- GenerateFakeFreeListData()
