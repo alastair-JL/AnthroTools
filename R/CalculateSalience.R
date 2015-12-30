@@ -82,6 +82,7 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Rescale=FALSE
   
   if(Order==CODE){    
     stop("Order equals CODE. That seems a little bit silly to me.")
+  }
 
   if (is.na(GROUPING)){    
     
@@ -136,6 +137,6 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Rescale=FALSE
     }##End subj for loop
   }##End GROUP for loop.
     
-  }  
+  }##End "We have groups" else statement.  
   return(mydata)
-}
+} ##End function
