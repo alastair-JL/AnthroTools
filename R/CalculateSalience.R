@@ -82,7 +82,6 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Rescale=FALSE
   
   if(Order==CODE){    
     stop("Order equals CODE. That seems a little bit silly to me.")
-  }
 
   if (is.na(GROUPING)){    
     

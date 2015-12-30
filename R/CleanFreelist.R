@@ -53,7 +53,7 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",ejectBadSubj=T,deleteDoub
     
     if(RemoveMissingData){
       NextFrame <- NextFrame[!is.na(NextFrame[,CODE]),]    
-      NextFrame <- NextFrame[!is.na(NextFrame[,ORDER]),]    
+      NextFrame <- NextFrame[!is.na(NextFrame[,Order]),]    
       NextFrame <- NextFrame[NextFrame[,CODE]!="",]    
       NextFrame <- NextFrame[NextFrame[,CODE]!=" ",]    
       ##This removes rows with NA or empty values.
@@ -70,7 +70,7 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",ejectBadSubj=T,deleteDoub
     }else{
       if(ConsolidateOrder){        
         NextFrame[,Order]<-seq(length(NextFrame[,Order]))
-        ##Relabel "ORDER" so that it is a nice continuous list. Horray.
+        ##Relabel "Order" so that it is a nice continuous list. Horray.
       }          
     }
        
