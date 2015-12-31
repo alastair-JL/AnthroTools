@@ -17,7 +17,7 @@ CleanData<-CleanFreeList(mydata, Order="Order",Subj="Subj",CODE="CODE",ejectBadS
 
 \item{ejectBadSubj}{Do you want to eject all subjects who have (for whatever reason) bad data? For example duplicates or missing order entries. defaults to true.}
 
-\item{deleteDoubleCode}{If someone says "Apple" twice, do you want to drop all but the first instance? defaults to true.}
+\item{deleteDoubleCode}{If someone says "Apple" twice, do you want to drop all but the first instance? Defaults to False.}
 
 \item{ConsolidateOrder}{Do you want to "consolidate" order data. EG: 1 2 5 7-> 1 2 3 4. Useful if you intend to be removing some rows.}
 
@@ -32,7 +32,7 @@ Given a Free list dataset with Codes, Ordering and subject numbers, remove incor
 \examples{
 data(UglyList)
 View(CleanFreeList(UglyList))
-View(CleanFreeList(UglyList),deleteDoubleCode=F)
+View(CleanFreeList(UglyList,deleteDoubleCode=T))
 }
 \keyword{Freelist}
 

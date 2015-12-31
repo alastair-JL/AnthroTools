@@ -7,7 +7,7 @@
 #' @param Subj This is the name of the column containing your subject names/numbers. Each subject should have a unique identifier in this column (Is this confusing, given that each subject may take several rows?). Defaults to "Subj".
 #' @param CODE This is the name of the column containing your subject names/numbers. Each subject should have a unique identifier in this column (Is this confusing, given that each subject may take several rows?). Defaults to "Subj".
 #' @param ejectBadSubj Do you want to eject all subjects who have (for whatever reason) bad data? For example duplicates or missing order entries. defaults to true.
-#' @param deleteDoubleCode If someone says "Apple" twice, do you want to drop all but the first instance? defaults to true.
+#' @param deleteDoubleCode If someone says "Apple" twice, do you want to drop all but the first instance? Defaults to False.
 #' @param ConsolidateOrder Do you want to "consolidate" order data. EG: 1 2 5 7-> 1 2 3 4. Useful if you intend to be removing some rows.
 #' @param RemoveMissingData Remove any row where Code is NA, or blank.
 #' @return A new free list dataframe, with all the requested error types removed. (NOTE, the effect that such removal will have on your statistics is unknown. We believe this method makes sensible modifications, but advise the use of caution.)
@@ -16,10 +16,10 @@
 #' @examples
 #' data(UglyList)
 #' View(CleanFreeList(UglyList))
-#' View(CleanFreeList(UglyList),deleteDoubleCode=F)
+#' View(CleanFreeList(UglyList,deleteDoubleCode=T))
 #' 
 CleanFreeList <-
-function(mydata, Order="Order",Subj="Subj",CODE="CODE",ejectBadSubj=T,deleteDoubleCode=T,ConsolidateOrder=T,RemoveMissingData=T){
+function(mydata, Order="Order",Subj="Subj",CODE="CODE",ejectBadSubj=T,deleteDoubleCode=F,ConsolidateOrder=T,RemoveMissingData=T){
       
   if(!(Order %in% colnames(mydata))){    
      stop('Specified "Order" column not valid.')
