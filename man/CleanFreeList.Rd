@@ -33,6 +33,7 @@ Given a Free list dataset with Codes, Ordering and subject numbers, remove incor
 data(UglyList)
 View(CleanFreeList(UglyList))
 View(CleanFreeList(UglyList,deleteDoubleCode=T))
+View(CleanFreeList(UglyList,ejectBadSubj=F))
 }
 \keyword{Freelist}
 

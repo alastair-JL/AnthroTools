@@ -17,6 +17,7 @@
 #' data(UglyList)
 #' View(CleanFreeList(UglyList))
 #' View(CleanFreeList(UglyList,deleteDoubleCode=T))
+#' View(CleanFreeList(UglyList,ejectBadSubj=F))
 #' 
 CleanFreeList <-
 function(mydata, Order="Order",Subj="Subj",CODE="CODE",ejectBadSubj=T,deleteDoubleCode=F,ConsolidateOrder=T,RemoveMissingData=T){
@@ -63,9 +64,9 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",ejectBadSubj=T,deleteDoub
     if(any(duplicated(NextFrame[,Order]))){      
       good=F
       if(ejectBadSubj){
-        warning(paste('Subject',iii,"has multiple entries with the same Order. I'm not really sure how that happend. Will be ejected from clean data.") )       
+        warning(paste('Subject',iii,"has multiple entries with the same Order. Subject",iii, "Will be ejected from clean data. If you want to keep it, set 'ejectBadSubj=F' (not recommended).") )       
       }else{
-        warning(paste('Subject',iii,"has multiple entries with the same Order. I'm not really sure how that happend. Will be kept. Please consider carefully what this means.") )         
+        warning(paste('Subject',iii,"has multiple entries with the same Order. The function has been told not to Eject bad subjects, so please consider carefully what it means for a single subject to have multiple values with the same ranking.") )         
       }
     }else{
       if(ConsolidateOrder){        

@@ -6,14 +6,14 @@
 \alias{AnthroTools-package}
 \title{AnthroTools}
 \description{
-A couple statistical tools for cultural and cognitive anthropological research. In particular, some tools for Salience Analysis, and some functions for Consensus Analysis.
+AnthroTools: Some custom tools for cultural anthropology.
 }
 \details{
 \tabular{ll}{
 Package: \tab AnthroTools\cr
 Type: \tab Package\cr
-Version: \tab 0.6\cr
-Date: \tab 2014-23-10\cr
+Version: \tab 0.8\cr
+Date: \tab 2016-01-10\cr
 License: \tab GPL 2\cr
 }
 }
@@ -42,9 +42,7 @@ View(ConsensusResult$Answers)
 View(FakeData$Answers)
 }
 \author{
-Alastair Jamieson Lane. <aja107@math.ubc.ca>
-
-Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
+Alastair Jamieson Lane. <aja107@math.ubc.ca>  Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
 }
 \references{
 Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280

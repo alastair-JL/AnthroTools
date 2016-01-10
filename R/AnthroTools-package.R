@@ -2,14 +2,14 @@
 #' @title AnthroTools
 #' @docType package
 #' @description
-#' A couple statistical tools for cultural and cognitive anthropological research. In particular, some tools for Salience Analysis, and some functions for Consensus Analysis.
+#' AnthroTools: Some custom tools for cultural anthropology.
 #' 
 #' @details
 #' \tabular{ll}{
 #' Package: \tab AnthroTools\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.6\cr
-#' Date: \tab 2014-23-10\cr
+#' Version: \tab 0.8\cr
+#' Date: \tab 2016-01-10\cr
 #' License: \tab GPL 2\cr
 #' }
 #' 
@@ -43,6 +43,5 @@
 #' @references 
 #' Smith, J. J., Furbee, L., Maynard, K., Quick, S., & Ross, L. (1995). Salience Counts: A Domain Analysis of English Color Terms. Journal of Linguistic Anthropology, 5(2), 203-216. http://doi.org/10.1525/jlin.1995.5.2.203.
 #' 
-#' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
-#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
+#' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>  Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
 NULL
