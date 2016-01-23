@@ -37,10 +37,19 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
     stop('Specified "Salience" column not valid.')
   }
   
-    
-  if(any(is.na(mydata[, Salience] ) )){
-    warning("Some of the Salience data's are missing. Consider cleaning your data before trusting these results.")    
-  }              
+      
+  if(any(mydata[, Salience]==0) ){
+    warning("Some of the Salience data is equal to zero, probably because those rows have an NA code. These rows we are going to remove before doing our analysis.")
+    mydata<- mydata[-which(mydata[, Salience]==0),]    
+    print(unique(mydata[,CODE]))
+  } 
+  
+  if(any(is.na(mydata[, CODE]) ) ){
+    warning("Some of the CODEs are NA. These have been removed..")
+    mydata<- mydata[-which(is.na(mydata[, CODE]) ),]    
+    print(unique(mydata[,CODE]))
+  } 
+  
   
   if(!dealWithDoubles %in% c("DEFAULT" ,"IGNORE" ,"MAX","SUM","MEAN") ) {
     stop(' dealWithDoubles must take a value of "DEFAULT","MAX", "SUM","MEAN" or "IGNORE". ')    
@@ -61,12 +70,13 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
                                  SmithsS=0  ## the SUM of all intensities for a given code.
     ) 
     
+    
     for( ggg in unique(SalienceByCode$GROUPING)){  
     for( iii in unique(SalienceByCode$CODE)){  
       if( anyDuplicated(mydata[which(mydata[,CODE]==iii &&mydata[,GROUPING]==ggg), Subj])>0 && dealWithDoubles=="DEFAULT" ) {
         stop('Some subjects have multiple entries with same code. Set "dealWithDoubles" to "SUM", "MAX" or "IGNORE" to deal with this.')      
       }
-      
+      print(iii)
       if(dealWithDoubles=="MAX" || dealWithDoubles=="SUM"||dealWithDoubles=="MEAN" ){
         if(dealWithDoubles=="MAX"){
           doThing<-max
@@ -76,7 +86,7 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
           doThing<-mean          
         }          
         for( jjj in unique(mydata[,Subj])){    
-          witch<-which((mydata[,CODE]==iii & mydata[,GROUPING]==ggg) & mydata[,Subj]==jjj) #           
+          witch<-which((mydata[,CODE]==iii & mydata[,GROUPING]==ggg) & mydata[,Subj]==jjj) #                     
           if (length(witch)>1){            
             mydata[witch[1],Salience]<-doThing(mydata[witch,Salience])
             mydata[witch[-1],Salience]<-NA
@@ -89,9 +99,9 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
           
         }        
       }
-            SalienceByCode[which(SalienceByCode[,CODE]==iii &SalienceByCode[,GROUPING]==ggg), "MeanSalience"]<- mean(mydata[which(mydata[,CODE]==iii & mydata[,GROUPING]==ggg), Salience],na.rm=T)
-            SalienceByCode[which(SalienceByCode[,CODE]==iii &SalienceByCode[,GROUPING]==ggg), "SumSalience"]<- sum(mydata[which(mydata[,CODE]==iii & mydata[,GROUPING]==ggg), Salience],na.rm=T)  
-            SalienceByCode[which(SalienceByCode[,CODE]==iii &SalienceByCode[,GROUPING]==ggg), "SmithsS"]<- SalienceByCode[which(SalienceByCode$CODE==iii & SalienceByCode$GROUPING==ggg), "SumSalience"]/length(unique(mydata[,Subj]))            
+            SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "MeanSalience"]<- mean(mydata[which(mydata[,CODE]==iii & mydata[,GROUPING]==ggg), Salience],na.rm=T)
+            SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "SumSalience"]<- sum(mydata[which(mydata[,CODE]==iii & mydata[,GROUPING]==ggg), Salience],na.rm=T)  
+            SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "SmithsS"]<- SalienceByCode[which(SalienceByCode$CODE==iii & SalienceByCode$GROUPING==ggg), "SumSalience"]/length(unique(mydata[,Subj]))            
     } ##End Subj For loop.
     } ##End Group For Loop.
   
@@ -116,7 +126,8 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
         }else{
           doThing<-mean          
         }        
-        for( jjj in unique(mydata[,Subj])){    
+        for( jjj in unique(mydata[,Subj])){              
+          
           witch<-which(mydata[,CODE]==iii & mydata[,Subj]==jjj) #           
           if (length(witch)>1){
             mydata[witch[1],Salience]<-doThing(mydata[witch,Salience])
