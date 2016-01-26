@@ -157,3 +157,4 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
   
   return(SalienceByCode)
 }
+#Github, please  notice this and 
