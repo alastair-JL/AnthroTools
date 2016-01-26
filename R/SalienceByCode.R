@@ -71,7 +71,8 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
     ) 
     
     
-    for( ggg in unique(SalienceByCode$GROUPING)){  
+    for( ggg in unique(SalienceByCode$GROUPING)){              
+      numInGroup<-length(unique(mydata[which(mydata[,GROUPING]==ggg) ,Subj]))      
     for( iii in unique(SalienceByCode$CODE)){  
       if( anyDuplicated(mydata[which(mydata[,CODE]==iii &&mydata[,GROUPING]==ggg), Subj])>0 && dealWithDoubles=="DEFAULT" ) {
         stop('Some subjects have multiple entries with same code. Set "dealWithDoubles" to "SUM", "MAX" or "IGNORE" to deal with this.')      
@@ -101,7 +102,7 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
       }
             SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "MeanSalience"]<- mean(mydata[which(mydata[,CODE]==iii & mydata[,GROUPING]==ggg), Salience],na.rm=T)
             SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "SumSalience"]<- sum(mydata[which(mydata[,CODE]==iii & mydata[,GROUPING]==ggg), Salience],na.rm=T)  
-            SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "SmithsS"]<- SalienceByCode[which(SalienceByCode$CODE==iii & SalienceByCode$GROUPING==ggg), "SumSalience"]/length(unique(mydata[,Subj]))            
+            SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "SmithsS"]<- SalienceByCode[which(SalienceByCode$CODE==iii & SalienceByCode$GROUPING==ggg), "SumSalience"]/numInGroup            
     } ##End Subj For loop.
     } ##End Group For Loop.
   
