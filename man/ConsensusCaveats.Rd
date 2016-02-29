@@ -29,8 +29,8 @@ When using the \code{\link{ConsensusPipeline}}, there are a few warnings and cav
  error rate- usually by a factor of three or four. While this is in some sense better than having it underestimate
  its own error rate, it is strong evidence that our understanding of the algorithm is not complete. This also, we would like to address.
 
- If anyone reading this takes an interest in these concerns, or has encountered a paper address them, we would
- love to hear from you- and use any further discoveries to futher improve the code, such that all may use.
+ If anyone reading this takes an interest in these concerns, or has encountered a paper addressing them, we would
+ love to hear from you- and will use any further discoveries to futher improve the code, such that all may use.
 
  P.S. while this may seem a long list of caveats, please note that they all deal with corner cases, or extreme results. For most reasonable
   data, the function will most likely give good results, and in cases where it does push against the bounds, there will be clear

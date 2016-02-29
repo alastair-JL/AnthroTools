@@ -27,6 +27,13 @@
 #'  ##95% of simulations detected variance below this value- even when tru variance is 0. 
 #'  ##If your variance is below this level, there probably isn't much evidence for competence variability.
 #' quantile(StressSummary[[3]],c(0.5,0.95,0.99,0.999) )     
+#' sum(StressSummary[[4]]<3.0)
+#'  ##This last number is the number of surveys with Comrey ratio less than 3- these are datasets
+#'  ##That the function would refuse to analyse unless the safety override was used.
+#'  ##Please understand that this is the number of "Good" datasets that the function believes are bad.
+#'  ##This value tells you nothing about what the Comrey ratio is likely to look like on "bad" datasets where
+#'  ##Important assumptions are violated.
+#' 
 #' 
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
 #' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
@@ -50,6 +57,7 @@ ConsensusStressTest<-function(numPeople,NumQuestions,numAns,Iterations,lockCompe
   expErrors<-0  
   AvgComp<- rep_len(0, Iterations)
   CompVary<- rep_len(0, Iterations)
+  ComRatio<- rep_len(0, Iterations)  
   for(iii in 1:Iterations){
     fakeData<-GenerateConsensusData(numPeople,NumQuestions,numAns,lockCompetance)
     fakeResults<-ConsensusPipeline(fakeData$Survey,numAns,safetyOverride=TRUE)
@@ -58,6 +66,7 @@ ConsensusStressTest<-function(numPeople,NumQuestions,numAns,Iterations,lockCompe
     print(paste(errors, "errors.",expErrors ," expected errors.", iii ,"Iterations."))
     AvgComp[iii]<- mean(fakeResults$origCompetence)
     CompVary[iii]<- var(fakeResults$origCompetence)
+    ComRatio[iii]<-(fakeResults$reportNumbers)[5];
   }    
  print(paste("In this stress test, the method incorrectly determined ",errors ," answers."))
  print(paste("The method expect to have ",expErrors ," such mistakes."))
@@ -65,5 +74,5 @@ ConsensusStressTest<-function(numPeople,NumQuestions,numAns,Iterations,lockCompe
  print(paste("The Average competance across the whole sample was",mean(AvgComp) ,"."))
  print(paste("The variance in competance across numerous iterations was ",mean(CompVary) ,"."))
   
-  return(list(c(errors,expErrors),AvgComp,CompVary))
+  return(list(c(errors,expErrors),AvgComp,CompVary,ComRatio))
 }

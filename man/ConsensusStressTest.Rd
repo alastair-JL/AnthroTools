@@ -44,6 +44,12 @@ quantile(StressSummary[[3]],0.95)
  ##95\% of simulations detected variance below this value- even when tru variance is 0.
  ##If your variance is below this level, there probably isn't much evidence for competence variability.
 quantile(StressSummary[[3]],c(0.5,0.95,0.99,0.999) )
+sum(StressSummary[[4]]<3.0)
+ ##This last number is the number of surveys with Comrey ratio less than 3- these are datasets
+ ##That the function would refuse to analyse unless the safety override was used.
+ ##Please understand that this is the number of "Good" datasets that the function believes are bad.
+ ##This value tells you nothing about what the Comrey ratio is likely to look like on "bad" datasets where
+ ##Important assumptions are violated.
 }
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>

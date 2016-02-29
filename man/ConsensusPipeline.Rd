@@ -22,6 +22,7 @@ This function returns a list with four components.
 \item{Probs}{The probability that each answer is correct for a given question ASSUMING that the method has correctly determined each individuals competence.
           Given how Competence is calculated, (from the model) it may be reckless to take this "probability" too seriously.}
 \item{reportback}{A string containing some report back information (number of negative competencies, ratio of factor magnitudes). For explaination of use of factor magnitudes rather than Eigenvalues, see \code{\link{ConsensusCaveats}}.}
+\item{reportNumbers}{A vector containing the numbers contained in reportback, in case you need to analyse them in any way. Numbers given in same order.}
 }
 \description{
 This is the main function to use when trying to do consensus analysis on a selection of survey data. This function pretty much streamlines all the consensus analysis functions currently contained in the package into one function.
