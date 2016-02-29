@@ -98,7 +98,7 @@ function(SurveyResults,numQ,safetyOverride=FALSE){
   ReturnThing$TestScore<-TestScore  
   ReturnThing$Probs<-Probs
   ReturnThing$reportback<-reportback
-  ReturnThing$reportNumbers<c(sum(origCompetence<0),sum(origCompetence>1),sqrt(sum(ComResult$main*ComResult$main)),sqrt(sum(ComResult$second*ComResult$second)),ComResult$ratio);  
+  ReturnThing$reportNumbers<-c(sum(origCompetence<0),sum(origCompetence>1),sqrt(sum(ComResult$main*ComResult$main)),sqrt(sum(ComResult$second*ComResult$second)),ComResult$ratio);
   return(ReturnThing)
 }
 

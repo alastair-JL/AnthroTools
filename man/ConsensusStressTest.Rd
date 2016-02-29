@@ -34,7 +34,7 @@ This function (and library) could probably use some additional features. If ther
 }
 \examples{
 StressSummary<- ConsensusStressTest(15,15,4,5000,lockCompetance=0.6)
-##15 individuals, 15 questions, answers A,B,C,D, 500 surveys simulated, all individuals have competence 0.6.
+##15 individuals, 15 questions, answers A,B,C,D, 5000 surveys simulated, all individuals have competence 0.6.
 StressSummary[[1]] ##True and expected error rate.
 mean(StressSummary[[2]]) ##The mean of the mean of calculated competence (should be near 0.6).
 sum((StressSummary[[3]])>0.1)/length(StressSummary[[3]])

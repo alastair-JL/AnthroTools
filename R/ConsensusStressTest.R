@@ -17,7 +17,7 @@
 #' @export
 #' @examples
 #' StressSummary<- ConsensusStressTest(15,15,4,5000,lockCompetance=0.6) 
-#' ##15 individuals, 15 questions, answers A,B,C,D, 500 surveys simulated, all individuals have competence 0.6.
+#' ##15 individuals, 15 questions, answers A,B,C,D, 5000 surveys simulated, all individuals have competence 0.6.
 #' StressSummary[[1]] ##True and expected error rate.
 #' mean(StressSummary[[2]]) ##The mean of the mean of calculated competence (should be near 0.6).
 #' sum((StressSummary[[3]])>0.1)/length(StressSummary[[3]]) 
@@ -44,7 +44,7 @@ ConsensusStressTest<-function(numPeople,NumQuestions,numAns,Iterations,lockCompe
     stop("All your inputs should be numbers!")
   }
   if(class(numPeople)<2||class(NumQuestions)<2||class(numAns)<2||class(Iterations)<2){
-    stop("All your inputs should be at least 2!")
+    stop("All your inputs (except LockCompetance) should be at least 2!")
   }  
   if(is.na(lockCompetance)){
   }else if(is.numeric(lockCompetance) && lockCompetance>=0 && lockCompetance<=1 ){
@@ -58,6 +58,9 @@ ConsensusStressTest<-function(numPeople,NumQuestions,numAns,Iterations,lockCompe
   AvgComp<- rep_len(0, Iterations)
   CompVary<- rep_len(0, Iterations)
   ComRatio<- rep_len(0, Iterations)  
+  errorBySurvey<- rep_len(0, Iterations)  
+  expErrorBySurvey<-rep_len(0, Iterations)  
+  
   for(iii in 1:Iterations){
     fakeData<-GenerateConsensusData(numPeople,NumQuestions,numAns,lockCompetance)
     fakeResults<-ConsensusPipeline(fakeData$Survey,numAns,safetyOverride=TRUE)
@@ -67,6 +70,8 @@ ConsensusStressTest<-function(numPeople,NumQuestions,numAns,Iterations,lockCompe
     AvgComp[iii]<- mean(fakeResults$origCompetence)
     CompVary[iii]<- var(fakeResults$origCompetence)
     ComRatio[iii]<-(fakeResults$reportNumbers)[5];
+    errorBySurvey[iii]<-sum(fakeData$Answers!=fakeResults$Answers);
+    expErrorBySurvey[iii]<-NumQuestions-sum(apply(fakeResults$Probs,2,max))
   }    
  print(paste("In this stress test, the method incorrectly determined ",errors ," answers."))
  print(paste("The method expect to have ",expErrors ," such mistakes."))
@@ -74,5 +79,5 @@ ConsensusStressTest<-function(numPeople,NumQuestions,numAns,Iterations,lockCompe
  print(paste("The Average competance across the whole sample was",mean(AvgComp) ,"."))
  print(paste("The variance in competance across numerous iterations was ",mean(CompVary) ,"."))
   
-  return(list(c(errors,expErrors),AvgComp,CompVary,ComRatio))
+  return(list(c(errors,expErrors),AvgComp,CompVary,ComRatio,errorBySurvey,expErrorBySurvey))
 }
