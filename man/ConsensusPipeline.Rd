@@ -12,7 +12,7 @@ ConsensusPipeline(SurveyResults, numQ, safetyOverride = FALSE,
 
 \item{numQ}{Currently this is a single number representing the number of possible answers to each question (hence for a true/false question, enter "2", for a multiple-choice, "4" perhaps, depending on the number of options).}
 
-\item{safetyOverride}{This function has a variety of checks that will outright prevent it being applied to inapproriate data. Setting the safetyOveride to true will allow the function to run to completion, even when important assumptions are violated (for example, competancies being between zero and one). WARNING: It is probably unwise to mess with this parameter.}
+\item{safetyOverride}{This function has a variety of checks designed to catch apparent paradoxes in the data. Setting the safetyOveride to true will override these safety checks. WARNING: It is almost definitely unwise to mess with this parameter. It exists only for use when simulating LARGE numbers of surveys (where inevitably one of the million surveys will, by chance, violate some assumption or another). Please do not use when dealing with your data.}
 
 \item{ComreyFactorCheck}{This function Originally compared the largest two Comrey factors to determine if the ratio was greater then 3 (a standard rule of thumb in the literature). Further testing has suggested this can at times be a somewhat misleading metric, and thus the function no longer does this by default, but will if this parameter is set to TRUE.}
 }
