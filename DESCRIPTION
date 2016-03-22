@@ -5,5 +5,7 @@ Version: 0.8
 Date: 2016-1-10
 Author: Alastair Jamieson Lane, Benjamin Grant Purzycki.
 Maintainer: Alastair Jamieson-Lane <aja107@math.ubc.ca>
-Description: This package currently contains only two major tools: some Freelist analysis functions, and a basic implementation of Consensus analysis.
+Description: This package currently contains only two major tools: some Freelist
+    analysis functions, and a basic implementation of Consensus analysis.
 License: GPL-2
+RoxygenNote: 5.0.1.9000

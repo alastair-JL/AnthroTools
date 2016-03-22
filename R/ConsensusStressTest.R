@@ -12,7 +12,8 @@
 #' @return 
 #' A list. First entry contains vector with two values: the number of errors, and the expected number of errors.
 #' Second entry contains a vector of the calculated mean competencies, and the third entry is a vector giving the variance in
-#' the competance for each iteration.
+#' the competance for each iteration. We then have the Comrey Ratio, number of errors and expected number of errors (per survey), and 
+#' then finally a vector containing the number of "anomolous" competance values outside the acceptable [0,1] range.
 #' @keywords Consensus
 #' @export
 #' @examples
@@ -60,6 +61,7 @@ ConsensusStressTest<-function(numPeople,NumQuestions,numAns,Iterations,lockCompe
   ComRatio<- rep_len(0, Iterations)  
   errorBySurvey<- rep_len(0, Iterations)  
   expErrorBySurvey<-rep_len(0, Iterations)  
+  anomolousCompetance<-rep_len(0, Iterations)  
   
   for(iii in 1:Iterations){
     fakeData<-GenerateConsensusData(numPeople,NumQuestions,numAns,lockCompetance)
@@ -72,12 +74,14 @@ ConsensusStressTest<-function(numPeople,NumQuestions,numAns,Iterations,lockCompe
     ComRatio[iii]<-(fakeResults$reportNumbers)[5];
     errorBySurvey[iii]<-sum(fakeData$Answers!=fakeResults$Answers);
     expErrorBySurvey[iii]<-NumQuestions-sum(apply(fakeResults$Probs,2,max))
+    anomolousCompetance[iii]<-(fakeResults$reportNumbers)[1]+(fakeResults$reportNumbers)[2]
   }    
  print(paste("In this stress test, the method incorrectly determined ",errors ," answers."))
  print(paste("The method expect to have ",expErrors ," such mistakes."))
  print(paste("The method correctly determined ",(NumQuestions*Iterations-errors) ," answers"))
  print(paste("The Average competance across the whole sample was",mean(AvgComp) ,"."))
  print(paste("The variance in competance across numerous iterations was ",mean(CompVary) ,"."))
-  
-  return(list(c(errors,expErrors),AvgComp,CompVary,ComRatio,errorBySurvey,expErrorBySurvey))
+ print(paste("The method encountered ", sum(anomolousCompetance)," Competance values outside the acceptable [0,1] range.")) 
+ 
+  return(list(c(errors,expErrors),AvgComp,CompVary,ComRatio,errorBySurvey,expErrorBySurvey,anomolousCompetance))
 }
