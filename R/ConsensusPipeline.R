@@ -5,7 +5,7 @@
 #' This method takes a set of survey results, along with a number representing the number of possible answers to each question. It calculates the correlation between different people's answers, corrects for random chance, estimates each individual's expertise, and then determines the most likely answer for each question.
 #' @param SurveyResults These are your survey results, written as a data frame. Rows are expected to represent participants, columns to represent individual questions. Each cell contains a particular individuals answer to a particular question- currently coded as a number (it is assumed questions are multiple choice).
 #' @param numQ Currently this is a single number representing the number of possible answers to each question (hence for a true/false question, enter "2", for a multiple-choice, "4" perhaps, depending on the number of options).
-#' @param safetyOverride This function has a variety of checks that will outright prevent it being applied to inapproriate data. Setting the safetyOveride to true will allow the function to run to completion, even when important assumptions are violated (for example, competancies being between zero and one). WARNING: It is probably unwise to mess with this parameter.
+#' @param safetyOverride This function has a variety of checks designed to catch apparent paradoxes in the data. Setting the safetyOveride to true will override these safety checks. WARNING: It is almost definitely unwise to mess with this parameter. It exists only for use when simulating LARGE numbers of surveys (where inevitably one of the million surveys will, by chance, violate some assumption or another). Please do not use when dealing with your data.
 #' @param ComreyFactorCheck This function Originally compared the largest two Comrey factors to determine if the ratio was greater then 3 (a standard rule of thumb in the literature). Further testing has suggested this can at times be a somewhat misleading metric, and thus the function no longer does this by default, but will if this parameter is set to TRUE.
 #' @return 
 #' This function returns a list with four components.
@@ -99,7 +99,3 @@ if(ComreyFactorCheck){
   ReturnThing$reportNumbers<-c(sum(origCompetence<0),sum(origCompetence>1),sqrt(sum(ComResult$main*ComResult$main)),sqrt(sum(ComResult$second*ComResult$second)),ComResult$ratio);
   return(ReturnThing)
 }
-
-##NOTE: We should implent something akin to Daniel J. Hruschka1 and Jonathan N. Maupin test.
-#It seems like a good plan And is totally worth implementing. We should also probably cite them, in the paper, 
-#Or at the very least once we have implemented the function. ... Actually, I could probably just do it now.
