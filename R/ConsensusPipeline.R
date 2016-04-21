@@ -16,7 +16,7 @@
 #' \item{Probs}{The probability that each answer is correct for a given question ASSUMING that the method has correctly determined each individuals competence. 
 #'           Given how Competence is calculated, (from the model) it may be reckless to take this "probability" too seriously.}
 #' \item{reportback}{A string containing some report back information (number of negative competencies, ratio of factor magnitudes). For explaination of use of factor magnitudes rather than Eigenvalues, see \code{\link{ConsensusCaveats}}.}
-#' \item{reportNumbers}{A vector containing the numbers contained in reportback, in case you need to analyse them in any way. Numbers given in same order.}
+#' \item{reportNumbers}{A vector containing the numbers contained in reportback, in case you need to do some sort of statistical analysis them. Numbers given in same order as reportback.}
 #' @note If you wish to stress test this function or determine the expected variance using a large number of simulations, use \code{\link{ConsensusStressTest}}. For a discussion of the limitations of the methods, and potential pitfalls of the programme, examine \code{\link{ConsensusCaveats}}.
 #' @keywords Consensus
 #' @export
@@ -29,8 +29,7 @@
 #' 
 #' @references 
 #' Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280 
-#'  @references 
-#'  Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
+#' Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
 #' 
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
 #' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
@@ -87,7 +86,7 @@ if(ComreyFactorCheck){
   names(Competence)<-rownames(SurveyResults)
   TestScore<- rowMeans(SurveyResults==rep(1,nrow(SurveyResults)) %*% t(AnsKey) )
 
-  reportback<- paste("We encounterd ", sum(origCompetence<0)," individuals with ``negative'' competance. We found ", sum(origCompetence>1), " individuals with competance over one. The magnitude of the main factor was ", sqrt(sum(ComResult$main*ComResult$main)), ". The second factor's magnitude was " , sqrt(sum(ComResult$second*ComResult$second)),", giving a ratio of ",ComResult$ratio,".")
+  reportback<- paste("We encountered ", sum(origCompetence<0)," individuals with ``negative'' competance. We found ", sum(origCompetence>1), " individuals with competance over one. The magnitude of the main factor was ", sqrt(sum(ComResult$main*ComResult$main)), ". The second factor's magnitude was " , sqrt(sum(ComResult$second*ComResult$second)),", giving a ratio of ",ComResult$ratio,".")
   
   ReturnThing<-list()
   ReturnThing$Answers<-AnsKey

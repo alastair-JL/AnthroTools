@@ -5,7 +5,7 @@
 \title{ConsensusStressTest}
 \usage{
 ConsensusStressTest(numPeople, NumQuestions, numAns, Iterations,
-  lockCompetance = NA)
+  lockCompetence = NA)
 }
 \arguments{
 \item{numPeople}{How many "People" do you wish to simulate answering each survey?}
@@ -16,17 +16,17 @@ ConsensusStressTest(numPeople, NumQuestions, numAns, Iterations,
 
 \item{Iterations}{How many surveys do you wish to simulate?}
 
-\item{lockCompetance}{Give a number between zero and one here to set all participants true competences to that value. Alternative give a vector here to set them equal to the vector.}
+\item{lockCompetence}{Give a number between zero and one here to set all participants true competences to that value. Alternative give a vector here to set them equal to the vector.}
 }
 \value{
 A list. First entry contains vector with two values: the number of errors, and the expected number of errors.
 Second entry contains a vector of the calculated mean competencies, and the third entry is a vector giving the variance in
-the competance for each iteration. We then have the Comrey Ratio, number of errors and expected number of errors (per survey), and 
-then finally a vector containing the number of "anomolous" competance values outside the acceptable [0,1] range.
+the competence for each iteration. We then have the Comrey Ratio, number of errors and expected number of errors (per survey), and 
+then finally a vector containing the number of "anomolous" competence values outside the acceptable [0,1] range.
 }
 \description{
 A function for simulating a large number of surveys, running consensus analysis on each, and then comparing the 
-true and calculated results to determine the algorithms error rate. Used to test \code{\link{ConsensusPipeline}}.
+true and calculated results to determine the algorithm's error rate. Used to test \code{\link{ConsensusPipeline}}.
  Also produces statistics on the mean and variance of the calculated variance scores, which can be used to determine how far
   off you might expect your estimates to be, and whether or not any competence variance you have encountered is likely to be due to purely statistical fluctuations.
 }
@@ -34,7 +34,7 @@ true and calculated results to determine the algorithms error rate. Used to test
 This function (and library) could probably use some additional features. If there are particular features you would like to see added, please email Jamieson-Lane, and he will see about adding them.
 }
 \examples{
-StressSummary<- ConsensusStressTest(15,15,4,5000,lockCompetance=0.6) 
+StressSummary<- ConsensusStressTest(15,15,4,5000,lockCompetence=0.6) 
 ##15 individuals, 15 questions, answers A,B,C,D, 5000 surveys simulated, all individuals have competence 0.6.
 StressSummary[[1]] ##True and expected error rate.
 mean(StressSummary[[2]]) ##The mean of the mean of calculated competence (should be near 0.6).
@@ -42,15 +42,15 @@ sum((StressSummary[[3]])>0.1)/length(StressSummary[[3]])
  ## The proportion of simulations with Competence variance calculated above 0.1.
  ## Note that the true value for this is 0, so all variance found is noise.
 quantile(StressSummary[[3]],0.95)  
- ##95\% of simulations detected variance below this value- even when tru variance is 0. 
+ ##95\% of simulations detected variance below this value- even when true variance is 0. 
  ##If your variance is below this level, there probably isn't much evidence for competence variability.
 quantile(StressSummary[[3]],c(0.5,0.95,0.99,0.999) )     
 sum(StressSummary[[4]]<3.0)
  ##This last number is the number of surveys with Comrey ratio less than 3- these are datasets
- ##That the function would refuse to analyse unless the safety override was used.
+ ##that the function would refuse to analyse unless the safety override was used.
  ##Please understand that this is the number of "Good" datasets that the function believes are bad.
  ##This value tells you nothing about what the Comrey ratio is likely to look like on "bad" datasets where
- ##Important assumptions are violated.
+ ##important assumptions are violated.
 
 
 }
