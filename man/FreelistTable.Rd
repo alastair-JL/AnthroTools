@@ -2,9 +2,7 @@
 % Please edit documentation in R/FreelistTable.R
 \name{FreeListTable}
 \alias{FreeListTable}
-\title{FreeListTable
- @aliases FreelistTable
-Given a Free list data frame (with columns for subject number, order of responses and response code), produce a table comparing each subjects responses to each code. This table can be a simple "presence/absence" table for determining if a subject mentioned a particular code, or something more complex. \code{\link{colSums}} can be applied in order to get summaries (as opposed to person by person breakdown).}
+\title{FreeListTable}
 \usage{
 FreeListTable(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", tableType = "DEFAULT")
 }
@@ -25,8 +23,6 @@ FreeListTable(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", table
 The value returned is a data frame, where each row represents a subject, and each column (bar the first one or two) represents one of your free-list Codes. Depending on "tableType" the entries of the dataframe will either represent different things.
 }
 \description{
-FreeListTable
- @aliases FreelistTable
 Given a Free list data frame (with columns for subject number, order of responses and response code), produce a table comparing each subjects responses to each code. This table can be a simple "presence/absence" table for determining if a subject mentioned a particular code, or something more complex. \code{\link{colSums}} can be applied in order to get summaries (as opposed to person by person breakdown).
 }
 \examples{
