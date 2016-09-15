@@ -58,10 +58,10 @@ or "MAX_SALIENCE". For example: FreeListTable(mydata, tableType="PRESENCE") ')
     if(!(GROUPING %in% colnames(mydata))){    
       stop('Specified "GROUPING" column not valid.')
     }
-    mydata$SubjGrp<-paste(mydata$GROUPING,mydata$Subj)              
+    mydata$SubjGrp<-paste(mydata[,GROUPING],mydata[,Subj])              
     grpYes<-TRUE;
   }else{
-    mydata$SubjGrp<-mydata$Subj
+    mydata$SubjGrp<-mydata[,Subj]
   }
   
     
@@ -78,15 +78,16 @@ or "MAX_SALIENCE". For example: FreeListTable(mydata, tableType="PRESENCE") ')
   
   
   rownames(df)<-subjList
-  for( iii in subjList){
+  for( iii in as.character(subjList)){
     for( jjj in CODEList){
       df[iii,jjj]<-doThing(mydata,CODE=CODE,Salience=Salience,Subj="SubjGrp",subjNum=iii,CODEnum=jjj)            
     }
-    df[iii,"Subject"]<-  mydata[which(mydata$SubjGrp==iii)[1],"Subj"]
+    df[iii,"Subject"]<-  mydata[which(mydata$SubjGrp==iii)[1],Subj]
     if(grpYes){
-      df[iii,"Group"]<-  mydata[which(mydata$SubjGrp==iii)[1],"GROUPING"]
+      df[iii,"Group"]<-  mydata[which(mydata$SubjGrp==iii)[1],GROUPING]
     }
     
   }
+  
 return(df)
 }
