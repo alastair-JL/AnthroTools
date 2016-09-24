@@ -28,8 +28,10 @@
 #' FakeData$Answers
 #' 
 #' @references 
-#' Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280 \s\s  
-#' Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
+#' \itemize{
+#' \item Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X1352028
+#' \item Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
+#' }
 #' 
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
 #' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
@@ -44,7 +46,7 @@ function(SurveyResults,numQ,safetyOverride=FALSE,ComreyFactorCheck=FALSE){
   
   if(all(Competence==-2) ){
     if(safetyOverride){
-      warning(paste("Comrey Solver failed to find ANY valid Competence vector. We don't know why, but this is probably very bad. You should almost certainly ignore all results now given. Please turn the Safety override back off. Using uniform competance as default, you monster."  ))
+      warning(paste("Comrey Solver failed to find ANY valid Competence vector. We don't know why, but this is probably very bad. You should almost certainly ignore all results now given. Please turn the Safety override back off. Using uniform competence as default, you monster."  ))
       Competence=rep(0.5,nrow(SurveyResults))
     }else{
       stop(paste("Comrey Solver failed to find ANY valid competence vector. We don't know why. Function Aborting."  ))      
@@ -86,7 +88,7 @@ if(ComreyFactorCheck){
   names(Competence)<-rownames(SurveyResults)
   TestScore<- rowMeans(SurveyResults==rep(1,nrow(SurveyResults)) %*% t(AnsKey) )
 
-  reportback<- paste("We encountered ", sum(origCompetence<0)," individuals with ``negative'' competance. We found ", sum(origCompetence>1), " individuals with competance over one. The magnitude of the main factor was ", sqrt(sum(ComResult$main*ComResult$main)), ". The second factor's magnitude was " , sqrt(sum(ComResult$second*ComResult$second)),", giving a ratio of ",ComResult$ratio,".")
+  reportback<- paste("We encountered ", sum(origCompetence<0)," individuals with ``negative'' competence. We found ", sum(origCompetence>1), " individuals with competence over one. The magnitude of the main factor was ", sqrt(sum(ComResult$main*ComResult$main)), ". The second factor's magnitude was " , sqrt(sum(ComResult$second*ComResult$second)),", giving a ratio of ",ComResult$ratio,".")
   
   ReturnThing<-list()
   ReturnThing$Answers<-AnsKey
