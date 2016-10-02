@@ -74,6 +74,9 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
     for( ggg in unique(SalienceByCode$GROUPING)){              
       numInGroup<-length(unique(mydata[which(mydata[,GROUPING]==ggg) ,Subj]))      
     for( iii in unique(SalienceByCode$CODE)){  
+  #    SutropCount=0;
+   #   sutropRankSum=0;
+      
       if( anyDuplicated(mydata[which(mydata[,CODE]==iii &&mydata[,GROUPING]==ggg), Subj])>0 && dealWithDoubles=="DEFAULT" ) {
         stop('Some subjects have multiple entries with same code. Set "dealWithDoubles" to "SUM", "MAX" or "IGNORE" to deal with this.')      
       }
@@ -87,7 +90,8 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
           doThing<-mean          
         }          
         for( jjj in unique(mydata[,Subj])){    
-          witch<-which((mydata[,CODE]==iii & mydata[,GROUPING]==ggg) & mydata[,Subj]==jjj) #                     
+          witch<-which((mydata[,CODE]==iii & mydata[,GROUPING]==ggg) & mydata[,Subj]==jjj) # 
+          
           if (length(witch)>1){            
             mydata[witch[1],Salience]<-doThing(mydata[witch,Salience])
             mydata[witch[-1],Salience]<-NA
@@ -103,7 +107,7 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
             SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "MeanSalience"]<- mean(mydata[which(mydata[,CODE]==iii & mydata[,GROUPING]==ggg), Salience],na.rm=T)
             SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "SumSalience"]<- sum(mydata[which(mydata[,CODE]==iii & mydata[,GROUPING]==ggg), Salience],na.rm=T)  
             SalienceByCode[which(SalienceByCode[,"CODE"]==iii &SalienceByCode[,"GROUPING"]==ggg), "SmithsS"]<- SalienceByCode[which(SalienceByCode$CODE==iii & SalienceByCode$GROUPING==ggg), "SumSalience"]/numInGroup            
-    } ##End Subj For loop.
+    } ##End CODE For loop.
     } ##End Group For Loop.
   
   }else{ 
@@ -113,6 +117,7 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
                                SumSalience=0,  ## the SUM of all intensities for a given code.
                                SmithsS=0  ## the SUM of all intensities for a given code.
   ) 
+  
     
   for( iii in unique(SalienceByCode$CODE)){      
     if( anyDuplicated(mydata[which(mydata[,CODE]==iii), Subj])>0 && dealWithDoubles=="DEFAULT" ) {

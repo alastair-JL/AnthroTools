@@ -7,7 +7,7 @@
 #' @param Salience The name of the column in which each responses Salience is stored. If you wish to ask questions of salience, it is important you calculate salience before using this function. (using \code{\link{CalculateSalience}}).
 #' @param Subj The name of the column where your subjects names/subject numbers are stored.
 #' @param GROUPING The name of the column where your subjects group names are sorted. Helps distinguish between individuals from different groups with the same ID number.
-#' @param tableType Currently there are four types of tables: €œPRESENCE, œSUM_SALIENCE,MAX_SALIENCE and FREQUENCY. PRESENCE€ will give a "1" if a participant mentioned the specified code, or €œ0€ otherwise. If you specify €œFREQUENCY, then you will get a count of how often each code was mentioned by each person. If you use €œSUM_SALIENCE€ then you will get the total salience each person has associated with each code. If you use €œMAX_SALIENCE€ then you will get the maximum salience, i.e., the salience of the code the first time it was mentioned.
+#' @param tableType Currently there are four types of tables: €œPRESENCE, œSUM_SALIENCE,MAX_SALIE, HIGHEST_RANKNCE and FREQUENCY. PRESENCE€ will give a "1" if a participant mentioned the specified code, or €œ0€ otherwise. If you specify €œFREQUENCY, then you will get a count of how often each code was mentioned by each person. If you use €œSUM_SALIENCE€ then you will get the total salience each person has associated with each code. If you use €œMAX_SALIENCE€ then you will get the maximum salience, i.e., the salience of the code the first ti me it was mentioned. HIGHEST_RANK gives the lowest value in the order column (the highest rank).
 #' @keywords FreeList
 #' @return The value returned is a data frame, where each row represents a subject, and each column (bar the first one or two) represents one of your free-list Codes. Depending on "tableType" the entries of the dataframe will either represent different things.
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
@@ -49,8 +49,11 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", tableType="DEFAULT
          },         
          "FREQUENCY"={
            doThing<-FreeListTable.freq
+         },
+         "HIGHEST_RANK"={
+           doThing<-FreeListTable.Rank
          },         
-         stop(' tableType must take a value of "PRESENCE","SUM_SALIENCE","FREQUENCY" 
+         stop(' tableType must take a value of "PRESENCE","SUM_SALIENCE","FREQUENCY" ,"HIGHEST_RANK"
 or "MAX_SALIENCE". For example: FreeListTable(mydata, tableType="PRESENCE") ')             
   )
   grpYes<-FALSE;
