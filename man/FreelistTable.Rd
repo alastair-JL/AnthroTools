@@ -15,7 +15,7 @@ FreeListTable(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", table
 
 \item{Subj}{The name of the column where your subjects names/subject numbers are stored.}
 
-\item{tableType}{Currently there are four types of tables: ÄúPRESENCE, úSUM_SALIENCE,MAX_SALIE, HIGHEST_RANKNCE and FREQUENCY. PRESENCEÄù will give a "1" if a participant mentioned the specified code, or Äú0Äù otherwise. If you specify ÄúFREQUENCYù, then you will get a count of how often each code was mentioned by each person. If you use ÄúSUM_SALIENCEÄù then you will get the total salience each person has associated with each code. If you use ÄúMAX_SALIENCEÄù then you will get the maximum salience, i.e., the salience of the code the first ti me it was mentioned. HIGHEST_RANK gives the lowest value in the order column (the highest rank).}
+\item{tableType}{Currently there are five types of tables: PRESENCE, SUM_SALIENCE, MAX_SALIENCE,HIGHEST_RANKING and FREQUENCY. PRESENCE will give a "1" if the specified code is present, or "0" otherwise. If you specify FREQUENCY, then you will get a count of how often each code was mentioned by each person. SUM_SALIENCE and MAX_SALIENCE give (respectively) the total salience an individual has assigned to a particular code, and the highest salience value associated with that code. HIGHEST_RANK gives the lowest number in the order column (and is infered from salience).}
 
 \item{GROUPING}{The name of the column where your subjects group names are sorted. Helps distinguish between individuals from different groups with the same ID number.}
 }
