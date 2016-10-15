@@ -11,11 +11,13 @@ FreeListTable(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", table
 
 \item{CODE}{The name of the column in which your "CODE" (eg, the subjects' individual responses) is stored.}
 
+\item{Order}{The name of the column in which your "Order" (eg, the rank of a subjects' responses) is stored. Feel free to leave this blank if you are not interested in Order..}
+
 \item{Salience}{The name of the column in which each responses Salience is stored. If you wish to ask questions of salience, it is important you calculate salience before using this function. (using \code{\link{CalculateSalience}}).}
 
 \item{Subj}{The name of the column where your subjects names/subject numbers are stored.}
 
-\item{tableType}{Currently there are five types of tables: PRESENCE, SUM_SALIENCE, MAX_SALIENCE,HIGHEST_RANK and FREQUENCY. PRESENCE will give a "1" if the specified code is present, or "0" otherwise. If you specify FREQUENCY, then you will get a count of how often each code was mentioned by each person. SUM_SALIENCE and MAX_SALIENCE give (respectively) the total salience an individual has assigned to a particular code, and the highest salience value associated with that code. HIGHEST_RANK gives the lowest number in the order column (and is infered from salience).}
+\item{tableType}{Currently there are five types of tables: PRESENCE, SUM_SALIENCE, MAX_SALIENCE,HIGHEST_RANK and FREQUENCY. PRESENCE will give a "1" if the specified code is present, or "0" otherwise. If you specify FREQUENCY, then you will get a count of how often each code was mentioned by each person. SUM_SALIENCE and MAX_SALIENCE give (respectively) the total salience an individual has assigned to a particular code, and the highest salience value associated with that code. HIGHEST_RANK gives the lowest number in the order column.}
 
 \item{GROUPING}{The name of the column where your subjects group names are sorted. Helps distinguish between individuals from different groups with the same ID number.}
 }

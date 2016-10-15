@@ -4,10 +4,11 @@
 #' @usage FreeListTable(mydata, CODE = "CODE", Salience = "Salience", Subj = "Subj", tableType = "DEFAULT")
 #' @param mydata This is your free-list data, stored as a data frame. 
 #' @param CODE The name of the column in which your "CODE" (eg, the subjects' individual responses) is stored.
+#' @param Order The name of the column in which your "Order" (eg, the rank of a subjects' responses) is stored. Feel free to leave this blank if you are not interested in Order..
 #' @param Salience The name of the column in which each responses Salience is stored. If you wish to ask questions of salience, it is important you calculate salience before using this function. (using \code{\link{CalculateSalience}}).
 #' @param Subj The name of the column where your subjects names/subject numbers are stored.
 #' @param GROUPING The name of the column where your subjects group names are sorted. Helps distinguish between individuals from different groups with the same ID number.
-#' @param tableType Currently there are five types of tables: PRESENCE, SUM_SALIENCE, MAX_SALIENCE,HIGHEST_RANK and FREQUENCY. PRESENCE will give a "1" if the specified code is present, or "0" otherwise. If you specify FREQUENCY, then you will get a count of how often each code was mentioned by each person. SUM_SALIENCE and MAX_SALIENCE give (respectively) the total salience an individual has assigned to a particular code, and the highest salience value associated with that code. HIGHEST_RANK gives the lowest number in the order column (and is infered from salience). 
+#' @param tableType Currently there are five types of tables: PRESENCE, SUM_SALIENCE, MAX_SALIENCE,HIGHEST_RANK and FREQUENCY. PRESENCE will give a "1" if the specified code is present, or "0" otherwise. If you specify FREQUENCY, then you will get a count of how often each code was mentioned by each person. SUM_SALIENCE and MAX_SALIENCE give (respectively) the total salience an individual has assigned to a particular code, and the highest salience value associated with that code. HIGHEST_RANK gives the lowest number in the order column. 
 #' @keywords FreeList
 #' @return The value returned is a data frame, where each row represents a subject, and each column (bar the first one or two) represents one of your free-list Codes. Depending on "tableType" the entries of the dataframe will either represent different things.
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
@@ -25,7 +26,7 @@
 #' FreeListTable(WorldList, tableType="SUM_SALIENCE",GROUPING="GROUPING")
 #' 
 FreeListTable <-
-function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", tableType="DEFAULT",GROUPING=NA){      
+function(mydata,CODE="CODE",Order="Order",Salience="Salience", Subj="Subj", tableType="DEFAULT",GROUPING=NA){      
   tableType=toupper(tableType)
   switch(tableType,
          "PRESENCE"={
@@ -36,7 +37,7 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", tableType="DEFAULT
            if(!(Salience %in% colnames(mydata)))
            {
              warning("Given Salience column not found. Salience Calculated using function defaults")
-             mydata<-CalculateSalience(mydata,Salience=Salience,Subj=Subj, CODE=CODE)
+             mydata<-CalculateSalience(mydata,Salience=Salience,Subj=Subj, CODE=CODE,Order=Order)
            }
          },
          "SUM_SALIENCE"={
@@ -44,7 +45,7 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", tableType="DEFAULT
            if(!(Salience %in% colnames(mydata)))
            {
              warning("Given Salience column not found. Salience calculated using function defaults.")
-             mydata<-CalculateSalience(mydata,Salience=Salience,Subj=Subj, CODE=CODE)
+             mydata<-CalculateSalience(mydata,Salience=Salience,Subj=Subj, CODE=CODE,Order=Order)
            }
          },         
          "FREQUENCY"={
@@ -52,6 +53,10 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", tableType="DEFAULT
          },
          "HIGHEST_RANK"={
            doThing<-FreeListTable.Rank
+           if(!(Order %in% colnames(mydata)))
+           {
+             stop('Order/Rank column not found! This is going to make calculating ranks difficult.')
+           }
          },         
          stop(' tableType must take a value of "PRESENCE","SUM_SALIENCE","FREQUENCY" ,"HIGHEST_RANK"
 or "MAX_SALIENCE". For example: FreeListTable(mydata, tableType="PRESENCE") ')             
@@ -83,7 +88,7 @@ or "MAX_SALIENCE". For example: FreeListTable(mydata, tableType="PRESENCE") ')
   rownames(df)<-subjList
   for( iii in as.character(subjList)){
     for( jjj in CODEList){
-      df[iii,jjj]<-doThing(mydata,CODE=CODE,Salience=Salience,Subj="SubjGrp",subjNum=iii,CODEnum=jjj)            
+      df[iii,jjj]<-doThing(mydata,CODE=CODE,Order=Order,Salience=Salience,Subj="SubjGrp",subjNum=iii,CODEnum=jjj)            
     }
     df[iii,"Subject"]<-  mydata[which(mydata$SubjGrp==iii)[1],Subj]
     if(grpYes){
