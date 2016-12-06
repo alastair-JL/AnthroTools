@@ -74,7 +74,7 @@ or "MAX_SALIENCE". For example: FreeListTable(mydata, tableType="PRESENCE") ')
   
     
   subjList<- unique(mydata[,"SubjGrp"])
-    
+  
   CODEList<- unique(mydata[,CODE])  
   df <- data.frame(matrix(ncol = (1+grpYes), nrow = length(subjList)))
   
@@ -87,9 +87,11 @@ or "MAX_SALIENCE". For example: FreeListTable(mydata, tableType="PRESENCE") ')
   
   rownames(df)<-subjList
   for( iii in as.character(subjList)){
-    for( jjj in CODEList){
+    for( jjj in as.character(CODEList)){
+      if(!is.na(jjj)){
       df[iii,jjj]<-doThing(mydata,CODE=CODE,Order=Order,Salience=Salience,Subj="SubjGrp",subjNum=iii,CODEnum=jjj)            
-    }
+        }
+  }
     df[iii,"Subject"]<-  mydata[which(mydata$SubjGrp==iii)[1],Subj]
     if(grpYes){
       df[iii,"Group"]<-  mydata[which(mydata$SubjGrp==iii)[1],GROUPING]
