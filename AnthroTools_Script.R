@@ -5,7 +5,8 @@
 ### Benjamin Grant Purzycki and Alastair Jamieson-Lane prepared this script for use 
 ### with the accompanying article:
 
-### Purzycki, B. G., and Jamieson-Lane, A. (n.d.). AnthroTools: A package in R.
+### Purzycki, B. G., and Jamieson-Lane, A. (2017). AnthroTools: A package for cross-cultural
+### ethnographic data analysis. Cross-Cultural Research 51(1):51-74.
 
 ### Please feel free to contact us with any questions, comments, or concerns at 
 ### bgpurzycki@gmail.com or aja107@math.ubc.ca. We are happy to help develop this 
