@@ -4,10 +4,15 @@ AnthroTools is a small collection of statistical tools for Anthropology, for use
 The package contains tools for both Freelist and Consensus Analysis (see references).
 
 To install AnthroTools type:
+
 install.packages("devtools")
+
 library("devtools")
+
 install_github('alastair-JL/AnthroTools')
+
 library(AnthroTools)
+
 help("AnthroTools")
 
 
