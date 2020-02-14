@@ -43,5 +43,5 @@
 #' @references 
 #' Smith, J. J., Furbee, L., Maynard, K., Quick, S., & Ross, L. (1995). Salience Counts: A Domain Analysis of English Color Terms. Journal of Linguistic Anthropology, 5(2), 203-216. http://doi.org/10.1525/jlin.1995.5.2.203.
 #' 
-#' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>  Benjamin Grant Purzycki. <benjamin_purzycki@@eva.mpg.de>
+#' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>  Benjamin Grant Purzycki. <bgpurzycki@@cas.au.dk>
 NULL
