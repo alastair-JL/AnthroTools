@@ -34,7 +34,7 @@
 #' }
 #' 
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
-#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@@cas.au.dk>
 #' @note This function (and library) could probably use some additional features. If there are particular features you would like to see added, please email Jamieson-Lane, and he will see about adding them.
 #' 
 ConsensusPipeline <-
