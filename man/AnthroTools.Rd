@@ -42,7 +42,7 @@ View(ConsensusResult$Answers)
 View(FakeData$Answers)
 }
 \author{
-Alastair Jamieson Lane. <aja107@math.ubc.ca>  Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
+Alastair Jamieson Lane. <aja107@math.ubc.ca>  Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
 \references{
 Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280
