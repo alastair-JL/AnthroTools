@@ -7,7 +7,7 @@
 #' @keywords FreeList
 #' @return A three column table containing the same data, stored in a format compatible with the AnthroTools package.
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
-#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@@cas.au.dk>
 #' @export
 #' 
 LoadFromAnthropac <-
