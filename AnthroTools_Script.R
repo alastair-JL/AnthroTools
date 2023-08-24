@@ -9,7 +9,7 @@
 ### ethnographic data analysis. Cross-Cultural Research 51(1):51-74.
 
 ### Please feel free to contact us with any questions, comments, or concerns at 
-### bgpurzycki@gmail.com or aja107@math.ubc.ca. We are happy to help develop this 
+### bgpurzycki@au.cas.dk or aja107@math.ubc.ca. We are happy to help develop this 
 ### package, so if you have any recommendations, please let us know!
 
 ### If you wish to cite this, please cite the package using the following:
