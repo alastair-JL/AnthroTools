@@ -70,7 +70,7 @@ function(mydata, Order="Order",Subj="Subj",CODE="CODE",GROUPING=NA,Rescale=FALSE
   }
   
     
-  if(!(GROUPING %in% colnames(mydata)) && !is.na(GROUPING)){    
+  if(!(GROUPING %in% colnames(mydata)) & !is.na(GROUPING)){    
     warning("Grouping column not found. Continuing without grouping.")
     GROUPING=NA
   }
