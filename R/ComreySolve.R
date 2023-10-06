@@ -13,7 +13,7 @@
 #' Comrey, A.L.
 #' Psychological Reports, (1962) 11:15-18
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
-#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 #' @note NOTE TO SELF: I really need to go back and re-read Comrey's paper to make sure I have done this right!
 #' @examples
 #' x<- 1:5
