@@ -37,7 +37,7 @@ SalienceByCode(test,dealWithDoubles="MAX",GROUPING="GROUPING")
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>
 
-Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
+Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
 \references{
 Quinlan, M. (2005). Considerations for collecting freelists in the field: Examples from ethobotany. Field Methods, 17(3), 219-234. http://doi.org/10.1177/1525822X05277460
