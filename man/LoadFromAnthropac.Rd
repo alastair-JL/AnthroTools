@@ -18,7 +18,7 @@ Given the file name of a file prepared in the anthropac format, load it in into 
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>
 
-Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
+Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
 \keyword{FreeList}
 
