@@ -8,8 +8,8 @@
 #' \tabular{ll}{
 #' Package: \tab AnthroTools\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.8\cr
-#' Date: \tab 2016-01-10\cr
+#' Version: \tab 0.9\cr
+#' Date: \tab 2023-06-10\cr
 #' License: \tab GPL 2\cr
 #' }
 #' 
