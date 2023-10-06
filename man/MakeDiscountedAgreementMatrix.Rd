@@ -25,7 +25,7 @@ M <- MakeDiscountedAgreementMatrix(Survey, 4)
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>
 
-Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>#' @export
+Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>#' @export
 }
 \keyword{Consensus}
 
