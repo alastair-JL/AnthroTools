@@ -15,7 +15,7 @@
 ### If you wish to cite this, please cite the package using the following:
 
 ### Alastair Jamieson Lane and Benjamin Grant Purzycki. (2016). AnthroTools: Some custom 
-### for anthropology. R package version 0.8.
+### for anthropology. R package version 0.9.
 
 ### If at any point you wish to call up the help menu, run this:
 
