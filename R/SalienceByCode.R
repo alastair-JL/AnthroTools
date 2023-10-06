@@ -77,7 +77,7 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
   #    SutropCount=0;
    #   sutropRankSum=0;
       
-      if( anyDuplicated(mydata[which(mydata[,CODE]==iii &&mydata[,GROUPING]==ggg), Subj])>0 && dealWithDoubles=="DEFAULT" ) {
+      if( anyDuplicated(mydata[which(mydata[,CODE]==iii & mydata[,GROUPING]==ggg), Subj])>0 & dealWithDoubles=="DEFAULT" ) {
         stop('Some subjects have multiple entries with same code. Set "dealWithDoubles" to "SUM", "MAX" or "IGNORE" to deal with this.')      
       }
       print(iii)
@@ -120,7 +120,7 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
   
     
   for( iii in unique(SalienceByCode$CODE)){      
-    if( anyDuplicated(mydata[which(mydata[,CODE]==iii), Subj])>0 && dealWithDoubles=="DEFAULT" ) {
+    if( anyDuplicated(mydata[which(mydata[,CODE]==iii), Subj])>0 & dealWithDoubles=="DEFAULT" ) {
       stop('Some subjects have multiple entries with same code. Set "dealWithDoubles" to "SUM", "MAX" or "IGNORE" to deal with this.')      
     }
     
@@ -163,4 +163,3 @@ function(mydata,CODE="CODE",Salience="Salience", Subj="Subj", dealWithDoubles="D
   
   return(SalienceByCode)
 }
-#Github, please  notice this and 
