@@ -2,7 +2,7 @@
 
 The package contains tools for both Freelist and Consensus Analysis (see references).
 
-To install AnthroTools type:
+To install AnthroTools, run the following:
 
 `install.packages("devtools")`
 
