@@ -1,5 +1,4 @@
-**AnthroTools**
-AnthroTools is a small collection of statistical tools for Anthropology, for use using the statistical programme R.
+**AnthroTools** is a small collection of statistical tools for Anthropology, for use using the statistical programme R.
 
 The package contains tools for both Freelist and Consensus Analysis (see references).
 
