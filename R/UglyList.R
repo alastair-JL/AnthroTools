@@ -5,5 +5,5 @@
 #' @usage data(UglyList)
 #' @format a \code{Date Frame}.
 #' @author Alastair Jamieson Lane. <aja107@@math.ubc.ca>
-#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@@cas.au.dk>
 NULL
