@@ -13,7 +13,7 @@ triad.gen(items)
   The output here is a randomly generated set of triad tests. Simply export to a spreadsheet to incorporate into a survey.
   }
 \description{
-  You get a triad test instrument that's ready to export and use.
+  You get a triad test instrument ready to export and use.
   }
 \examples{
   RVS <- c("Ben", "Uffe", "Jesper", 
