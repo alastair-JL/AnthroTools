@@ -4,7 +4,7 @@
 \alias{triad.gen}
 \title{triad.gen}
 \usage{
-  triad.gen(items)
+triad.gen(items)
 }
 \arguments{
   \item{items}{This is a vector of the items that will be in your triad test.}
