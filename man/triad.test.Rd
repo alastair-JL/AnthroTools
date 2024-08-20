@@ -4,7 +4,7 @@
 \alias{triad.test}
 \title{triad.test}
 \usage{
-  triad.test(data)
+triad.test(data)
 }
 \arguments{
   \item{data}{This is triad data.}
