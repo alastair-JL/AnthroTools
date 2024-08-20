@@ -1,10 +1,11 @@
 # Description
 **AnthroTools** is a small collection of statistical tools for anthropology, for use in the statistical program R.
 
-The **AnthroTools** package contains tools for:
+Currently, the **AnthroTools** package contains tools for:
 * free-list data analysis
 * triad test instrument generator and data analysis
 * consensus analysis
+* ...and more (currently in prep)
 
 To install AnthroTools, run the following:
 
