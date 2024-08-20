@@ -3,7 +3,7 @@
 #' @alias TriadGenerator
 #' @usage triad.gen(items)
 #' @examples
-#' @param dat Make a triad test instrument with only a vector of items.
+#' @param items This is a list of the items you'll use in your instrument.
 #' @return The output of this function is a randomize ready-to-use triad test.
 #' @author Benjamin Grant Purzycki. <bgpurzycki@@cas.au.dk>
 #' @export
