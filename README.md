@@ -5,15 +5,13 @@ The package contains tools for analysis of free-list and triad test data as well
 
 To install AnthroTools, run the following:
 
-`install.packages("devtools")`
-
-`library("devtools")`
-
-`install_github('alastair-JL/AnthroTools')`
-
-`library(AnthroTools)`
-
-`help("AnthroTools")`
+```
+install.packages("devtools")
+library("devtools")
+install_github('alastair-JL/AnthroTools')
+library(AnthroTools)
+help("AnthroTools")
+```
 
 # References
 
