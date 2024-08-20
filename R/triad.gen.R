@@ -19,4 +19,5 @@ triad.gen <- function(items){
   triadlist <- triadlist[, c(4, 1, 2, 3)] # rearrange variable order
   triadlist$rand <- sample(1:nrow(triadlist), nrow(triadlist), replace = F)
   triadlist <- triadlist[order(triadlist$rand),] # randomize!
+  return(triadlist)
 }
