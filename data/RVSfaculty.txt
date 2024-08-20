@@ -1,0 +1,85 @@
+"NUM"	"item1"	"item2"	"item3"	"PART1"	"PART2"	"PART3"	"PART4"
+"1"	8	"Ben"	"Jesper"	"Lene"	3	3	3	3
+"2"	9	"Ben"	"Jesper"	"Jorn"	2	3	3	3
+"3"	10	"Ben"	"Jesper"	"Marianne Q.-F."	2	3	3	3
+"4"	11	"Ben"	"Jesper"	"Thomas"	2	3	3	3
+"5"	12	"Ben"	"Jesper"	"Martin"	1	3	3	3
+"6"	13	"Ben"	"Jesper"	"Mark"	3	3	3	3
+"7"	19	"Ben"	"Jorn"	"Marianne Q.-F."	1	1	1	3
+"8"	20	"Ben"	"Jorn"	"Thomas"	3	1	1	3
+"9"	21	"Ben"	"Jorn"	"Martin"	3	1	1	3
+"10"	22	"Ben"	"Jorn"	"Mark"	3	1	2	3
+"11"	14	"Ben"	"Lene"	"Jorn"	2	1	1	2
+"12"	15	"Ben"	"Lene"	"Marianne Q.-F."	2	1	1	3
+"13"	16	"Ben"	"Lene"	"Thomas"	1	1	1	3
+"14"	17	"Ben"	"Lene"	"Martin"	1	1	1	3
+"15"	18	"Ben"	"Lene"	"Mark"	1	1	1	3
+"16"	23	"Ben"	"Marianne Q.-F."	"Thomas"	2	1	1	3
+"17"	24	"Ben"	"Marianne Q.-F."	"Martin"	3	1	3	3
+"18"	25	"Ben"	"Marianne Q.-F."	"Mark"	3	1	3	3
+"19"	28	"Ben"	"Martin"	"Mark"	1	1	1	3
+"20"	26	"Ben"	"Thomas"	"Martin"	1	1	1	2
+"21"	27	"Ben"	"Thomas"	"Mark"	1	1	1	3
+"22"	1	"Ben"	"Uffe"	"Jesper"	1	3	2	3
+"23"	2	"Ben"	"Uffe"	"Lene"	3	3	3	3
+"24"	3	"Ben"	"Uffe"	"Jorn"	2	3	3	3
+"25"	4	"Ben"	"Uffe"	"Marianne Q.-F."	2	3	3	3
+"26"	5	"Ben"	"Uffe"	"Thomas"	2	3	3	3
+"27"	6	"Ben"	"Uffe"	"Martin"	3	3	3	3
+"28"	7	"Ben"	"Uffe"	"Mark"	3	3	3	3
+"29"	55	"Jesper"	"Jorn"	"Marianne Q.-F."	1	1	1	1
+"30"	56	"Jesper"	"Jorn"	"Thomas"	3	3	3	3
+"31"	57	"Jesper"	"Jorn"	"Martin"	1	3	3	3
+"32"	58	"Jesper"	"Jorn"	"Mark"	3	3	1	3
+"33"	50	"Jesper"	"Lene"	"Jorn"	2	1	1	1
+"34"	51	"Jesper"	"Lene"	"Marianne Q.-F."	2	1	1	1
+"35"	52	"Jesper"	"Lene"	"Thomas"	1	3	3	3
+"36"	53	"Jesper"	"Lene"	"Martin"	1	1	3	3
+"37"	54	"Jesper"	"Lene"	"Mark"	1	1	1	1
+"38"	59	"Jesper"	"Marianne Q.-F."	"Thomas"	3	3	3	3
+"39"	60	"Jesper"	"Marianne Q.-F."	"Martin"	1	3	1	3
+"40"	61	"Jesper"	"Marianne Q.-F."	"Mark"	3	3	3	3
+"41"	64	"Jesper"	"Martin"	"Mark"	1	1	1	1
+"42"	62	"Jesper"	"Thomas"	"Martin"	1	1	1	1
+"43"	63	"Jesper"	"Thomas"	"Mark"	1	1	1	1
+"44"	75	"Jorn"	"Marianne Q.-F."	"Thomas"	3	3	3	3
+"45"	76	"Jorn"	"Marianne Q.-F."	"Martin"	3	3	3	3
+"46"	77	"Jorn"	"Marianne Q.-F."	"Mark"	3	3	3	3
+"47"	80	"Jorn"	"Martin"	"Mark"	1	1	1	1
+"48"	78	"Jorn"	"Thomas"	"Martin"	1	1	1	1
+"49"	79	"Jorn"	"Thomas"	"Mark"	1	1	1	1
+"50"	65	"Lene"	"Jorn"	"Marianne Q.-F."	1	1	1	1
+"51"	66	"Lene"	"Jorn"	"Thomas"	2	3	3	3
+"52"	67	"Lene"	"Jorn"	"Martin"	2	3	3	3
+"53"	68	"Lene"	"Jorn"	"Mark"	2	3	3	3
+"54"	69	"Lene"	"Marianne Q.-F."	"Thomas"	2	3	3	3
+"55"	70	"Lene"	"Marianne Q.-F."	"Martin"	2	3	3	3
+"56"	71	"Lene"	"Marianne Q.-F."	"Mark"	2	3	3	3
+"57"	74	"Lene"	"Martin"	"Mark"	1	1	1	1
+"58"	72	"Lene"	"Thomas"	"Martin"	3	1	1	1
+"59"	73	"Lene"	"Thomas"	"Mark"	1	1	1	1
+"60"	83	"Marianne Q.-F."	"Martin"	"Mark"	1	1	1	1
+"61"	81	"Marianne Q.-F."	"Thomas"	"Martin"	1	1	1	1
+"62"	82	"Marianne Q.-F."	"Thomas"	"Mark"	1	1	1	1
+"63"	84	"Thomas"	"Martin"	"Mark"	1	1	3	2
+"64"	29	"Uffe"	"Jesper"	"Lene"	3	3	3	3
+"65"	30	"Uffe"	"Jesper"	"Jorn"	3	3	3	3
+"66"	31	"Uffe"	"Jesper"	"Marianne Q.-F."	3	3	1	3
+"67"	32	"Uffe"	"Jesper"	"Thomas"	3	3	3	3
+"68"	33	"Uffe"	"Jesper"	"Martin"	3	3	3	3
+"69"	34	"Uffe"	"Jesper"	"Mark"	3	3	3	3
+"70"	40	"Uffe"	"Jorn"	"Marianne Q.-F."	1	1	1	1
+"71"	41	"Uffe"	"Jorn"	"Thomas"	2	1	3	1
+"72"	42	"Uffe"	"Jorn"	"Martin"	1	1	3	1
+"73"	43	"Uffe"	"Jorn"	"Mark"	1	1	1	1
+"74"	35	"Uffe"	"Lene"	"Jorn"	3	1	1	1
+"75"	36	"Uffe"	"Lene"	"Marianne Q.-F."	3	1	1	1
+"76"	37	"Uffe"	"Lene"	"Thomas"	1	1	1	1
+"77"	38	"Uffe"	"Lene"	"Martin"	1	1	1	1
+"78"	39	"Uffe"	"Lene"	"Mark"	1	1	1	1
+"79"	44	"Uffe"	"Marianne Q.-F."	"Thomas"	1	1	1	1
+"80"	45	"Uffe"	"Marianne Q.-F."	"Martin"	1	1	3	1
+"81"	46	"Uffe"	"Marianne Q.-F."	"Mark"	1	1	1	1
+"82"	49	"Uffe"	"Martin"	"Mark"	1	1	1	1
+"83"	47	"Uffe"	"Thomas"	"Martin"	1	1	1	1
+"84"	48	"Uffe"	"Thomas"	"Mark"	1	1	1	1
