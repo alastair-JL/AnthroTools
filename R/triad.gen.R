@@ -1,5 +1,5 @@
 #' TriadGenerator
-#' Convert triad test data to a similarity matrix
+#' Create triad test instrument
 #' @alias TriadGenerator
 #' @usage triad.gen(items)
 #' @examples
