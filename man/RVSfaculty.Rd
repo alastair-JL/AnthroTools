@@ -9,7 +9,7 @@
   data(RVSfaculty)
 }
 \description{
-  An example dataframe to illustrate what triad data should look like as an input}.
+  An example dataframe to illustrate what triad data should look like as an input.
 }
 \author{
     Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
