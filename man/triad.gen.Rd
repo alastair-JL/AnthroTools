@@ -15,9 +15,6 @@ triad.gen(items)
 \description{
   You get a triad test instrument that's ready to export and use.
   }
-\note{
-}
-
 \examples{
   RVS <- c("Ben", "Uffe", "Jesper", 
          "Lene", "Jorn", "Marianne Q.-F.",
