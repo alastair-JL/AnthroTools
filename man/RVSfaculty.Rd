@@ -9,7 +9,8 @@
   data(RVSfaculty)
 }
 \description{
-  An example dataframe to illustrate what triad data should look like as an input.
+  An example dataframe to illustrate what triad data should look like as an input. This data set is in the proper format for the function to work. It consists of: (1) an identifying number for each triad (NUM), (2-4) the specific items of the triad (item1, item2, item3), and participants' selection of the most distinct item of the triad, the triad.test() function will create an item-by-item similarity matrix (PART1, PART2, ... PART5).
+
 }
 \author{
     Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
