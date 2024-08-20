@@ -8,8 +8,8 @@
 #' \tabular{ll}{
 #' Package: \tab AnthroTools\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.9\cr
-#' Date: \tab 2023-06-10\cr
+#' Version: \tab 1.0\cr
+#' Date: \tab 2024-08-20\cr
 #' License: \tab GPL 2\cr
 #' }
 #' 
@@ -22,6 +22,9 @@
 #' Consensus analysis lets you collect a group's answers to multi choice questions (all related to a single topic). By first estimating the competence of each person, the method will than allow you to calculate the ``consensus response''.
 #' If you want to do consensus analysis, we recommend \code{\link{ConsensusPipeline}}. For examples of the data structures the functions would like as input please look at \code{\link{ConsensusTestData}}, or generate your own data using \code{\link{GenerateConsensusData}}
 #' 
+#' @section Triad Test:
+#' Triad tests examine (dis)similarities of all triplet-combinations of a wordbank (e.g., "For each triplet, please select the one that is the least like the others"). Check out the walkthrough of a real example using \code{\link{triad.test}}.
+#'
 #' @keywords package
 #' @examples
 #' data(FruitList)
