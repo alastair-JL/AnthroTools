@@ -1,6 +1,6 @@
-#' TriadGenerator
+#' triad.gen
+#' 
 #' Create triad test instrument
-#' @alias TriadGenerator
 #' @usage triad.gen(items)
 #' @examples
 #' @param items This is a list of the items you'll use in your instrument.
