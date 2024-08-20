@@ -20,6 +20,8 @@ library(AnthroTools)
 
 Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). [Bayesian cultural consensus theory.](http://doi.org/10.1177/1525822X13520280) Field Methods, 1525822X13520280.
 
+Purzycki, B. G. (forthcoming). Ethnographic Free-List Data: Management and Analysis with Examples in R. London: Sage.
+
 Purzycki, B. G., and Jamieson-Lane, A. (2017). [AnthroTools: An R package for cross-cultural ethnographic data analysis.](https://journals.sagepub.com/doi/pdf/10.1177/1069397116680352) Cross-Cultural Research, 51(1):  51-74. 
 
 Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as consensus: A theory of culture and informant accuracy. American Anthropologist, 88(2), 313-338.
