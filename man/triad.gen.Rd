@@ -7,7 +7,7 @@
 triad.gen(items)
 }
 \arguments{
-  \item{items}{This is a vector of the items that will be in your triad test.}
+  \item{items}{This is a vector of the items that will be in your triad test.
 }
 \value{
   The output here is a randomly generated set of triad tests. Simply export to a spreadsheet to incorporate into a survey.
