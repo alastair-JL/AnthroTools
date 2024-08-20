@@ -7,7 +7,7 @@
 triad.test(data)
 }
 \arguments{
-  \item{data}{This is triad data.}
+  \item{data}{This is triad data. It needs to consist of: (1) an identifying number for each triad (NUM), (2-4) the specific items of the triad (item1, item2, item3), and (5-n) participants' selection of the most distinct item of the triad, the triad.test() function will create an item-by-item similarity matrix (PART1, PART2, ... PARTn).}
 }
 \value{
   The output here is the similarity matrix of the triad data. 
