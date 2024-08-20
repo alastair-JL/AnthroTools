@@ -10,10 +10,10 @@
   \item{data}{This is triad data.}
 }
 \value{
-  The output here is the dissimilarity matrix of the triad data. 
+  The output here is the similarity matrix of the triad data. 
   }
 \description{
-  You get a dissimilarity matrix of triad test data. You'll likely need to convert it to a similarity matrix to plot it. See examples.
+  You get a similarity matrix of triad test data. You'll probably need to convert it to a dissimilarity matrix to plot it. See examples.
 }
 \note{
   Pay close attention to the nature of the input data. The function will only work when data are in this particular shape and format. See the example below.
