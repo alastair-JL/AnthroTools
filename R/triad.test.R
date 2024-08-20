@@ -5,7 +5,7 @@
 #' @examples
 #' @param dat A data set where three columns--denoted by ``item1'', ``item2'', and ``item3'' are the triads of the test. Other columns including participants should be called ``part1'', ``part2'', ``part3'', until ``partn''. The function identifies triad content and participants this way.
 #' @return Upon running this function, you'll get a similarity matrix of triad decisions. This should be converted to a dissimilarity matrix before analysis.
-#' @author Benjamin Grant Purzycki. <bgpurzycki@@alumni.ubc.ca>
+#' @author Benjamin Grant Purzycki. <bgpurzycki@@cas.au.dk>
 #' @author Aaron Lightner. <alightner2@@gmail.com>
 #' data(RVSfaculty)
 #' d.diff <- triad.test(RVSfaculty) # similarity matrix
