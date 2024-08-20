@@ -19,10 +19,11 @@ triad.gen(items)
 }
 
 \examples{
-RVS <- c("Ben", "Uffe", "Jesper", 
+  RVS <- c("Ben", "Uffe", "Jesper", 
          "Lene", "Jorn", "Marianne Q.-F.",
          "Thomas", "Martin", "Mark") # your items
-triadmat <- triad.gen(RVS)
-View(triadmat)
+  triadmat <- triad.gen(RVS)
+  View(triadmat)
 }
+
 \keyword{triad.gen}
