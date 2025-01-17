@@ -1,0 +1,9 @@
+"size"	"listmoral"
+"Coastal Tanna"	42	41
+"Hadza"	57	30
+"Inland Tanna"	74	29
+"Lovu Fiji"	80	68
+"Marajo"	76	56
+"Mauritius"	69	51
+"Tyva Republic"	73	51
+"Yasawa Fiji"	105	87
