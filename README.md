@@ -5,6 +5,7 @@ Currently, the **AnthroTools** package contains tools for:
 * free-list data analysis
 * triad test instrument generator and data analysis
 * consensus analysis
+* Cultural FST across multiple groups
 * ...and more (currently in prep)
 
 To install **AnthroTools**, run the following:
