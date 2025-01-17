@@ -12,8 +12,8 @@ AnthroTools: Some custom tools for cultural anthropology.
 \tabular{ll}{
 Package: \tab AnthroTools\cr
 Type: \tab Package\cr
-Version: \tab 0.9\cr
-Date: \tab 2023-06-10\cr
+Version: \tab 1.1\cr
+Date: \tab 2025-17-1\cr
 License: \tab GPL 2\cr
 }
 }
@@ -29,18 +29,17 @@ If your data was previously prepared for Anthropac, then \code{\link{LoadFromAnt
 Consensus analysis lets you collect a group's answers to multi choice questions (all related to a single topic). By first estimating the competence of each person, the method will than allow you to calculate the ``consensus response''.
 If you want to do consensus analysis, we recommend \code{\link{ConsensusPipeline}}. For examples of the data structures the functions would like as input please look at \code{\link{ConsensusTestData}}, or generate your own data using \code{\link{GenerateConsensusData}}
 }
-\examples{
-data(FruitList)
-test<- FruitList
-test<- CalculateSalience(test)
-SalienceByCode(test,dealWithDoubles="MAX")
 
-FakeData<- GenerateConsensusData(8,8,4)
-Survey <- FakeData$Survey
-ConsensusResult <- ConsensusPipeline(Survey,4)
-View(ConsensusResult$Answers)
-View(FakeData$Answers)
+\section{Triad Tests}{
+
+Triad tests measure conceptual differences and similarities of word triplets. If you give it a list of words, the \code{\link{triad.gen} function will produce a randomized block of triads for administration. The \code{\link{triad.test}} function will take your triad data and analyze it.
 }
+
+\section{Cultural FST}{
+
+Cultural FST is the proportion of between-group and total cultural variance of a particular trait. Higher CF_{ST} scores (i.e., trending toward 1) tell us that there is more between-group variation than within groups. Lower scores (i.e., trending toward 0) tell us that the variation lies more within groups. For a quick FST calculator, use the \code{\link{cultFST}} function. To produce a cross-group FST matrix, use the \code{\link{fstmatrix}} function
+}
+
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>  Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
