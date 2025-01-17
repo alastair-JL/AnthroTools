@@ -32,7 +32,7 @@ If you want to do consensus analysis, we recommend \code{\link{ConsensusPipeline
 
 \section{Triad Tests}{
 
-Triad tests measure conceptual differences and similarities of word triplets. If you give it a list of words, the \code{\link{triad.gen} function will produce a randomized block of triads for administration. The \code{\link{triad.test}} function will take your triad data and analyze it.
+Triad tests measure conceptual differences and similarities of word triplets. If you give it a list of words, the \code{\link{triad.gen}} function will produce a randomized block of triads for administration. The \code{\link{triad.test}} function will take your triad data and analyze it.
 }
 
 \section{Cultural FST}{
@@ -43,6 +43,7 @@ Cultural FST is the proportion of between-group and total cultural variance of a
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>  Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
+
 \references{
 Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280
 
