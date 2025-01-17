@@ -34,9 +34,11 @@
   }
 
 \references{
-  Bell, A. V., Richerson, P. J., & McElreath, R. (2009). Culture rather than genes provides greater scope for the evolution of large-scale human prosociality. Proceedings of the National Academy of Sciences, 106(42), 17671-17674.
-  Handley, C., & Mathew, S. (2020). Human large-scale cooperation as a product of competition between cultural groups. Nature communications, 11(1), 702.
-  Wright, S. (1965). The interpretation of population structure by F-statistics with special regard to systems of mating. Evolution, 395-420.
+Bell, A. V., Richerson, P. J., & McElreath, R. (2009). Culture rather than genes provides greater scope for the evolution of large-scale human prosociality. Proceedings of the National Academy of Sciences, 106(42), 17671-17674.
+  
+Handley, C., & Mathew, S. (2020). Human large-scale cooperation as a product of competition between cultural groups. Nature communications, 11(1), 702.
+
+Wright, S. (1965). The interpretation of population structure by F-statistics with special regard to systems of mating. Evolution, 395-420.
 }
 
 \keyword{fstmatrix}
