@@ -15,7 +15,10 @@
 ### If you wish to cite this, please cite the package using the following:
 
 ### Alastair Jamieson Lane and Benjamin Grant Purzycki. (2016). AnthroTools: Some custom 
-### for anthropology. R package version 0.9.
+### for anthropology. R package version 1.1.
+
+### Purzycki, B. G., & Jamieson-Lane, A. (2017). AnthroTools: An R package for cross-cultural 
+### ethnographic data analysis. Cross-Cultural Research, 51(1), 51-74.
 
 ### If at any point you wish to call up the help menu, run this:
 
