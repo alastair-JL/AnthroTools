@@ -49,7 +49,7 @@ FakeData$Answers
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>
 
-Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
+Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
 \references{
 \itemize{
