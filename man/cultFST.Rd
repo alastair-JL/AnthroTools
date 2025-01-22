@@ -20,7 +20,8 @@ This function returns the Cultural FST value for two groups. If all of the varia
   }
 
 \description{
-Cultural FST is a proportion of between-group cultural variance to the total cultural variance in a particular trait.}
+Cultural FST is a proportion of between-group cultural variance to the total cultural variance in a particular trait. AnthroTools uses the formula: CFST = [ni/(ni + nj)(pi - phat)^2 + nj/(ni + nj)(pj - phat)^2]/[phat(1 - phat)] where ni and nj are the frequency of individuals in groups i and j, respectively, pi is the proportion of i who exhibit a trait, and pj is the propotion of j that exhibits the trait, and phat is the cross-group sharedness (i.e., (xi + xj)/(ni + nj).
+}
 
 \note{
 This function is only to be applied to two groups. Use the fstmatrix() function for multiple groups.  
