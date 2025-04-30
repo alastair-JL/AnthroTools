@@ -41,7 +41,9 @@ Cultural FST is the proportion of between-group and total cultural variance of a
 }
 
 \author{
-Alastair Jamieson Lane. <aja107@math.ubc.ca>  Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
+Alastair Jamieson Lane. <aja107@math.ubc.ca>  
+
+Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
 
 \references{
