@@ -18,6 +18,7 @@ library(AnthroTools)
 ```
 
 # References
+Major-Smith, D., & Purzycki, B. G. (2025). [Modelling Uncertainty around Free-List Cultural Salience Scores.](https://doi.org/10.31219/osf.io/k5ef4_v1). 
 
 Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). [Bayesian cultural consensus theory.](http://doi.org/10.1177/1525822X13520280) Field Methods, 26(3): 207-222.
 
