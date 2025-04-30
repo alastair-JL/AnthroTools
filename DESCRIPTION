@@ -1,11 +1,11 @@
 Package: AnthroTools
 Type: Package
 Title: Some custom tools for anthropology
-Version: 1.1
-Date: 2025-17-01
-Author: Alastair Jamieson Lane, Benjamin Grant Purzycki.
+Version: 2.0
+Date: 2025-30-04
+Author: Alastair Jamieson Lane and Benjamin Grant Purzycki.
 Maintainer: Alastair Jamieson-Lane <aja107@math.ubc.ca>, Benjamin Grant Purzycki <bgpurzycki@cas.au.dk>
-Description: This package currently contains the following tools: some Freelist
-    analysis functions, a basic implementation of Consensus analysis, and triad test analysis.
+Description: This package currently contains the following tools: some free-list
+    analysis functions, a basic implementation of consensus analysis, triad test analysis, and cultural FST.
 License: GPL-2
 RoxygenNote: 5.0.1.9000
