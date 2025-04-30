@@ -40,7 +40,7 @@ FreeListTable.freq(test,subjNum=7,CODEnum="apple")
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>
 
-Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
+Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
 \keyword{FreeList}
 
