@@ -27,20 +27,27 @@ set.seed(41)
 fakeData <- GenerateFakeFreeListData() 
 
 ## Calculate item salience
-fakeData.s <- CalculateSalience(fakeData, Subj = "Subj", Order = "Order", CODE = "CODE", Salience = "CODE.S")
+fakeData.s <- CalculateSalience(fakeData, Subj = "Subj", Order = "Order", 
+		CODE = "CODE", Salience = "CODE.S")
 
-## Convert to data frame with maximum item saliences for each item as separate rows, and including 0s
-fakeData.sal0 <- FreeListTable(fakeData.s, Subj = "Subj", Order = "Order", CODE = "CODE", Salience = "CODE.S", tableType = "MAX_SALIENCE")
+## Convert to data frame with maximum item saliences for each item as 
+## separate rows, and including 0s
+fakeData.sal0 <- FreeListTable(fakeData.s, Subj = "Subj", Order = "Order", 
+		CODE = "CODE", Salience = "CODE.S", tableType = "MAX_SALIENCE")
 head(fakeData.sal0)
 
-## Calculate uncertainty in Smith's S via boot-strapping for top 8 items in terms of Smith's S, using 1,000 iterations for each item
-S_boot <- SalienceBoot(fakeData.sal0, var_sel = "TOP", top = 8, iterations = 1000, seed = 182, IDs_first = TRUE)
+## Calculate uncertainty in Smith's S via boot-strapping for top 8 items in 
+## terms of Smith's S, using 1,000 iterations for each item
+S_boot <- SalienceBoot(fakeData.sal0, var_sel = "TOP", top = 8, 
+		iterations = 1000, seed = 182, IDs_first = TRUE)
 
 ## Summarise results, displaying median Smith's S estimate and 95% percentile intervals
 res <- SalienceEstimateSummary(S_boot, quantiles = c(0.025, 0.5, 0.975))
 
-## Calculate Smith's S using the 'fakeData.s' dataset (this is the output used for standard flower-plots in AnthroTools)
-fake.S <- SalienceByCode(fakeData.s, Subj = "Subj", CODE = "CODE", Salience = "CODE.S", dealWithDoubles = "MAX")
+## Calculate Smith's S using the 'fakeData.s' dataset (this is the output used for 
+## standard flower-plots in AnthroTools)
+fake.S <- SalienceByCode(fakeData.s, Subj = "Subj", CODE = "CODE", 
+		Salience = "CODE.S", dealWithDoubles = "MAX")
 
 ## Create flowerplot with uncertainty estimates - First, make margins wider so looks nicer
 par(mar = c(0, 0, 0, 0))
@@ -49,7 +56,8 @@ FlowerPlotIntervals(SmithsS = fake.S, S_uncert = res, label = "Fruits")
 ## Or, if wanted to display 89% uncertainty intervals
 res <- SalienceEstimateSummary(S_boot, quantiles = c(0.055, 0.5, 0.945))
 par(mar = c(0, 0, 0, 0))
-FlowerPlotIntervals(SmithsS = fake.S, S_uncert = res, label = "Fruits", lower_int = "5.5\%", upper_int = "94.5\%")
+FlowerPlotIntervals(SmithsS = fake.S, S_uncert = res, label = "Fruits", 
+		lower_int = "5.5%", upper_int = "94.5%")
 
 }
 \author{

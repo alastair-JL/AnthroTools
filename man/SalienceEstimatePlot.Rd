@@ -23,21 +23,28 @@ set.seed(41)
 fakeData <- GenerateFakeFreeListData() 
 
 ## Calculate item salience
-fakeData.s <- CalculateSalience(fakeData, Subj = "Subj", Order = "Order", CODE = "CODE", Salience = "CODE.S")
+fakeData.s <- CalculateSalience(fakeData, Subj = "Subj", Order = "Order", 
+		CODE = "CODE", Salience = "CODE.S")
 
-## Convert to data frame with maximum item saliences for each item as separate rows, and including 0s
-fakeData.sal0 <- FreeListTable(fakeData.s, Subj = "Subj", Order = "Order", CODE = "CODE", Salience = "CODE.S", tableType = "MAX_SALIENCE")
+## Convert to data frame with maximum item saliences for each item as 
+## separate rows, and including 0s
+fakeData.sal0 <- FreeListTable(fakeData.s, Subj = "Subj", Order = "Order", 
+		CODE = "CODE", Salience = "CODE.S", tableType = "MAX_SALIENCE")
 head(fakeData.sal0)
 
-## Calculate uncertainty in Smith's S via boot-strapping for top 6 items in terms of Smith's S, using 1,000 iterations for each item
-S_boot <- SalienceBoot(fakeData.sal0, var_sel = "TOP", top = 6, iterations = 1000, seed = 182, IDs_first = TRUE)
+## Calculate uncertainty in Smith's S via boot-strapping for top 6 items 
+## in terms of Smith's S, using 1,000 iterations for each item
+S_boot <- SalienceBoot(fakeData.sal0, var_sel = "TOP", top = 6, 
+		iterations = 1000, seed = 182, IDs_first = TRUE)
 
 ## Plot of these results
 # Ranked from highest to lowest
 SalienceEstimatePlot(S_boot, order = "high-low")
 
 # And using manual specification
-SalienceEstimatePlot(S_boot, order = "manual", manual_order = c("apple", "banana", "pear", "orange", "peach", "plum", "lemon"))
+SalienceEstimatePlot(S_boot, order = "manual", 
+		manual_order = c("apple", "banana", "pear", "orange", 
+				"peach", "plum", "lemon"))
 
 }
 \author{
