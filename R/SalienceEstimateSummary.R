@@ -2,7 +2,7 @@
 #' 
 #' Given a list of vectors of Smith's S estimates, summarise each vector in the list to calculate uncertainty intervals (e.g., percentile intervals from boot-strapping, or credible intervals from Bayesian models). The input to this function is the output to commands 'SalienceBoot()', 'SalienceZOIB()' or 'SalienceOrdBeta()'.
 #' @usage SalienceEstimateSummary(data, quantiles = c(0, 0.025, 0.1, 0.25, 0.5, 0.75, 0.9, 0.975, 1))
-#' @param data This is a list of vectors of Smith's S estimates (i.e., the output of commands 'FLboot_sal()', 'FLZOIB_sal()' or 'FLordBeta_sal()'). 
+#' @param data This is a list of vectors of Smith's S estimates (i.e., the output of commands 'SalienceBoot()', 'SalienceZOIB()' or 'SalienceOrdBeta()'). 
 #' @param quantiles The specific quantiles/uncertainty intervals to estimate (default = c(0, 0.025, 0.1, 0.25, 0.5, 0.75, 0.9, 0.975, 1)).
 #' @keywords FreeList, Smith's S, Cultural salience
 #' @return A data frame of Smith's S estimates and uncertainty intervals for each item.
