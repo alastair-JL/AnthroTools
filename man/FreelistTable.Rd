@@ -42,7 +42,7 @@ FreeListTable(WorldList, tableType="SUM_SALIENCE",GROUPING="GROUPING")
 \author{
 Alastair Jamieson Lane. <aja107@math.ubc.ca>
 
-Benjamin Grant Purzycki. <bgpurzycki@alumni.ubc.ca>
+Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
 \keyword{FreeList}
 
