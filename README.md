@@ -25,7 +25,7 @@ Purzycki, B. G. (2025). [Ethnographic Free-List Data: Management and Analysis wi
 
 Purzycki, B. G., and Jamieson-Lane, A. (2017). [AnthroTools: An R package for cross-cultural ethnographic data analysis.](https://journals.sagepub.com/doi/pdf/10.1177/1069397116680352) Cross-Cultural Research, 51(1):  51-74. 
 
-Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as consensus: A theory of culture and informant accuracy. American Anthropologist, 88(2), 313-338.
+Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). [Culture as consensus: A theory of culture and informant accuracy.](https://anthrosource.onlinelibrary.wiley.com/doi/abs/10.1525/aa.1986.88.2.02a00020) American Anthropologist, 88(2), 313-338.
 
 Smith, J. J., & Borgatti, S. P. (1997). [Salience counts-and so does accuracy: Correcting and updating a measure for free-list-item salience.](http://doi.org/10.1525/jlin.1997.7.2.208) Journal of Linguistic Anthropology, 7(2), 208-209. 
 
