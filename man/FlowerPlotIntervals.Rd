@@ -49,7 +49,7 @@ FlowerPlotIntervals(SmithsS = fake.S, S_uncert = res, label = "Fruits")
 ## Or, if wanted to display 89% uncertainty intervals
 res <- SalienceEstimateSummary(S_boot, quantiles = c(0.055, 0.5, 0.945))
 par(mar = c(0, 0, 0, 0))
-FlowerPlotIntervals(SmithsS = fake.S, S_uncert = res, label = "Fruits", lower_int = "5.5%", upper_int = "94.5%")
+FlowerPlotIntervals(SmithsS = fake.S, S_uncert = res, label = "Fruits", lower_int = "5.5\%", upper_int = "94.5\%")
 
 }
 \author{
