@@ -21,7 +21,7 @@ library(AnthroTools)
 
 Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). [Bayesian cultural consensus theory.](http://doi.org/10.1177/1525822X13520280) Field Methods, 1525822X13520280.
 
-Purzycki, B. G. (2025). Ethnographic Free-List Data: Management and Analysis with Examples in R. London: Sage.
+Purzycki, B. G. (2025). [Ethnographic Free-List Data: Management and Analysis with Examples in R.](https://collegepublishing.sagepub.com/products/ethnographic-free-list-data-1-282517) London: Sage.
 
 Purzycki, B. G., and Jamieson-Lane, A. (2017). [AnthroTools: An R package for cross-cultural ethnographic data analysis.](https://journals.sagepub.com/doi/pdf/10.1177/1069397116680352) Cross-Cultural Research, 51(1):  51-74. 
 
