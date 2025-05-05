@@ -24,6 +24,13 @@ If you wish to do salience analysis, the most important function will be \code{\
 If your data was previously prepared for Anthropac, then \code{\link{LoadFromAnthropac}} provides compatibility.
 }
 
+\section{Uncertainty Propagation}{
+
+AnthroTools includes a range of functions that propagate uncertainty around item and cultural salience scores that range between - and include - 0 and 1. \code{\link{SalienceBoot}} bootstraps samples to get new salience score distributions.
+\code{\link{SalienceContrastGen}} calculates contrasts in salience between item types and \code{\link{SalienceContrastSummary}} produces a table summarizing contrasts in salience. 
+\code{\link{SalienceZOIB}} and \code{\link{SalienceOrdBeta}} produce Bayesian ZOIB and Ordered Beta models (Intercept only) on listed items, respectively. The \code{\link{SalienceEstimateSummary}} function creates a summary table of uncertainty intervals around Smith's S.
+}
+
 \section{Consensus Analysis}{
 
 Consensus analysis lets you collect a group's answers to multi choice questions (all related to a single topic). By first estimating the competence of each person, the method will than allow you to calculate the ``consensus response''.
@@ -38,6 +45,12 @@ Triad tests measure conceptual differences and similarities of word triplets. If
 \section{Cultural FST}{
 
 Cultural FST is the proportion of between-group and total cultural variance of a particular trait. Higher CF_{ST} scores (i.e., trending toward 1) tell us that there is more between-group variation than within groups. Lower scores (i.e., trending toward 0) tell us that the variation lies more within groups. For a quick FST calculator, use the \code{\link{cultFST}} function. To produce a cross-group FST matrix, use the \code{\link{fstmatrix}} function
+}
+
+
+\section{Plots}{
+
+AnthroTools includes a variety of plots, some of which are dependent on other packages. The \code{\link{FlowerPlot}} function produces a flower plot to display the eight-most culturally salient items in a free-list analysis. The \code{\link{FlowerPlotIntervals}} function produces the same, but with uncertainty intervals as well.  Other plots are particularly useful when propagating uncertainty. The \code{\link{SalienceEstimatePlot}} plots a descriptive density plot of salience scores, while the \code{\link{SalienceContrastPlot}} plots contrasts using probability densities.
 }
 
 \author{
