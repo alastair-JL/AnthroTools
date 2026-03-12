@@ -7,6 +7,7 @@
 #' @param label The label for the centre of the flower-plot.
 #' @param lower_int The column name for the lower uncertainty interval in the 'S_uncert' object (default = "2.5%").
 #' @param upper_int The column name for the upper uncertainty interval in the 'S_uncert' object (default = "97.5%").
+#' @param k Threshold for dotted lines in plot (k).
 #' @keywords FreeList, Smith's S, Cultural salience
 #' @return A flowerplot with uncertainty estimates in the 'petals'.
 #' @author Daniel Major-Smith. <dan.major-smith@@cas.au.dk>
@@ -66,4 +67,5 @@ FlowerPlotIntervals <- function(SmithsS, S_uncert, label, lower_int = "2.5%", up
   
   return(FlowerPlot(SmithsS, label, k))
 }
+
 
