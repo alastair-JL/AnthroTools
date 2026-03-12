@@ -4,6 +4,7 @@
 #' @usage FlowerPlot(x, y)
 #' @param x This is the output of a SalienceByCode analysis (with Smith's S).
 #' @param y This is the domain name you want with "quotes" around it (e.g., "Fruits").
+#' @param k This is the threshold of dotted lines you want (default is S = 0.10).
 #' @return Returned will be a Flower Plot where the top item is the most salient item and Smith's S descends in a clockwise fashion. Connection weights' width correspond to Smith's S.
 #' @keywords FlowerPlot
 #' @note This graph will not be customizable without using code. Sometimes, items' names will be too long. You'll have to adjust accordingly if so. If you need to manually make one of these plots, try the code available at https://anthrotools.wordpress.com. This also uses a circle function that we found here: https://aurelienmadouasse.wordpress.com/2012/04/28/r-code-how-to-draw-a-circle/.
@@ -83,4 +84,5 @@ circle <- function(xorig, yorig, radius, add, ...){
          type = "l", ...)
   }
 }
+
 
