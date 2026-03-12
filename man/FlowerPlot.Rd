@@ -10,6 +10,8 @@ FlowerPlot(x, y)
 \item{x}{This is the output of a SalienceByCode analysis (with Smith's S).}
 
 \item{y}{This is the domain name you want with "quotes" around it (e.g., "Fruits").}
+
+\item{k}{This is the threshold for drawing dotted lines. Default is S = 0.10.}
 }
 \value{
 Returned will be a Flower Plot where the top item is the most salient item and Smith's S descends in a clockwise fashion. Connection weights' width correspond to Smith's S.
@@ -25,7 +27,7 @@ data(FruitList)
 FL.S <- CalculateSalience(FruitList)
 model <- SalienceByCode(FL.S, CODE = "CODE", Subj = "Subj", Salience = "Salience", dealWithDoubles = "MAX")
 par(mar=c(0,0,0,0))
-FlowerPlot(model, "Fruits")
+FlowerPlot(model, "Fruits", 0.2)
 
 }
 \keyword{FlowerPlot}
