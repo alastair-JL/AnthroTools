@@ -17,14 +17,15 @@
 #' FlowerPlot(model, "Fruits")
 #'
 
-FlowerPlot <- function(x, y){# x is output from SalienceByCode, y is domain name with "quotes" around it
+FlowerPlot <- function(x, y, k = 0.10){# x is output from SalienceByCode, y is domain name with "quotes" around it, k is threshold for dotted lines
   sort <- x[order(-x$SmithsS),]
   plot(c(-110, 110), c(-110, 110), type = "n", xlab = "", ylab = "", axes = FALSE, asp = 1, family = "Calibri")
   rad <- 30 # predefined radius
   notch <- 50 # length for vertical and horizontal lines
   nitch <- 21.5 # length for diagonals
   natch <- 38.5 # length for diagonals
-  m1 <- sort[1:8,4]
+  m1 <- sort$SmithsS[1:8]
+  ltys <- ifelse(m1 < k, 3, 1)
   cen <- m1[1]*10
   top <- cen
   tor <- m1[2]*10
@@ -82,3 +83,4 @@ circle <- function(xorig, yorig, radius, add, ...){
          type = "l", ...)
   }
 }
+
