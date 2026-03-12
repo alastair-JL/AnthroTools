@@ -14,6 +14,8 @@ FlowerPlotIntervals(SmithsS, S_uncert, label, lower_int = "2.5\%", upper_int = "
 \item{lower_int}{The column name for the lower uncertainty interval in the 'S_uncert' object (default = "2.5\%").}
 
 \item{upper_int}{The column name for the upper uncertainty interval in the 'S_uncert' object (default = "97.5\%").}
+
+\item{k}{The threshold for dotted lines in the plot. Defaults to S = 0.10.}
 }
 \value{
 A flowerplot with uncertainty estimates in the 'petals'.
@@ -66,3 +68,4 @@ Daniel Major-Smith. <dan.major-smith@cas.au.dk>
 Benjamin Grant Purzycki. <bgpurzycki@cas.au.dk>
 }
 \keyword{FreeList, Smith's S, Cultural salience}
+
