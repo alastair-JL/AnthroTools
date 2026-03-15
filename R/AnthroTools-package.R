@@ -37,7 +37,11 @@
 #' ConsensusResult <- ConsensusPipeline(Survey,4)
 #' View(ConsensusResult$Answers)
 #' View(FakeData$Answers)
+#' @references
+#' Major-Smith, D., & Purzycki, B. G. (2026). Modeling Uncertainty around Free-list Cultural Salience Scores. Field Methods, 38(1), 62-75.
 #' @references 
+#' Purzycki, B. G. (2025). Ethnographic free-list data: Management and analysis with examples in R. Sage Publications.
+#' @references
 #' Oravecz, Z., Vandekerckhove, J., & Batchelder, W. H. (2014). Bayesian Cultural Consensus Theory. Field Methods, 1525822X13520280. http://doi.org/10.1177/1525822X13520280 
 #' @references 
 #' Romney, A. K., Weller, S. C., & Batchelder, W. H. (1986). Culture as Consensus: A Theory of Culture and Informant Accuracy. American Anthropologist, 88(2), 313-338.
