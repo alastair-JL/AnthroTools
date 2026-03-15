@@ -36,23 +36,23 @@ FlowerPlot <- function(x, y, k = 0.10){# x is output from SalienceByCode, y is d
   lol <- m1[6]*10
   lef <- m1[7]*10
   tol <- m1[8]*10
-  circle(0, 0, rad, add = TRUE, col = "black", lwd = cen) # domain circle
-  circle(0, 80, rad, add = TRUE, col = "black", lwd = top) # top circle
-  circle(60, 60, rad, add = TRUE, col = "black", lwd = tor) # top-right
-  circle(80, 0, rad, add = TRUE, col = "black", lwd = rig) # right circle
-  circle(60, -60, rad, add = TRUE, col = "black", lwd = lor) # lower right
-  circle(0, -80, rad, add = TRUE, col = "black", lwd = bot) # bottom circle
-  circle(-60, -60, rad, add = TRUE, col = "black", lwd = lol) # lower left
-  circle(-80, 0, rad, add = TRUE, col = "black", lwd = lef) # left circle
-  circle(-60, 60, rad, add = TRUE, col = "black",  lwd = tol) # top-left
-  segments(0, rad, 0, notch, lwd = top) # top
-  segments(nitch, nitch, natch, natch, lwd = tor) # upper right
-  segments(rad, 0, notch, 0, lwd = rig) # right
-  segments(nitch, -nitch, natch, -natch, lwd = lor) # lower right
-  segments(0, -rad, 0, -notch, lwd = bot) # bottom
-  segments(-nitch, -nitch, -natch, -natch, lwd = lol) # lower left
-  segments(-rad, 0, -notch, 0, lwd = lef) # left
-  segments(-nitch, nitch, -natch, natch, lwd = tol) # upper left
+  circle(0, 0, rad, add = TRUE, col = "black", lwd = cen, lty = ltys[1]) # domain circle
+  circle(0, 80, rad, add = TRUE, col = "black", lwd = top, lty = ltys[1]) # top circle
+  circle(60, 60, rad, add = TRUE, col = "black", lwd = tor, lty = ltys[2]) # top-right
+  circle(80, 0, rad, add = TRUE, col = "black", lwd = rig, lty = ltys[3]) # right circle
+  circle(60, -60, rad, add = TRUE, col = "black", lwd = lor, lty = ltys[4]) # lower right
+  circle(0, -80, rad, add = TRUE, col = "black", lwd = bot, lty = ltys[5]) # bottom circle
+  circle(-60, -60, rad, add = TRUE, col = "black", lwd = lol, lty = ltys[6]) # lower left
+  circle(-80, 0, rad, add = TRUE, col = "black", lwd = lef, lty = ltys[7]) # left circle
+  circle(-60, 60, rad, add = TRUE, col = "black",  lwd = tol, lty = ltys[8]) # top-left
+  segments(0, rad, 0, notch, lwd = top, lty = ltys[1]) # top
+  segments(nitch, nitch, natch, natch, lwd = tor, lty = ltys[2]) # upper right
+  segments(rad, 0, notch, 0, lwd = rig, lty = ltys[3]) # right
+  segments(nitch, -nitch, natch, -natch, lwd = lor, lty = ltys[4]) # lower right
+  segments(0, -rad, 0, -notch, lwd = bot, lty = ltys[5]) # bottom
+  segments(-nitch, -nitch, -natch, -natch, lwd = lol, lty = ltys[6]) # lower left
+  segments(-rad, 0, -notch, 0, lwd = lef, lty = ltys[7]) # left
+  segments(-nitch, nitch, -natch, natch, lwd = tol, lty = ltys[8]) # upper left
   text(0, 0, labels = y, font = 2) # center
   text(0, 80, labels = sort[1,1], font = 2) # top
   text(60, 60, labels = sort[2,1], font = 2) # 2 o'clock
