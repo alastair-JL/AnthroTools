@@ -37,6 +37,7 @@
 #' ConsensusResult <- ConsensusPipeline(Survey,4)
 #' View(ConsensusResult$Answers)
 #' View(FakeData$Answers)
+#'
 #' @references
 #' Major-Smith, D., & Purzycki, B. G. (2026). Modeling Uncertainty around Free-list Cultural Salience Scores. Field Methods, 38(1), 62-75.
 #' @references 
