@@ -1,7 +1,7 @@
 Package: AnthroTools
 Type: Package
 Title: Some custom tools for anthropology
-Version: 2.0.01
+Version: 2.0.1
 Date: 2026-15-03
 Author: Alastair Jamieson Lane and Benjamin Grant Purzycki
 Maintainer: Benjamin Grant Purzycki <bgpurzycki@cas.au.dk>
