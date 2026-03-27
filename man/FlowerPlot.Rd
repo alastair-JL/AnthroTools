@@ -4,7 +4,7 @@
 \alias{FlowerPlot}
 \title{FlowerPlot}
 \usage{
-FlowerPlot(x, y)
+FlowerPlot(x, y, k)
 }
 \arguments{
 \item{x}{This is the output of a SalienceByCode analysis (with Smith's S).}
