@@ -26,7 +26,7 @@ This graph will not be customizable without using code. Sometimes, items' names 
 data(FruitList)
 FL.S <- CalculateSalience(FruitList)
 model <- SalienceByCode(FL.S, CODE = "CODE", Subj = "Subj", Salience = "Salience", dealWithDoubles = "MAX")
-par(mar=c(0,0,0,0))
+par(mar = c(0, 0, 0, 0))
 FlowerPlot(model, "Fruits", 0.2)
 
 }
