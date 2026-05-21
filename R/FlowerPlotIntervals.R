@@ -43,7 +43,7 @@
 #' par(mar = c(0, 0, 0, 0))
 #' FlowerPlotIntervals(SmithsS = fake.S, S_uncert = res, label = "Fruits", lower_int = "5.5%", upper_int = "94.5%", k = 0.10)
 #'
-FlowerPlotIntervals <- function(SmithsS, S_uncert, label, lower_int = "2.5%", upper_int = "97.5%") {
+FlowerPlotIntervals <- function(SmithsS, S_uncert, label, lower_int = "2.5%", upper_int = "97.5%", k = 0.10) {
   
   # If fewer than 8 items, add a warning saying that the 'flowerPlot' commands expects a minimum of 8 items
   if (length(S_uncert) < 8) {
